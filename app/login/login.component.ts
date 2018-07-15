@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit{
     user: User;
     processing = false;
 
+    @ViewChild("page") loginPage: ElementRef;
+
     ngOnInit(): void {
         //throw new Error("Method not implemented.");
 
@@ -37,7 +39,7 @@ export class LoginComponent implements OnInit{
     
     //@ViewChild("password") password: ElementRef;
     //@ViewChild("confirmPassword") confirmPassword: ElementRef;
-
+   
     //constructor(private page: Page, private userService: UserService, private router: Router) {
     constructor(private page: Page, private router: Router) {
         this.page.actionBarHidden = true;
@@ -73,8 +75,7 @@ export class LoginComponent implements OnInit{
             this.processing = false;
             //alert(localStorage.getItem('logeado'));
             localStorage.setItem('logeado', true)
-
-            //this.router.navigate(["/test"]);
+            this.router.navigate(["/test"]);
             
             //this.router.navigate(["/(homeTab:home//browseTab:browse//searchTab:search)"]);
         }, 1000);

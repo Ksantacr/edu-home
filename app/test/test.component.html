@@ -1,2 +1,6 @@
 <ActionBar title="YOUR APP"></ActionBar>
-<Label class="body m-20" [text]="message" textWrap="true"></Label>
+
+<StackLayout>
+    <Label class="body m-20" [text]="message" textWrap="true"></Label>
+    <button (tap)="salir()" class="btn btn-primary btn-salir">Salir</button>
+</StackLayout>
