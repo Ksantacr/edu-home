@@ -33,16 +33,17 @@ const routes: Routes = [
     */
     { path: "main", component: MainComponent, 
 children: [
-    {path: "search", component: SearchComponent}
+    {path: "search", component: SearchComponent, outlet: "homeTab"},
+    {path: "browse", component: BrowseComponent},
+    {path: "home", component: HomeComponent},
 ]},
     //{ path: "test/:id", component: SearchComponent},
     //{ path: "go", redirectTo: "/(homeTab:home//browseTab:browse//searchTab:search)", pathMatch: "full" },
 
-    { path: "home", component: HomeComponent, outlet: "homeTab" },
+    /*{ path: "home", component: HomeComponent, outlet: "homeTab" },
     { path: "browse", component: BrowseComponent, outlet: "browseTab" },
     { path: "search", component: SearchComponent, outlet: "searchTab" },
-
-    { path: "item/:id", component: ItemDetailComponent, outlet: "homeTab" }
+    { path: "item/:id", component: ItemDetailComponent, outlet: "homeTab" }*/
 ];
 
 @NgModule({
