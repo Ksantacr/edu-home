@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
         // Init your component properties here.
     }
 
-    getIconSource(icon: string): string {
+    /*getIconSource(icon: string): string {
         const iconPrefix = isAndroid ? "res://" : "res://tabIcons/";
 
         return iconPrefix + icon;
-    }
+    }*/
 }

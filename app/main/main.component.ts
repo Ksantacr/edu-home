@@ -10,11 +10,11 @@ registerElement('BottomBar', () => BottomBar);
 
 
 @Component({
-    selector: "app-test",
+    selector: "app-main",
     moduleId: module.id,
-    templateUrl: "./test.component.html"
+    templateUrl: "./main.component.html"
 })
-export class TestComponent implements OnInit {
+export class MainComponent implements OnInit {
     message = "You have successfully authenticated. This is where you build your core application functionality.";
 
 

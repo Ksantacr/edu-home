@@ -8,9 +8,10 @@ import { ItemDetailComponent } from "./item-detail/item-detail.component";
 import { SearchComponent } from "./search/search.component";
 
 import { LoginComponent } from './login/login.component';
-import { TestComponent } from "~/test/test.component";
+import { MainComponent } from "./main/main.component";
+import { path } from "tns-core-modules/file-system/file-system";
 
-export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, TestComponent];
+export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent];
 
 const routes: Routes = [
 
@@ -21,7 +22,20 @@ const routes: Routes = [
     { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "login", component: LoginComponent },
 
-    { path: "test", component: TestComponent},
+    //{ path: "test", component: TestComponent},
+    /*
+     { path: "", component: ParentComponent,
+        children: [
+            { path: "", component: ChildComponent },
+            { path: "other", component: OtherChildComponent },
+        ]
+    }
+    */
+    { path: "main", component: MainComponent, 
+children: [
+    {path: "search", component: SearchComponent}
+]},
+    //{ path: "test/:id", component: SearchComponent},
     //{ path: "go", redirectTo: "/(homeTab:home//browseTab:browse//searchTab:search)", pathMatch: "full" },
 
     { path: "home", component: HomeComponent, outlet: "homeTab" },
@@ -34,5 +48,6 @@ const routes: Routes = [
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],
     exports: [NativeScriptRouterModule]
+    
 })
 export class AppRoutingModule { }

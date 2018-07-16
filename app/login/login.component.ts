@@ -71,14 +71,15 @@ export class LoginComponent implements OnInit{
 
     login() {
 
-        setTimeout(() => {
+        this.router.navigate(["main"]);
+        /*setTimeout(() => {
             this.processing = false;
             //alert(localStorage.getItem('logeado'));
-            localStorage.setItem('logeado', true)
+            //localStorage.setItem('logeado', true)
             this.router.navigate(["/test"]);
             
             //this.router.navigate(["/(homeTab:home//browseTab:browse//searchTab:search)"]);
-        }, 1000);
+        }, 1000);*/
         
 
        

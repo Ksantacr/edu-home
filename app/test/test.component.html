@@ -1,15 +1,8 @@
-<!--<ActionBar title="YOUR APP"></ActionBar>
-
-<StackLayout>
-    <Label class="body m-20" [text]="message" textWrap="true"></Label>
-    <button (tap)="salir()" class="btn btn-primary btn-salir">Salir</button>
-     <BottomBar row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)" [inactiveColor]="inactiveColor" [accentColor]="accentColor" colored="true"></BottomBar>
-</StackLayout>
--->
-<ActionBar title="YOUR APP"></ActionBar>
 <GridLayout rows="*, auto">
-    <StackLayout row="0" orientation="vertical">
-       <Label text="demo"></Label>
-    </StackLayout>
-    <BottomBar row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)" [inactiveColor]="inactiveColor" [accentColor]="accentColor" colored="true"></BottomBar>
+    
+        <StackLayout row="0" orientation="vertical">
+            <Span>TEST</Span>
+           <router-outlet></router-outlet>
+        </StackLayout>
+        <BottomBar row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)" [inactiveColor]="inactiveColor" [accentColor]="accentColor" colored="true"></BottomBar>
 </GridLayout>
