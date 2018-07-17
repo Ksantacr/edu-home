@@ -2,10 +2,65 @@
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>-->
 
-<GridLayout class="page page-content">
-    <ListView [items]="items" class="list-group">
+<!--<GridLayout class="page page-content" orientation="vertical">
+               <ListView [items]="items" class="list-group">
+                    <ng-template let-item="item">
+                            <Label [text]="item.image" class="list-group-item"></Label>
+                    </ng-template>
+                </ListView>
+</GridLayout>-->
+
+
+<!--<ListView [items]="items" row="0" class="small-spacing" [class.visible]="listLoaded" scrollDirection="Horizontal">
         <ng-template let-item="item">
-            <Label [nsRouterLink]="['../item', item.id]" [text]="item.name" class="list-group-item"></Label>
+          <CardView class="cardStyle" margin="10" elevation="40" radius="1" >
+            <GridLayout rows="10,30,30,220, auto, auto" columns="10,40, *, 30,10">
+              <Image src="res://logo" stretch="aspectFit" verticalAlignment="stretch" col="1" row="1" rowSpan="2"></Image>
+              <Label class="createdBy text-left" horizontalAlignment="left" text="Prof" row="1" col="2" textWrap="true"></Label>
+              <Label class="createdOn text-left" horizontalAlignment="left" text="Cod. Materia: {{item.id}}" row="2" col="2"></Label>
+              <Image [src]="item.image" stretch="aspectFit" colSpan="3" col="1" row="3"></Image>
+              <Label horizontalAlignment="left" text="Materia: {{item.name}}" colSpan="3" row="4" textWrap="true" col="1"></Label>
+              <Label  horizontalAlignment="left" [text]="item.image" textWrap="true" col="1" row="5" colSpan="3"></Label>
+            </GridLayout>
+          </CardView>
         </ng-template>
-    </ListView>
-</GridLayout>
+    </ListView>-->
+    <!--<FlexboxLayout [items]="items" row="0" class="small-spacing" [class.visible]="listLoaded" scrollDirection="Horizontal">
+            <ng-template let-item="item">
+                    <CardView class="cardStyle" margin="10" elevation="40" radius="1" >
+                      <GridLayout rows="10,30,30,220, auto, auto" columns="10,40, *, 30,10">
+                        <Image src="res://logo" stretch="aspectFit" verticalAlignment="stretch" col="1" row="1" rowSpan="2"></Image>
+                        <Label class="createdBy text-left" horizontalAlignment="left" text="Prof" row="1" col="2" textWrap="true"></Label>
+                        <Label class="createdOn text-left" horizontalAlignment="left" text="Cod. Materia: {{item.id}}" row="2" col="2"></Label>
+                        <Image [src]="item.image" stretch="aspectFit" colSpan="3" col="1" row="3"></Image>
+                        <Label horizontalAlignment="left" text="Materia: {{item.name}}" colSpan="3" row="4" textWrap="true" col="1"></Label>
+                        <Label  horizontalAlignment="left" [text]="item.image" textWrap="true" col="1" row="5" colSpan="3"></Label>
+                      </GridLayout>
+                    </CardView>
+                  </ng-template>
+    </FlexboxLayout>-->
+    <ScrollView>
+    <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="p-10" [items]="items">
+        <!--<ng-template let-item="item">-->
+            <StackLayout class="m-t-5" width="45%" height="150" backgroundColor="gray">
+                <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                
+                <StackLayout height="100" backgroundImage="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg">
+                        <label width="85%" style="margin-top:50%;" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                </StackLayout>
+                
+                <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                
+                <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="50">
+                <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                        <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                        <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                </FlexboxLayout>
+            </StackLayout>
+            
+
+
+            
+        <!--</ng-template>-->
+    </FlexboxLayout>
+</ScrollView>

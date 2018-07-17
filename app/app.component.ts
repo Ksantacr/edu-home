@@ -2,6 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { isAndroid } from "platform";
 import { SelectedIndexChangedEventData, TabView, TabViewItem } from "tns-core-modules/ui/tab-view";
 
+import { registerElement } from 'nativescript-angular/element-registry';
+import { CardView } from 'nativescript-cardview';
+registerElement('CardView', () => CardView);
+
 
 //import { BackendService } from "./shared/backend.service";
 @Component({
