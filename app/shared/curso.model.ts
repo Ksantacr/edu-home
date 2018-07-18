@@ -1,6 +1,6 @@
 export class Curso {
     id: number;
     nombre: string;
-    imagenPortada: string;
+    imagen: string;
     cantidadTareas: number;
 }

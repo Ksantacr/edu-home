@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { DataService } from "./data.service";
-//import { CursoDataService } from "./curso-data.service";
+import { CursoService } from "./curso.service";
 
 @NgModule({
     providers: [
-        DataService,
-        //CursoDataService
+        //DataService,
+        CursoService
     ]
 })
 export class CoreModule { }
