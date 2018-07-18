@@ -39,24 +39,191 @@
                     </CardView>
                   </ng-template>
     </FlexboxLayout>-->
+    <FlexboxLayout height="110" justifyContent="space-between" alignItems="center">
+            <Image src="https://static.guiainfantil.com/pictures//4432-4-regalos-caseros-para-papa-en-el-dia-del-padre-de-ecuador.jpg" class="foto-perfil"></Image>
+            <Label text="Kevin Rafael Santacruz Burgos"></Label>
+    </FlexboxLayout>
     <ScrollView>
-    <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="p-10" [items]="items">
+    <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="p-10">
         <!--<ng-template let-item="item">-->
-            <StackLayout class="m-t-5" width="45%" height="150" backgroundColor="gray">
-                <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
-                
-                <StackLayout height="100" backgroundImage="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg">
-                        <label width="85%" style="margin-top:50%;" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+
+                <CardView width="45%" elevation="40" radius="1" ripple="true">
+                        <StackLayout width="100%" height="130" backgroundColor="gray">
+                                        <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="http://www.smpilar.es/wp-content/uploads/2015/12/fondo-smp.jpg">
+                                                <label class="m-l-10" width="100%" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                                        </FlexboxLayout>
+                                        
+                                        <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                                        
+                                        <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                                        <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                                <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                                <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                                        </FlexboxLayout>
+                                </StackLayout>
+                </CardView>
+
+                <CardView width="45%" elevation="40" radius="3" backgroundColor="peru">
+                                <!--<GridLayout rows="10,30,30,220, auto, auto" columns="10,40, *, 30,10">
+                                        <Image src="res://logo" stretch="aspectFit" verticalAlignment="stretch" col="1" row="1" rowSpan="2"></Image>
+                                        <Label class="createdBy text-left" horizontalAlignment="left" text="Prof" row="1" col="2" textWrap="true"></Label>
+                                        <Label class="createdOn text-left" horizontalAlignment="left" text="Cod. Materia: {{item.id}}" row="2" col="2"></Label>
+                                        <Image src="https://img.freepik.com/vrije-vector/abstracte-achtergrond-met-een-aquarel-textuur_1048-2144.jpg?size=338c&ext=jpg" stretch="aspectFit" colSpan="3" col="1" row="3"></Image>
+                                        <Label horizontalAlignment="left" text="Materia: {{item.name}}" colSpan="3" row="4" textWrap="true" col="1"></Label>
+                                        <Label  horizontalAlignment="left" text="item.image" textWrap="true" col="1" row="5" colSpan="3"></Label>
+                                </GridLayout>-->
+                                <StackLayout width="100%" height="130" backgroundColor="gray">
+                                                <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                                                
+                                                <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="http://www.smpilar.es/wp-content/uploads/2015/12/fondo-smp.jpg">
+                                                        <label class="m-l-10" width="100%" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                                                </FlexboxLayout>
+                                                
+                                                <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                                                
+                                                <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                                                <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                                        <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                                        <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                                                </FlexboxLayout>
+                                        </StackLayout>
+                        </CardView>
+
+
+
+                <StackLayout class="m-t-15" width="45%" height="130" backgroundColor="gray">
+                        <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                        
+                        <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="http://www.smpilar.es/wp-content/uploads/2015/12/fondo-smp.jpg">
+                                <label class="m-l-10" width="100%" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                        </FlexboxLayout>
+                        
+                        <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                        
+                        <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                        <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                        </FlexboxLayout>
                 </StackLayout>
-                
-                <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
-                
-                <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="50">
-                <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
-                        <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
-                        <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
-                </FlexboxLayout>
-            </StackLayout>
+
+
+                <StackLayout class="m-t-15" width="45%" height="130" backgroundColor="gray">
+                        <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                        
+                        <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="https://png.pngtree.com/thumb_back/fw800/back_pic/04/56/87/8158661bc0a022e.jpg">
+                                <label class="m-l-10" width="100%" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                        </FlexboxLayout>
+                        
+                        <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                        
+                        <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                        <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                        </FlexboxLayout>
+                </StackLayout>
+
+
+                <StackLayout class="m-t-15" width="45%" height="130" backgroundColor="gray">
+                        <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                        
+                        <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="https://img.freepik.com/vrije-vector/abstracte-achtergrond-met-een-aquarel-textuur_1048-2144.jpg?size=338c&ext=jpg">
+                                <label class="m-l-10" width="100%" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                        </FlexboxLayout>
+                        
+                        <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                        
+                        <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                        <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                        </FlexboxLayout>
+                </StackLayout>
+
+
+                <StackLayout class="m-t-15" width="45%" height="130" backgroundColor="gray">
+                        <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                        
+                        <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="https://img.freepik.com/vector-gratis/diseno-de-fondo-abstracto_1048-6726.jpg?size=338&ext=jpg">
+                                <label class="m-l-10" width="100%" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                        </FlexboxLayout>
+                        
+                        <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                        
+                        <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                        <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                        </FlexboxLayout>
+                </StackLayout>
+
+                <StackLayout class="m-t-15" width="45%" height="130" backgroundColor="gray">
+                        <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                        
+                        <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="data:image/jpeg;base64,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">
+                                <label class="m-l-10" width="100%" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                        </FlexboxLayout>
+                        
+                        <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                        
+                        <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                        <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                        </FlexboxLayout>
+                </StackLayout>
+
+
+
+                <StackLayout class="m-t-15" width="45%" height="130" backgroundColor="gray">
+                        <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                        
+                        <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="data:image/jpeg;base64,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">
+                                <label class="m-l-10" width="100%" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                        </FlexboxLayout>
+                        
+                        <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                        
+                        <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                        <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                        </FlexboxLayout>
+                </StackLayout>
+
+                <StackLayout class="m-t-15" width="45%" height="130" backgroundColor="gray">
+                        <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                        
+                        <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="http://www.astronomia.redem.org/wp-content/uploads/2015/12/a182.jpg">
+                                <label class="m-l-10" width="100%" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                        </FlexboxLayout>
+                        
+                        <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                        
+                        <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                        <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                        </FlexboxLayout>
+                </StackLayout>
+
+
+                <StackLayout class="m-t-15" width="45%" height="130" backgroundColor="gray">
+                        <!--<Image src="http://i.blogs.es/6ed0af/portada-2/450_1000.jpg" stretch="aspectFill" height="100"></Image>-->
+                        
+                        <FlexboxLayout height="100" alignItems="flex-end" backgroundImage="http://www.reuun.com/data/out/16/402540291-board-wallpapers.png">
+                                <label class="m-l-10" width="100%" text="Matemáticas" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>
+                        </FlexboxLayout>
+                        
+                        <!--<label style="margin-top:-60;margin-left: 15" text="Lenguaje y Comunicación" color="white" fontWeight="bold" fontSize="20" textWrap="true"></label>-->
+                        
+                        <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" backgroundColor="green" height="30">
+                        <!--<FlexboxLayout justifyContent="space-between" backgroundColor="green" style="margin-top:15;margin-left: 15;">-->
+                                <Label class="page-icon fa" text="&#xf1ea;"  fontSize="18" color="white" fontWeight="bold"></Label>
+                                <Label class="page-icon fa" text="2 tareas"  fontSize="16" color="white" fontWeight="bold" style="margin-right:15;"></Label>
+                        </FlexboxLayout>
+                </StackLayout>
             
 
 
