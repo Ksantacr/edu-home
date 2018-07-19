@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 
-import * as localStorage from 'nativescript-localstorage';
-import { Router } from "@angular/router";
+//import * as localStorage from 'nativescript-localstorage';
+import { RouterExtensions } from 'nativescript-angular/router/router-extensions';
 
 import { registerElement } from 'nativescript-angular';
 import { BottomBar, BottomBarItem, TITLE_STATE, SelectedIndexChangedEventData, Notification } from 'nativescript-bottombar';
 import { Page } from "tns-core-modules/ui/page/page";
+import { FirebaseService } from "../services/firebase.service";
 
 registerElement('BottomBar', () => BottomBar);
 
@@ -36,11 +37,12 @@ export class MainComponent implements OnInit {
 
     ngOnInit(): void {
 
-        this.router.navigate(['/main/home']);
+        //this.router.navigate(['/main/home']);
+        this.routerExtensions.navigate(["/main/home"], { clearHistory: true } );
 
     }
 
-    constructor(private router:Router, private page:Page) {
+    constructor(private routerExtensions:RouterExtensions, private page:Page) {
         //localStorage.setItem('logeado', false);
     }
     
@@ -66,34 +68,33 @@ export class MainComponent implements OnInit {
          //this.router.navigate(['/main/home']);
 
         if(args.newIndex == 0 ){
-            //console.log("Cambiar a home")
+            console.log("Cambiar index"+ args.newIndex);
             //this.router.navigate(["/test/1"]);
-            this.router.navigate(['/main/home']);
+            this.routerExtensions.navigate(['/main/home'], { clearHistory: true });
         }
         if(args.newIndex == 1 ){
+            console.log("Cambiar index"+ args.newIndex);
             //console.log("Cambiar a search")
             //this.router.navigate(["/test/1"]);
-            this.router.navigate(['/main/browse']);
+            this.routerExtensions.navigate(['/main/browse'], { clearHistory: true });
            
         }
         if(args.newIndex == 2 ){
+            console.log("Cambiar index"+ args.newIndex);
              //console.log("Cambiar a search")
              //this.router.navigate(["/test/1"]);
-             this.router.navigate(['/main/browse']);
+             this.routerExtensions.navigate(['/main/browse'], { clearHistory: true });
             
          }
          if(args.newIndex == 3 ){
+            console.log("Cambiar index"+ args.newIndex);
            //console.log("Cambiar a browse")
             //this.router.navigate(["/test/1"]);
-            this.router.navigate(['/main/browse']);
+            this.routerExtensions.navigate(['main/browse'], { clearHistory: true });
            
         }
      }
-
-
-
     salir() {
-        localStorage.setItem('logeado', false);
-        this.router.navigate(["/login"]);
+
     }
 }

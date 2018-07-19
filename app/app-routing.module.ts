@@ -9,7 +9,7 @@ import { SearchComponent } from "./search/search.component";
 
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from "./main/main.component";
-import { path } from "tns-core-modules/file-system/file-system";
+//import { path } from "tns-core-modules/file-system/file-system";
 
 import { AuthGuard } from "./auth-guard.service";
 
@@ -22,16 +22,16 @@ export const authProviders = [
 
 const routes: Routes = [
 
-    //{ path: "", redirectTo: "/login", pathMatch: "full" },
-    { path: "", component: MainComponent, canActivate: [AuthGuard] },
+    { path: "", redirectTo: "main", pathMatch: "full" },
+    //{ path: "", component: MainComponent, canActivate: [AuthGuard] },
     { path: "login", component: LoginComponent },
 
    /**const listRoutes: Routes = [
   { path: "", component: ListComponent, canActivate: [AuthGuard] },
 ]; */
-    { path: "main", component: MainComponent, 
+    { path: "main", component: MainComponent, canActivate: [AuthGuard],
         children: [
-            {path: "search", component: SearchComponent, outlet: "homeTab"},
+            {path: "search", component: SearchComponent},
             {path: "browse", component: BrowseComponent},
             {path: "home", component: HomeComponent},
     ]},

@@ -18,24 +18,26 @@ import {FirebaseService} from "../services/firebase.service";
 })
 export class LoginComponent implements OnInit{
 
-    isLogged:boolean = false;
+    //isLogged:boolean = false;
     user: User;
     processing = false;
+
+    //user: User;
+    isLoggingIn = true;
+    //isAuthenticating = false;
+
 
     @ViewChild("page") loginPage: ElementRef;
 
     ngOnInit(): void {
-        //throw new Error("Method not implemented.");
-
-        //this.isLogged = localStorage.getItem('logeado') ? true : false;
 
         this.user = new User();
         this.user.email = "demo@eduhome.com";
-        this.user.password = "eduhom34";
+        this.user.password = "eduhom3";
 
     }
     
-    //@ViewChild("password") password: ElementRef;
+    @ViewChild("password") password: ElementRef;
     //@ViewChild("confirmPassword") confirmPassword: ElementRef;
    
     //constructor(private page: Page, private userService: UserService, private router: Router) {
@@ -44,7 +46,17 @@ export class LoginComponent implements OnInit{
         this.page.actionBarHidden = true;      
        
     }
-
+    submit() {
+        //this.isAuthenticating = true;
+        //if (this.isLoggingIn) {
+        this.processing = true;
+          this.login();
+        /*} else {
+          //this.signUp();
+          alert("No es login")
+        }*/
+      }
+/*
     submit() {
         this.processing = true;
         setTimeout(()=>{
@@ -54,13 +66,43 @@ export class LoginComponent implements OnInit{
         
 
     }
+*/
+login() {
+    /*this.firebaseService.login(this.user)
+     .then(() => {
+       //this.isAuthenticating = false;
+       this.processing = false;
 
-    login() {
+       console.log()
+       this.routerExtensions.navigate(["main"], { clearHistory: true } );
+       
+     })
+     .catch((message:any) => {
+
+        console.log(`Login Component err message: ${message}`);
+        alert(message);
+       //this.isAuthenticating = false;
+     });*/
+     this.firebaseService.login(this.user)
+            .then(() => {
+                this.processing = false;
+                this.routerExtensions.navigate(["main"] , { clearHistory: true });
+            })
+            .catch(() => {
+                this.processing = false;
+                alert("Unfortunately we could not find your account.");
+        });
+ }
+ focusPassword() {
+    this.password.nativeElement.focus();
+}
+ 
+    /*login() {
         this.processing = false;
         //this.routerExtensions.navigate(["main"]);
         this.routerExtensions.navigate(["main"], { clearHistory: true } );
        
-        /*this.userService.login(this.user)
+        this.userService.login(this.user)
             .then(() => {
                 this.processing = false;
                 this.router.navigate(["/home"]);
@@ -68,7 +110,7 @@ export class LoginComponent implements OnInit{
             .catch(() => {
                 this.processing = false;
                 this.alert("Unfortunately we could not find your account.");
-        });*/
-    }
+        });
+}*/
 }
 

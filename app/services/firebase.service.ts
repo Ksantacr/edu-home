@@ -6,7 +6,7 @@ import firebase = require("nativescript-plugin-firebase");
 import {Observable} from 'rxjs';
 import {BehaviorSubject} from 'rxjs';
 //import {UtilsService} from './utils.service';
-//import '../../node_modules/rxjs/add/operator/share';
+//import 'rxjs/add/operator/share';
 
 @Injectable()
 export class FirebaseService {
@@ -17,7 +17,7 @@ export class FirebaseService {
   
   private _allItems: Array<Curso> = [];
 
-  login(user: User) {
+  /*login(user: User) {
     return firebase.login({
       type: firebase.LoginType.PASSWORD,
       email: user.email,
@@ -28,12 +28,45 @@ export class FirebaseService {
       }, (errorMessage: any) => {
         alert(errorMessage);
       });
+  }*/
+  login(user: User) {
+    return firebase.login({
+      type: firebase.LoginType.PASSWORD,
+      email: user.email,
+      password: user.password
+    }).then((result: any) => {
+          BackendService.token = result.uid;
+          console.log("Firebase Service :User login:-->"+JSON.stringify(result))
+          return JSON.stringify(result);
+      }, (errorMessage: any) => {
+        //console.log("Firebase Service :User error:-->"+errorMessage)
+        alert(errorMessage);
+        //alert("Unfortunately we could not find your account.")
+      });
   }
 
   logout(){
-      console.log("Logout")
+    console.log("Cerrar sesion");
     BackendService.token = "";
     firebase.logout();    
+  }
+
+  getCursos(): Observable<any> {
+    console.log("GETCURSOS")
+    return new Observable((observer: any) => {
+      let path = '0/cursos';
+      
+        let onValueEvent = (snapshot: any) => {
+          this.ngZone.run(() => {
+            console.log("--->"+snapshot)
+            console.log(JSON.stringify(snapshot))
+            //let results = this.handleSnapshot(snapshot.value);
+            //console.log(JSON.stringify(results))
+             //observer.next(results);
+          });
+        };
+        firebase.addValueEventListener(onValueEvent, `/${path}`);
+    });              
   }
   
   /*register(user: User) {

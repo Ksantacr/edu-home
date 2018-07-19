@@ -3,4 +3,5 @@ export class Curso {
     nombre: string;
     imagen: string;
     cantidadTareas: number;
+    color:string;
 }

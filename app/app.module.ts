@@ -26,7 +26,8 @@ import { FirebaseService } from "./services/firebase.service";
         NativeScriptModule,
         AppRoutingModule,
         CoreModule,
-        NativeScriptHttpModule
+        NativeScriptHttpModule,
+        NativeScriptFormsModule
     ],
     declarations: [
         AppComponent,

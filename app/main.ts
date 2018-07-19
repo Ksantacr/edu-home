@@ -13,7 +13,7 @@ firebase.init({
     persist: false,
     storageBucket: 'gs://eduhome-abb88.appspot.com',
     onAuthStateChanged: (data: any) => {
-      console.log("DATA------------->"+JSON.stringify(data))
+      console.log(JSON.stringify(data))
       if (data.loggedIn) {
         BackendService.token = data.user.uid;
       }
