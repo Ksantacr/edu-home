@@ -17,10 +17,6 @@ registerElement('BottomBar', () => BottomBar);
 })
 export class MainComponent implements OnInit {
 
-    ngOnInit(): void {
-        throw new Error("Method not implemented.");
-    }
-
     message = "You have successfully authenticated. This is where you build your core application functionality.";
 
 
@@ -38,45 +34,63 @@ export class MainComponent implements OnInit {
         new BottomBarItem(3, "Notificaciones", "notification", "#f7bb43", new Notification("#17375e", "white", "4"))
     ];
 
+    ngOnInit(): void {
+
+        this.router.navigate(['/main/home']);
+
+    }
+
+    constructor(private router:Router, private page:Page) {
+        //localStorage.setItem('logeado', false);
+    }
+    
+
     tabLoaded(event) {
 
-        this.page.actionBarHidden = true;
+        //this.page.actionBarHidden = true;
+        
         this._bar = <BottomBar>event.object;
         
         this.hidden = false;
-        /*this.titleState = TITLE_STATE.SHOW_WHEN_ACTIVE;-*/
+        this.titleState = TITLE_STATE.SHOW_WHEN_ACTIVE;
         this.inactiveColor = "white";
         this.accentColor = "#17375e";
         this.uncoloredBackgroundColor  = "red";
+
     }
     
      tabSelected(args: SelectedIndexChangedEventData) {
          // only triggered when a different tab is tapped
-         console.log(args.newIndex);
-         console.dir(args);
-         if(args.newIndex == 1 ){
-            console.log("Cambiar a home")
+         //console.log(args.newIndex);
+         //console.dir(args);
+         //this.router.navigate(['/main/home']);
+
+        if(args.newIndex == 0 ){
+            //console.log("Cambiar a home")
             //this.router.navigate(["/test/1"]);
             this.router.navigate(['/main/home']);
+        }
+        if(args.newIndex == 1 ){
+            //console.log("Cambiar a search")
+            //this.router.navigate(["/test/1"]);
+            this.router.navigate(['/main/browse']);
            
         }
-         if(args.newIndex == 2 ){
-             console.log("Cambiar a search")
+        if(args.newIndex == 2 ){
+             //console.log("Cambiar a search")
              //this.router.navigate(["/test/1"]);
-             this.router.navigate(['/main/search']);
+             this.router.navigate(['/main/browse']);
             
          }
          if(args.newIndex == 3 ){
-            console.log("Cambiar a browse")
+           //console.log("Cambiar a browse")
             //this.router.navigate(["/test/1"]);
             this.router.navigate(['/main/browse']);
            
         }
      }
 
-    constructor(private router:Router, private page:Page) {
-        //localStorage.setItem('logeado', false);
-    }
+
 
     salir() {
         localStorage.setItem('logeado', false);

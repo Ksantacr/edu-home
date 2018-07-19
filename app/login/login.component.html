@@ -9,12 +9,12 @@
 
 		<GridLayout rows="auto, auto, auto">
 			<StackLayout row="0" class="input-field">
-				<TextField class="input input-eduhome" hint="Usuario" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="user.email" returnKeyType="next" (returnPress)="focusPassword()"></TextField>
+				<TextField class="input input-eduhome" hint="Usuario" keyboardType="email" autocorrect="false" autocapitalizationType="none" [text]="user.email" returnKeyType="next" (returnPress)="focusPassword()"></TextField>
 				<!--<StackLayout class="hr-light"></StackLayout>-->
 			</StackLayout>
 
 			<StackLayout row="1" class="input-field">
-				<TextField #password class="input input-eduhome" hint="Contraseña" secure="true" [(ngModel)]="user.password" [returnKeyType]="isLoggingIn ? 'done' : 'next'" (returnPress)="submit()"></TextField>
+				<TextField #password class="input input-eduhome" hint="Contraseña" secure="true" [text]="user.password" (returnPress)="submit()"></TextField>
 				<!--<StackLayout class="hr-light"></StackLayout>-->
 			</StackLayout>
 
