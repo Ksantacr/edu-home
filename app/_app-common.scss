@@ -5,7 +5,7 @@
    font-family: "FontAwesome";
 }
 // Common page class
-.page-content {
+/*.page-content {
     .page-placeholder {
         color: $page-icon-color;
         font-size: $page-content-placeholder-font-size;
@@ -18,11 +18,15 @@
         vertical-align: top;
         horizontal-align: center;
         color: $page-icon-color;
-        /*margin-top: 20%;*/
+        margin-top: 20%;
     }
 }
-
+*/
 //Action bar
-ActionBar .action-bar-title {
+/*ActionBar .action-bar-title {
     horizontal-align: center;
+}*/
+
+ActionBar {
+    margin-top: 100;
 }

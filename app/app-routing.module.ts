@@ -7,13 +7,15 @@ import { HomeComponent } from "./home/home.component";
 import { ItemDetailComponent } from "./item-detail/item-detail.component";
 import { SearchComponent } from "./search/search.component";
 
+import { HomeworkComponent } from "./homework/homework.component";
+
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from "./main/main.component";
 //import { path } from "tns-core-modules/file-system/file-system";
 
 import { AuthGuard } from "./auth-guard.service";
 
-export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent];
+export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent];
 
 
 export const authProviders = [
@@ -31,6 +33,7 @@ const routes: Routes = [
 ]; */
     { path: "main", component: MainComponent, canActivate: [AuthGuard],
         children: [
+            {path: "homework", component: HomeworkComponent},
             {path: "search", component: SearchComponent},
             {path: "browse", component: BrowseComponent},
             {path: "home", component: HomeComponent},

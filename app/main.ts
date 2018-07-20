@@ -7,6 +7,9 @@ import { BackendService } from "./services/backend.service";
 import firebase = require("nativescript-plugin-firebase");
 
 
+//import { setStatusBarColors } from "./utils/status-bar-util";
+
+//setStatusBarColors();
 
 firebase.init({
     //persist should be set to false as otherwise numbers aren't returned during livesync

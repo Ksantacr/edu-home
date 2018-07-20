@@ -24,9 +24,9 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
 
-        this.firebaseService.getCursos().subscribe((data)=>{
-            console.log(`Home Component: firebase getCursos ${data}`);
-        })
+        /*this.firebaseService.getCursos().subscribe((data)=>{
+            //console.log(`Home Component: firebase getCursos ${data}`);
+        })*/
         this.cursos = this.cursoService.getCursos();
     }
 }
