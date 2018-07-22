@@ -1,0 +1,16 @@
+<!--<ActionBar class="action-bar">
+        <NavigationButton [nsRouterLink]="['../../home']" android.systemIcon="ic_menu_back"></NavigationButton>
+        <Label class="action-bar-title" [text]="item.name"></Label>
+    </ActionBar>
+    
+    <GridLayout>
+        <Label class="m-10 h3" verticalAlignment="top" [text]="item.description"></Label>
+    </GridLayout>-->
+<ActionBar title="Details" class="action-bar"></ActionBar>
+<FlexboxLayout flexDirection="column" class="page">
+    <FlexboxLayout class="m-15">
+        <Label class="h2" [text]="curso.id + '. '"></Label>
+        <Label class="h2" [text]="curso.nombre"></Label>
+    </FlexboxLayout>
+    <Label class="h4" [text]="curso.cantidadTareas"></Label>
+</FlexboxLayout>

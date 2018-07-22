@@ -5,7 +5,8 @@ import { RouterExtensions } from 'nativescript-angular/router/router-extensions'
 
 import { registerElement } from 'nativescript-angular';
 import { BottomBar, BottomBarItem, TITLE_STATE, SelectedIndexChangedEventData, Notification } from 'nativescript-bottombar';
-import { Page, marginTopProperty } from "tns-core-modules/ui/page/page";
+//import { Page } from "tns-core-modules/ui/page/page";
+import { Page } from "tns-core-modules/ui/page";
 //import { Page } from "ui/page";
 
 import { FirebaseService } from "../services/firebase.service";
@@ -32,7 +33,7 @@ export class MainComponent implements OnInit {
     public inactiveColor: string;
     public accentColor: string;
     public uncoloredBackgroundColor :string;
-    @ViewChild("dockDisplay") dockDisplay: ElementRef;
+    //@ViewChild("dockDisplay") dockDisplay: ElementRef;
 
     public items: Array<BottomBarItem> = [
         new BottomBarItem(0, "Materias", "student", "#17375e"),
@@ -41,7 +42,7 @@ export class MainComponent implements OnInit {
         //,new BottomBarItem(3, "Notificaciones", "notification", "#17375e", new Notification("#17375e", "white", "4"))
     ];
     ngOnInit(): void {
-        this.page.actionBarHidden = true;
+        //this.page.actionBarHidden = true;
         this.routerExtensions.navigate(["/main/home"], { clearHistory: true } );
     }
 
@@ -62,11 +63,13 @@ export class MainComponent implements OnInit {
      tabSelected(args: SelectedIndexChangedEventData) {
          // only triggered when a different tab is tapped
         if(args.newIndex == 0 ){
+            //this.page.actionBarHidden = false;
             console.log("Cambiar index"+ args.newIndex);
             //this.router.navigate(["/test/1"]);
             this.routerExtensions.navigate(['/main/home'], { clearHistory: true });
         }
         if(args.newIndex == 1 ){
+            //this.page.actionBarHidden = true;
             console.log("Cambiar index"+ args.newIndex);
             //console.log("Cambiar a search")
             //this.router.navigate(["/test/1"]);
@@ -74,6 +77,7 @@ export class MainComponent implements OnInit {
            
         }
         if(args.newIndex == 2 ){
+            //this.page.actionBarHidden = true;
             console.log("Cambiar index"+ args.newIndex);
              //console.log("Cambiar a search")
              //this.router.navigate(["/test/1"]);

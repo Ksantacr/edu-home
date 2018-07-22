@@ -55,22 +55,42 @@
             </ListView>-->
             <!--<DockLayout width="100%" height="23" backgroundColor="#00252a"></DockLayout>
 -->
-<!--<ActionBar title="EduHome">
-  <ActionItem icon="res://logo" ios.position="right" android.position="right"></ActionItem>
-</ActionBar>-->
-<DockLayout width="100%" height="47px" backgroundColor="#17375e"></DockLayout>
-<FlexboxLayout height="80" justifyContent="space-around" alignItems="center" class="p-10" backgroundColor="#17375e">
+
+<!--<DockLayout width="100%" height="47px" backgroundColor="#17375e"></DockLayout>-->
+<!--<FlexboxLayout height="80" justifyContent="space-around" alignItems="center" class="p-10" backgroundColor="#17375e">
   <Image src="https://static.guiainfantil.com/pictures//4432-4-regalos-caseros-para-papa-en-el-dia-del-padre-de-ecuador.jpg" class="foto-perfil"></Image>
   <StackLayout>
           <Label text="Kevin Rafael Santacruz Burgos" class="nombre-representate"></Label>
           <Label text="Bienvenido" class="estado"></Label>
   </StackLayout>      
-</FlexboxLayout>
+</FlexboxLayout>-->
+
+<ActionBar title="" class="action-bar">
+    <!--<NavigationButton icon="res://logo" tap="showSideDrawer" stretch="aspectFit"></NavigationButton>-->
+    <!--<ActionItem tap="onShare" 
+        ios.systemIcon="9" ios.position="left"
+        android.systemIcon="ic_menu_share" android.position="actionBar"></ActionItem>
+    <ActionItem tap="onDelete"
+        ios.systemIcon="16" ios.position="right"
+        text="delete" android.position="popup"></ActionItem>
+  </ActionBar>-->
+  <!--<ActionBar class="action-bar">
+      <Label class="action-bar-title" text="Home"></Label>
+  </ActionBar>-->
+
+  <FlexboxLayout height="80" justifyContent="space-around" alignItems="center" class="" backgroundColor="#17375e">
+      <Image src="https://static.guiainfantil.com/pictures//4432-4-regalos-caseros-para-papa-en-el-dia-del-padre-de-ecuador.jpg" class="foto-perfil"></Image>
+      <StackLayout class="m-l-10">
+              <Label text="Kevin Rafael Santacruz Burgos" class="nombre-representate"></Label>
+              <Label text="Bienvenido" class="estado"></Label>
+      </StackLayout>      
+    </FlexboxLayout>
+</ActionBar>
 <ScrollView>
     <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
                 <CardView width="48%" elevation="10" radius="10" ripple="true" *ngFor="let curso of cursos" class="m-t-10 m-b-10">
-                        <StackLayout width="100%" height="130"  class="">
-                                <FlexboxLayout height="100" alignItems="flex-end" [backgroundColor]="curso.color">
+                        <StackLayout width="100%" height="130" class="">
+                                <FlexboxLayout height="100" alignItems="flex-end" [backgroundColor]="curso.color" [nsRouterLink]="['/main/home', curso.id]">
                                         <label class="m-l-10 m-b-10 m-r-10" width="100%" [text]="curso.nombre" color="white" fontWeight="bold" fontSize="19" textWrap="true"></label>
                                 </FlexboxLayout>
                                 <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" height="30">

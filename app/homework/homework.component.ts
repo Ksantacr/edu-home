@@ -1,5 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
+import { Tarea } from "../shared/tarea.model";
+import { TareaService } from "../core/tarea.service";
+
+//import { Page } from "tns-core-modules/ui/page";
 
 @Component({
     selector: 'Homework',
@@ -8,8 +12,17 @@ import { Component } from "@angular/core";
     styleUrls: ['./homework.component.css']
 })
 
-export class HomeworkComponent {
+export class HomeworkComponent implements OnInit {
 
-    constructor(){}
+    tareas:Array<Tarea>;
+    constructor(private tareaService:TareaService) {
+    }
+
+    ngOnInit():void {
+        this.tareas = this.tareaService.getTareas();
+        console.log(JSON.stringify(this.tareas));
+    }
+//new Date(2018,10,10)
+
 
 }

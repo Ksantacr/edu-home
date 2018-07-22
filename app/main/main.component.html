@@ -1,7 +1,7 @@
 <GridLayout rows="*, auto">
-                <StackLayout row="0" orientation="vertical">
-                <router-outlet></router-outlet>
-                </StackLayout>
-                <BottomBar verticalAlignment="center" row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)" [inactiveColor]="inactiveColor" [accentColor]="accentColor"
-                colored="true"></BottomBar>
+    <StackLayout row="0" orientation="vertical">
+        <router-outlet></router-outlet>
+    </StackLayout>
+    <BottomBar verticalAlignment="center" row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)" [inactiveColor]="inactiveColor" [accentColor]="accentColor" colored="true">
+        </BottomBar>
 </GridLayout>

@@ -5,6 +5,7 @@ import { CursoService  } from "../core/curso.service";
 import { Curso } from "../shared/curso.model";
 import { FirebaseService } from "../services/firebase.service";
 
+import { Page } from "tns-core-modules/ui/page/page";
 /*import { registerElement } from 'nativescript-angular/element-registry';
 import { CardView } from 'nativescript-cardview';
 registerElement('CardView', () => CardView);*/
@@ -20,10 +21,10 @@ export class HomeComponent implements OnInit {
     cursos: Array<Curso>;
 
     //constructor(private itemService: DataService, private router: RouterExtensions) { }
-    constructor(private cursoService: CursoService, private router: RouterExtensions, private firebaseService:FirebaseService) { }
+    constructor(private cursoService: CursoService, private router: RouterExtensions) { }
 
     ngOnInit(): void {
-
+        //this.page.actionBarHidden = false;
         /*this.firebaseService.getCursos().subscribe((data)=>{
             //console.log(`Home Component: firebase getCursos ${data}`);
         })*/

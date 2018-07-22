@@ -13,11 +13,16 @@ import { CoreModule } from "./core/core.module";
 import { BackendService } from "./services/backend.service";
 import { FirebaseService } from "./services/firebase.service";
 
+import { registerLocaleData } from '@angular/common';
+import esEC from '@angular/common/locales/es';
+registerLocaleData(esEC)
+
 @NgModule({
     providers: [
     BackendService,
     FirebaseService,
-    authProviders
+    authProviders,
+    { provide: esEC, useValue: 'es' }
 ],
     bootstrap: [
         AppComponent

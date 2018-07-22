@@ -4,10 +4,13 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 import { BrowseComponent } from "./browse/browse.component";
 import { HomeComponent } from "./home/home.component";
+
+import { HomeDetalleComponent } from "./home-detalle/home-detalle.component";
 import { ItemDetailComponent } from "./item-detail/item-detail.component";
 import { SearchComponent } from "./search/search.component";
 
 import { HomeworkComponent } from "./homework/homework.component";
+
 
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from "./main/main.component";
@@ -15,7 +18,7 @@ import { MainComponent } from "./main/main.component";
 
 import { AuthGuard } from "./auth-guard.service";
 
-export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent];
+export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent];
 
 
 export const authProviders = [
@@ -37,6 +40,7 @@ const routes: Routes = [
             {path: "search", component: SearchComponent},
             {path: "browse", component: BrowseComponent},
             {path: "home", component: HomeComponent},
+            {path: "home/:id", component: HomeDetalleComponent},
     ]},
 ];
 
