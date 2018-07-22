@@ -35,28 +35,28 @@ export class CursoService {
             color: "#aa7100"
         },
         {
-            id: 4,
+            id: 5,
             nombre: "Estudios Sociales",
             imagen: "https://image.freepik.com/foto-gratis/concepto-de-educacion-regreso-a-la-escuela-en-el-fondo-de-la-pizarra_43429-1.jpg",
             cantidadTareas: 0,
             color: "#8f05e8"
         },
         {
-            id: 4,
+            id: 6,
             nombre: "Ciencias Naturales",
             imagen: "https://image.freepik.com/foto-gratis/concepto-de-educacion-regreso-a-la-escuela-en-el-fondo-de-la-pizarra_43429-1.jpg",
             cantidadTareas: 1,
             color: "#f9ae06"
         },
         {
-            id: 4,
+            id: 7,
             nombre: "Cultura Estética",
             imagen: "https://image.freepik.com/foto-gratis/concepto-de-educacion-regreso-a-la-escuela-en-el-fondo-de-la-pizarra_43429-1.jpg",
             cantidadTareas: 1,
             color: "#a757e5"
         },
         {
-            id: 4,
+            id: 8,
             nombre: "Educación Física",
             imagen: "https://image.freepik.com/foto-gratis/concepto-de-educacion-regreso-a-la-escuela-en-el-fondo-de-la-pizarra_43429-1.jpg",
             cantidadTareas: 0,

@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
+import { RouterExtensions } from "nativescript-angular/router";
+
 import {Curso }  from "../shared/curso.model";
 
 import { CursoService} from "../core/curso.service";
@@ -17,18 +19,25 @@ import { CursoService} from "../core/curso.service";
 export class HomeDetalleComponent implements OnInit{
 
     curso:Curso;
-    public hidden:boolean;
+    //public hidden:boolean;
 
-    constructor(private route: ActivatedRoute, private cursoService:CursoService ) {}
+    constructor(private route: ActivatedRoute, private cursoService:CursoService, private router: RouterExtensions ) {}
 
 
     ngOnInit():void {
-        this.hidden = true;
+        this.curso = null;
+        //this.hidden = true;
         const id = +this.route.snapshot.params.id;
-        console.log(id)
+        
 
         this.curso = this.cursoService.getCurso(id);
 
+        console.log("Hola-->"+JSON.stringify(this.curso))
+    }
+    regresar() {
+        //console.log("Back tap");
+        //this.router.backToPreviousPage();
+        this.router.back();
     }
 
 }

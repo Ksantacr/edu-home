@@ -46,7 +46,7 @@ export class MainComponent implements OnInit {
         this.routerExtensions.navigate(["/main/home"], { clearHistory: true } );
     }
 
-    constructor(private routerExtensions:RouterExtensions, private page:Page) {
+    constructor(private routerExtensions:RouterExtensions) {
         
     }
     

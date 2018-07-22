@@ -90,7 +90,7 @@
     <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
                 <CardView width="48%" elevation="10" radius="10" ripple="true" *ngFor="let curso of cursos" class="m-t-10 m-b-10">
                         <StackLayout width="100%" height="130" class="">
-                                <FlexboxLayout height="100" alignItems="flex-end" [backgroundColor]="curso.color" [nsRouterLink]="['/main/home', curso.id]">
+                                <FlexboxLayout height="100" alignItems="flex-end" [backgroundColor]="curso.color" [nsRouterLink]="['/curso', curso.id]">
                                         <label class="m-l-10 m-b-10 m-r-10" width="100%" [text]="curso.nombre" color="white" fontWeight="bold" fontSize="19" textWrap="true"></label>
                                 </FlexboxLayout>
                                 <FlexboxLayout width="85%" justifyContent="space-between" alignItems="center" height="30">
