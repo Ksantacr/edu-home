@@ -5,6 +5,10 @@ import { BackendService } from "./backend.service";
 import firebase = require("nativescript-plugin-firebase");
 import {Observable} from 'rxjs';
 import {BehaviorSubject} from 'rxjs';
+import { sendCrashLog } from "nativescript-plugin-firebase";
+import { UserEduHome } from "../shared/user-eduhome";
+import { EventData } from "tns-core-modules/ui/page/page";
+import { observe } from "tns-core-modules/ui/gestures/gestures";
 //import {UtilsService} from './utils.service';
 //import 'rxjs/add/operator/share';
 
@@ -13,9 +17,9 @@ export class FirebaseService {
   constructor(private ngZone: NgZone, //private utils: UtilsService
     ){}
     
-  items: BehaviorSubject<Array<Curso>> = new BehaviorSubject([]);
+  //items: BehaviorSubject<Array<Curso>> = new BehaviorSubject([]);
   
-  private _allItems: Array<Curso> = [];
+  //private _allItems: Array<Curso> = [];
 
   /*login(user: User) {
     return firebase.login({
@@ -44,17 +48,46 @@ export class FirebaseService {
         //alert("Unfortunately we could not find your account.")
       });
   }
-
+  testData(): Promise<any> {
+    return firebase.getValue('/representantes/'+BackendService.token);
+      //.then(result => {console.log(JSON.stringify(result.value))})
+      //.catch(error => {console.log("Error: " + error)});
+  }
   logout(){
     console.log("Cerrar sesion");
     BackendService.token = "";
     firebase.logout();    
   }
 
-  getCursos(): Observable<any> {
-    console.log("GETCURSOS")
+  getRepresentante(): Observable<any> {
+
+    //onsole.log("getRepresentante")
+    //let path = 'representantes/'+ BackendService.token;
+    //console.log(path)
     return new Observable((observer: any) => {
-      let path = '0/cursos';
+      let path = 'representantes/'+ BackendService.token;
+
+        let onValueEvent = (snapshot: any) => {
+          this.ngZone.run(() => {
+            console.log("--->"+snapshot)
+            console.log(JSON.stringify(snapshot))
+            //console.log("asasdasdd");
+            //let results = this.handleSnapshot(snapshot.value);
+            //console.log(JSON.stringify(results))
+             //observer.next(results);
+          });
+        };
+        firebase.getValue(`${path}`).
+        then(result => console.log(JSON.stringify(result)))
+        .catch(error => console.log("Error: " + error));
+        //firebase.addValueEventListener(onValueEvent, `/${path}/${BackendService.token}/`);
+    });
+  }
+
+  getCursos(): Observable<any> {
+    //console.log("GETCURSOS")
+    return new Observable((observer: any) => {
+      let path = 'curso/1';
       
         let onValueEvent = (snapshot: any) => {
           this.ngZone.run(() => {

@@ -14,6 +14,7 @@ import { FirebaseService } from "../services/firebase.service";
 import { Color } from "color";
 import * as application from "application";
 import * as platform from "platform";
+import { UserEduHome } from "../shared/user-eduhome";
 
 registerElement('BottomBar', () => BottomBar);
 
@@ -43,12 +44,13 @@ export class MainComponent implements OnInit {
     ];
     ngOnInit(): void {
         //this.page.actionBarHidden = true;
-        this.routerExtensions.navigate(["/main/home"], { clearHistory: true } );
+        this.routerExtensions.navigate(["/main/home"], { clearHistory: true });        
     }
 
     constructor(private routerExtensions:RouterExtensions) {
-        
     }
+
+    
     
 
     tabLoaded(event) {

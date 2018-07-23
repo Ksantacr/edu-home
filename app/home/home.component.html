@@ -77,13 +77,18 @@
   <!--<ActionBar class="action-bar">
       <Label class="action-bar-title" text="Home"></Label>
   </ActionBar>-->
-
-  <FlexboxLayout height="80" justifyContent="space-around" alignItems="center" class="" backgroundColor="#17375e">
-      <Image src="https://static.guiainfantil.com/pictures//4432-4-regalos-caseros-para-papa-en-el-dia-del-padre-de-ecuador.jpg" class="foto-perfil"></Image>
-      <StackLayout class="m-l-10">
-              <Label text="Kevin Rafael Santacruz Burgos" class="nombre-representate"></Label>
+  <!--<StackLayout orientation="horizontal">
+      <Image [src]="fotoPerfil" class="foto-perfil"></Image>
+      <Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>
+  </StackLayout>-->
+  <FlexboxLayout width="100%" *ngIf="user" justifyContent="space-between" alignItems="center" class="" backgroundColor="#17375e">--
+      <Image [src]="user.fotoPerfil" class="foto-perfil"></Image>
+      <!--<NavigationButton [icon]="fotoPerfil" tap="showSideDrawer" class="foto-perfil" stretch="aspectFit"></NavigationButton>-->
+      <!--<Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>-->
+      <StackLayout class="m-l-5">
+              <Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>
               <Label text="Bienvenido" class="estado"></Label>
-      </StackLayout>      
+      </StackLayout>
     </FlexboxLayout>
 </ActionBar>
 <ScrollView>
