@@ -3,6 +3,8 @@ hooks/
 node_modules/
 platforms/
 
+eduhome-release-key.jks
+
 # NativeScript Template
 *.js.map
 *.js

@@ -83,7 +83,7 @@ export class MainComponent implements OnInit {
             console.log("Cambiar index"+ args.newIndex);
              //console.log("Cambiar a search")
              //this.router.navigate(["/test/1"]);
-             this.routerExtensions.navigate(['/main/browse'], { clearHistory: true });
+             this.routerExtensions.navigate(['/main/mensajes'], { clearHistory: true });
             
          }
          /*if(args.newIndex == 3 ){

@@ -8,7 +8,7 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "com.eduhome.app"
+    applicationId = "org.nativescript.EduHome"
     multiDexEnabled true
   }  
   aaptOptions {  

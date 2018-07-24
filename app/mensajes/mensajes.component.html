@@ -1,0 +1,37 @@
+<ActionBar title="Mensajes" class="action-bar">
+</ActionBar>
+
+<ListView [items]="listaNombres" (itemTap)="mensajear($event)">
+        <ng-template let-item="item">
+
+                <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="p-t-10 p-b-10" [backgroundColor]="item.color">
+
+                    <FlexboxLayout height="90">
+                        
+                            <Image src="https://cdn5.dibujos.net/dibujos/pintados/201113/e8586adfff464ac9ba1ddd2491f8471e.png" class="foto-perfil"></Image>
+
+                            <FlexboxLayout width="80%" flexDirection="column" class="m-l-10">
+
+                                <Label text="Nombre Apellido" textWrap="true" class="nombre-representate"></Label>
+
+                                <Label text="Profesor de Matematias" textWrap="true" class="nombre-representate"></Label>
+
+
+                                <Label text="En linea" textWrap="true" class="estado"></Label>
+
+                            </FlexboxLayout>
+                        
+
+
+                    </FlexboxLayout>
+
+
+            </FlexboxLayout>
+
+                
+            <!--<StackLayout [class.odd]="odd" [class.even]="even">
+                <Label [text]='"index: " + i'></Label>
+                <Label [text]='"[" + item.id +"] " + item.name'></Label>
+            </StackLayout>-->
+        </ng-template>
+</ListView>

@@ -60,6 +60,11 @@ export class HomeComponent implements OnInit {
 
         this.curso$ = <any>this.firebaseService.getCursos();
         //this.testData = <any>this.firebaseService.testData();
+
+        /*if(this.user){
+            console.log("USER SET")
+            console.dir(this.user)
+        }*/
         this.testData = <any>this.firebaseService.testData().then( data =>{
             this.user.nombre = data.value.nombres;
             this.user.apellidos = data.value.apellidos;

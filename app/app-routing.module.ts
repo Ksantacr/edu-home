@@ -5,6 +5,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { BrowseComponent } from "./browse/browse.component";
 import { HomeComponent } from "./home/home.component";
 
+
 import { HomeDetalleComponent } from "./home-detalle/home-detalle.component";
 import { ItemDetailComponent } from "./item-detail/item-detail.component";
 import { SearchComponent } from "./search/search.component";
@@ -17,8 +18,9 @@ import { MainComponent } from "./main/main.component";
 //import { path } from "tns-core-modules/file-system/file-system";
 
 import { AuthGuard } from "./auth-guard.service";
+import { MensajesComponent } from "./mensajes/mensajes.component";
 
-export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent];
+export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent,MensajesComponent];
 
 
 export const authProviders = [
@@ -37,8 +39,8 @@ const routes: Routes = [
     { path: "main", component: MainComponent, canActivate: [AuthGuard],
         children: [
             {path: "homework", component: HomeworkComponent},
-            {path: "search", component: SearchComponent},
-            {path: "browse", component: BrowseComponent},
+            //{path: "search", component: SearchComponent},
+            {path: "mensajes", component: MensajesComponent},
             {path: "home", component: HomeComponent},
     ]},
     {path: "curso/:id", component: HomeDetalleComponent},

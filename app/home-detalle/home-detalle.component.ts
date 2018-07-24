@@ -40,4 +40,8 @@ export class HomeDetalleComponent implements OnInit{
         this.router.back();
     }
 
+    listo() {
+        console.log("listo");
+    }
+
 }
