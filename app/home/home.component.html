@@ -81,15 +81,17 @@
       <Image [src]="fotoPerfil" class="foto-perfil"></Image>
       <Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>
   </StackLayout>-->
-  <FlexboxLayout width="100%" *ngIf="user" justifyContent="space-between" alignItems="center" class="" backgroundColor="#17375e">--
+  <!--<FlexboxLayout width="100%" *ngIf="user" justifyContent="center" alignItems="center" class="" backgroundColor="red">---->
+      <StackLayout orientation="horizontal">
       <Image [src]="user.fotoPerfil" class="foto-perfil"></Image>
       <!--<NavigationButton [icon]="fotoPerfil" tap="showSideDrawer" class="foto-perfil" stretch="aspectFit"></NavigationButton>-->
       <!--<Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>-->
-      <StackLayout class="m-l-5">
+      <StackLayout class="m-l-15" width="80%">
               <Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>
               <Label text="Bienvenido" class="estado"></Label>
       </StackLayout>
-    </FlexboxLayout>
+      </StackLayout>
+    <!--</FlexboxLayout>-->
 </ActionBar>
 <ScrollView>
     <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
