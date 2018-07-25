@@ -4,15 +4,72 @@
 			"nombres": "Kevin Rafael",
 			"apellidos": "Santacruz Burgos",
 			"fotoPerfil": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
-			"cursos": [1, 2, 3]
-		},
+            "cursos" :[
+                {
+                "id": 1,
+                "nombre": "Matemáticas",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#5bbcb7",
+                "tareasID": [ 1 ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Kevin Rafael",
+                    "apellidos": "Santacruz Burgos"
+                }
+            }, {
+                "id": 2,
+                "nombre": "Lenguaje y Literatura",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#243a3a",
+                "tareasID": [ 2, 4 ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Joel Ricardo",
+                    "apellidos": "Collahuazo Vaca"
+                }
+            }, {
+                "id": 3,
+                "nombre": "Matemáticas",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#8f05e8",
+                "tareasID": [ ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Diego",
+                    "apellidos": "Carrera"
+                }
+            }]
+        },
 
 		"mnqlgrPCJEYuYBBsZZvQBRnxmUy1": {
 
             "nombres": "Tamara",
 			"apellidos": "Santacruz Burgos",
 			"fotoPerfil": "http://pm1.narvii.com/6462/1c033cbd2c7b86c970c3aa77e15f6c9ee0431897_00.jpg",
-			"cursosID": [1, 3]
+			"cursos" :[
+                {
+                "id": 1,
+                "nombre": "Matemáticas",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#5bbcb7",
+                "tareasID": [ 1 ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Joel Ricardo",
+                    "apellidos": "Collahuazo Vaca"
+                }
+            }, {
+                "id": 2,
+                "nombre": "Lenguaje y Literatura",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#243a3a",
+                "tareasID": [ 2, 4 ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Kevin Rafael",
+                    "apellidos": "Santacruz Burgos"
+                }
+            }]
 		}
     },
     "cursos": {

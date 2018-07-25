@@ -19,8 +19,9 @@ import { MainComponent } from "./main/main.component";
 
 import { AuthGuard } from "./auth-guard.service";
 import { MensajesComponent } from "./mensajes/mensajes.component";
+import { MensajesDetailComponent } from "./mensajes-detail/mensajes-detail.component";
 
-export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent,MensajesComponent];
+export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent,MensajesComponent, MensajesDetailComponent];
 
 
 export const authProviders = [
@@ -44,6 +45,7 @@ const routes: Routes = [
             {path: "home", component: HomeComponent},
     ]},
     {path: "curso/:id", component: HomeDetalleComponent},
+    {path: "chat/:id", component: MensajesDetailComponent},
 ];
 
 @NgModule({

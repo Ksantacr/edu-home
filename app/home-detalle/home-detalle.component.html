@@ -83,7 +83,7 @@
           </StackLayout>
         </FlexboxLayout>
     </ActionBar>-->
-    <ActionBar [title]="curso.nombre" [backgroundColor]="curso.color">
+    <ActionBar [title]="curso.nombre" [backgroundColor]="curso.color" *ngIf="curso">
             <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
           </ActionBar>
     <ScrollView>

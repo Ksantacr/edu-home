@@ -1,37 +1,43 @@
-<ActionBar title="Mensajes" class="action-bar">
-</ActionBar>
+<ActionBar title="" class="action-bar">
+           <StackLayout orientation="horizontal">
+          <StackLayout class="" width="100%">
+                  <Label text="Chat en línea"></Label>
+                  <!--<Label text="Profesor de ABC" class="estado"></Label>-->
+          </StackLayout>
+          </StackLayout>
+    </ActionBar>
 
-<ListView [items]="listaNombres" (itemTap)="mensajear($event)">
-        <ng-template let-item="item">
+<ScrollView>
+        <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
+                    <FlexboxLayout width="100%" *ngFor="let maestro of listaNombres" alignItems="center" justifyContent="space-around">
+                            <StackLayout width="100%" height="130" class="text-center" horizontalAlignment="center" verticalAlignment="center">
+                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" [backgroundColor]="maestro.color" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/chat', maestro.id]">
 
-                <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="p-t-10 p-b-10" [backgroundColor]="item.color">
+                                        <StackLayout orientation="horizontal" width="90%" horizontalAlignment="center" verticalAlignment="center">
+                                                    <Image [src]="maestro.foto" class="foto-perfil-maestro" stretch="fill"></Image>
+                                                    
+                            
+                                                    <FlexboxLayout flexDirection="column" width="70%" horizontalAlignment="center" verticalAlignment="center" class="">
+                            
+                                                        <Label [text]="maestro.nombre" textWrap="true" class="nombre-maestro"></Label>
+                            
+                                                        <Label [text]="maestro.materia" textWrap="true" class="nombre-materia"></Label>
 
-                    <FlexboxLayout height="90">
+                                                        <StackLayout orientation="horizontal" horizontalAlignment="center">
+                                                            <Label text="" class="circle"></Label>
+                                                            
+
+                                                                <Label text="En linea" textWrap="true" class="estado"></Label>    
+                                                        </StackLayout>
+
+                                                        
+                                                    </FlexboxLayout>
+                                            
+                                        </StackLayout>
+                                        
+                                    </FlexboxLayout>
+                            </StackLayout>
                         
-                            <Image src="https://cdn5.dibujos.net/dibujos/pintados/201113/e8586adfff464ac9ba1ddd2491f8471e.png" class="foto-perfil"></Image>
-
-                            <FlexboxLayout width="80%" flexDirection="column" class="m-l-10">
-
-                                <Label text="Nombre Apellido" textWrap="true" class="nombre-representate"></Label>
-
-                                <Label text="Profesor de Matematias" textWrap="true" class="nombre-representate"></Label>
-
-
-                                <Label text="En linea" textWrap="true" class="estado"></Label>
-
-                            </FlexboxLayout>
-                        
-
-
                     </FlexboxLayout>
-
-
-            </FlexboxLayout>
-
-                
-            <!--<StackLayout [class.odd]="odd" [class.even]="even">
-                <Label [text]='"index: " + i'></Label>
-                <Label [text]='"[" + item.id +"] " + item.name'></Label>
-            </StackLayout>-->
-        </ng-template>
-</ListView>
+        </FlexboxLayout>
+</ScrollView>

@@ -8,31 +8,44 @@ import {BehaviorSubject} from 'rxjs';
 import { sendCrashLog } from "nativescript-plugin-firebase";
 import { UserEduHome } from "../shared/user-eduhome";
 import { EventData } from "tns-core-modules/ui/page/page";
-import { observe } from "tns-core-modules/ui/gestures/gestures";
+//import { observe } from "tns-core-modules/ui/gestures/gestures";
 //import {UtilsService} from './utils.service';
 //import 'rxjs/add/operator/share';
 
 @Injectable()
 export class FirebaseService {
+
+  items: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
+  
+  private _allItems: Array<any> = [];
+
+  private user:UserEduHome;
   constructor(private ngZone: NgZone, //private utils: UtilsService
     ){}
     
-  //items: BehaviorSubject<Array<Curso>> = new BehaviorSubject([]);
-  
-  //private _allItems: Array<Curso> = [];
 
-  /*login(user: User) {
-    return firebase.login({
-      type: firebase.LoginType.PASSWORD,
-      email: user.email,
-      password: user.password
-    }).then((result: any) => {
-          BackendService.token = result.uid;
-          return JSON.stringify(result);
-      }, (errorMessage: any) => {
-        alert(errorMessage);
+
+    /*getMyGift(id: string): Observable<any> {
+      return new Observable((observer: any) => {
+        observer.next(this._allItems.filter(s => s.id === id)[0]);
       });
-  }*/
+    }*/
+
+
+    getUserData(): Promise<any> {
+      return firebase.getValue('/representantes/'+BackendService.token);
+    }
+    getDatosProfesor(id:number): Promise<any> {
+      return firebase.getValue('/representantes/'+BackendService.token+'/cursos/'+(id-1)+'/profesor');
+    }
+
+    getCurso(id:number): Promise<any> {
+      return firebase.getValue('/representantes/'+BackendService.token+'/cursos/'+(id-1));
+    }
+
+    getCursos(): Promise<any> {
+      return firebase.getValue('/representantes/'+BackendService.token+'/cursos');
+    }
   login(user: User) {
     return firebase.login({
       type: firebase.LoginType.PASSWORD,
@@ -48,11 +61,13 @@ export class FirebaseService {
         //alert("Unfortunately we could not find your account.")
       });
   }
+
   testData(): Promise<any> {
     return firebase.getValue('/representantes/'+BackendService.token);
       //.then(result => {console.log(JSON.stringify(result.value))})
       //.catch(error => {console.log("Error: " + error)});
   }
+
   logout(){
     console.log("Cerrar sesion");
     BackendService.token = "";
@@ -84,7 +99,7 @@ export class FirebaseService {
     });
   }
 
-  getCursos(): Observable<any> {
+  /*getCursos(): Observable<any> {
     //console.log("GETCURSOS")
     return new Observable((observer: any) => {
       let path = 'curso/1';
@@ -100,7 +115,7 @@ export class FirebaseService {
         };
         firebase.addValueEventListener(onValueEvent, `/${path}`);
     });              
-  }
+  }*/
   
   /*register(user: User) {
     return firebase.createUser({
