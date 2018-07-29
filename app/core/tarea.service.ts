@@ -5,7 +5,8 @@ import { Tarea } from "../shared/tarea.model";
 @Injectable()
 export class TareaService {
 
-    private tareas = new Array<Tarea>(
+    private tareas;
+    /*private tareas = new Array<Tarea>(
         {
             descripcion: "Cumplir los deberes 2 y 3 del libro ABC.Revision de la tabla de 4 al 10",
             fotoUrl: "http://www.smpilar.es/wp-content/uploads/2015/12/fondo-smp.jpg",
@@ -37,7 +38,7 @@ export class TareaService {
             archivoPath: "",
             color: "#aa7100"
         }
-    );
+    );*/
 
     getTareas(): Array<Tarea> {
         return this.tareas;

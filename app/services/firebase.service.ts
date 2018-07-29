@@ -2,15 +2,26 @@ import {Injectable, NgZone} from "@angular/core";
 import {User} from "../shared/user.model";
 import {Curso} from "../shared/curso.model";
 import { BackendService } from "./backend.service";
+import { UserEduHome } from "../shared/user-eduhome";
+
 import firebase = require("nativescript-plugin-firebase");
 import {Observable} from 'rxjs';
-import {BehaviorSubject} from 'rxjs';
-import { sendCrashLog } from "nativescript-plugin-firebase";
-import { UserEduHome } from "../shared/user-eduhome";
-import { EventData } from "tns-core-modules/ui/page/page";
-//import { observe } from "tns-core-modules/ui/gestures/gestures";
-//import {UtilsService} from './utils.service';
-//import 'rxjs/add/operator/share';
+import { BehaviorSubject } from 'rxjs';
+
+import { share } from 'rxjs/operators';
+
+export class Yowl {
+  constructor
+    (
+      public id: string,
+      public name: string,
+      public username: string,
+      public text: string,
+      public date: string,
+      public UID: string 
+    )
+  {}   
+}
 
 @Injectable()
 export class FirebaseService {
@@ -19,48 +30,173 @@ export class FirebaseService {
   
   private _allItems: Array<any> = [];
 
+  chats: BehaviorSubject<Array<Yowl>> = new BehaviorSubject([]);
+private _allChats: Array<Yowl> = [];
+
+yowls: BehaviorSubject<Array<Yowl>> = new BehaviorSubject([]);
+private _allYowls: Array<Yowl> = [];
+
   private user:UserEduHome;
   constructor(private ngZone: NgZone, //private utils: UtilsService
     ){}
-    
+
+    getChats(idProfesor:string): Observable<any> {
+      return new Observable((observer: any) => {
+        let path = "/Chats/"+idProfesor+"/";
+
+        console.log("Path get chats:"+path);
+        
+          let onValueEvent = (snapshot: any) => {
+            this.ngZone.run(() => {
+              let results = this.handleChatSnapshot(snapshot.value);
+               observer.next(results);
+
+               console.log(snapshot.value);
+
+            });
+          };
+          firebase.addValueEventListener(onValueEvent, `/${path}`);
+      })//share();
+     
+    }
+
+    /*publishUpdates() {
+      this._allYowls.sort(function(a, b){
+          if(a.date < b.date) return -1;
+          if(a.date > b.date) return 1;
+        return 0;
+      })
+      this.yowls.next([...this._allYowls]);
+    }*/
+    publishChatUpdates() {
+      this._allChats.sort(function(a, b){
+          if(a.date > b.date) return -1;
+          if(a.date < b.date) return 1;
+        return 0;
+      })
+      this.chats.next([...this._allChats]);
+    }
 
 
+    handleChatSnapshot(data: any) {
+      //empty array, then refill and filter
+      this._allChats = [];
+      if (data) {
+        for (let id in data) {        
+          let result = (<any>Object).assign({id: id}, data[id]);
+            this._allChats.push(result);
+        }
+        this.publishChatUpdates();
+      }
+      return this._allChats;
+    }
+
+    chat(message:string, idProfesor:string) {
+      //let chat = Chat; 
+      console.log(message)  
+      return firebase.push(
+          "/Chats/"+idProfesor,
+          { "message":message,
+            "to": idProfesor,
+            "from": BackendService.token,
+            "date": 0 - Date.now()
+          }
+        ).then(
+          function (result:any) {
+            return "chatted";
+          },
+          function (errorMessage:any) {
+            console.log(errorMessage);
+          }); 
+    }
     /*getMyGift(id: string): Observable<any> {
       return new Observable((observer: any) => {
         observer.next(this._allItems.filter(s => s.id === id)[0]);
       });
     }*/
-
-
     getUserData(): Promise<any> {
       return firebase.getValue('/representantes/'+BackendService.token);
     }
     getDatosProfesor(id:number): Promise<any> {
       return firebase.getValue('/representantes/'+BackendService.token+'/cursos/'+(id-1)+'/profesor');
     }
-
     getCurso(id:number): Promise<any> {
       return firebase.getValue('/representantes/'+BackendService.token+'/cursos/'+(id-1));
     }
-
-    getCursos(): Promise<any> {
+    
+    /*getCursos(): Promise<any> {
       return firebase.getValue('/representantes/'+BackendService.token+'/cursos');
+    }*/
+    getCursos(): Promise<any> {
+      //console.log("get cursos");
+      return firebase.getValue('/representantes/'+BackendService.token+'/cursos');
+      //return firebase.getValue('/cursos');
     }
-  login(user: User) {
-    return firebase.login({
-      type: firebase.LoginType.PASSWORD,
-      email: user.email,
-      password: user.password
-    }).then((result: any) => {
-          BackendService.token = result.uid;
-          console.log("Firebase Service :User login:-->"+JSON.stringify(result))
-          return JSON.stringify(result);
-      }, (errorMessage: any) => {
-        //console.log("Firebase Service :User error:-->"+errorMessage)
-        alert(errorMessage);
-        //alert("Unfortunately we could not find your account.")
-      });
-  }
+    getLista(): Observable<any> {
+      //console.log("GETCURSOS")
+      return new Observable((observer: any) => {
+        let path = '/representantes/'+BackendService.token+'/cursos';
+        
+          let onValueEvent = (snapshot: any) => {
+            this.ngZone.run(() => {
+              console.log("--->"+snapshot)
+              console.log(JSON.stringify(snapshot))
+              //let results = this.handleSnapshot(snapshot.value);
+              //console.log(JSON.stringify(results))
+               //observer.next(results);
+            });
+          };
+          firebase.addValueEventListener(onValueEvent, `/${path}`);
+      });              
+    }
+    getCursosListener(): any {
+      let onValueEvent = function(result) {
+        //console.log("Event type: " + result.type);
+        //console.log("Key: " + result.key);
+        //console.log("-->")
+        console.log("Value: " + JSON.stringify(result.value));
+      };
+      firebase.addValueEventListener(onValueEvent, `/representantes/${BackendService.token}/`).then(
+        function(listenerWrapper) {
+          //let path = listenerWrapper.path;
+          //let listeners = listenerWrapper.listeners; // an Array of listeners added
+          // you can store the wrapper somewhere to later call 'removeEventListeners'
+        }
+      );
+    }
+
+
+    actualizarCurso(id, idTarea, tarea): Promise<any> {
+      //console.log("ID: "+id)
+      //console.log("idTarea: "+idTarea)
+      console.dir("Tarea: "+tarea)
+      return firebase.update(
+        '/representantes/'+BackendService.token+'/cursos/'+id+'/tareasID/'+idTarea, {
+          "id": tarea.id,
+          "descripcion": tarea.descripcion,
+          "fotoUrl": tarea.fotoUrl,
+          "archivoPath": tarea.archivoPath,
+          "color": tarea.color,
+          "fechaEntrega":tarea.fechaEntrega,
+          "revisado": tarea.revisado
+        }
+      );
+    }
+    login(user: User) {
+      return firebase.login({
+        type: firebase.LoginType.PASSWORD,
+        email: user.email,
+        password: user.password
+      }).then((result: any) => {
+            BackendService.token = result.uid;
+            console.log("Firebase Service :User login:-->"+JSON.stringify(result))
+            return JSON.stringify(result);
+        }, (errorMessage: any) => {
+          //console.log("Firebase Service :User error:-->"+errorMessage)
+          alert(errorMessage);
+          //alert("Unfortunately we could not find your account.")
+        });
+    }
 
   testData(): Promise<any> {
     return firebase.getValue('/representantes/'+BackendService.token);
@@ -74,7 +210,9 @@ export class FirebaseService {
     firebase.logout();    
   }
 
-  getRepresentante(): Observable<any> {
+  
+
+  /*getRepresentante(): Observable<any> {
 
     //onsole.log("getRepresentante")
     //let path = 'representantes/'+ BackendService.token;
@@ -97,7 +235,7 @@ export class FirebaseService {
         .catch(error => console.log("Error: " + error));
         //firebase.addValueEventListener(onValueEvent, `/${path}/${BackendService.token}/`);
     });
-  }
+  }*/
 
   /*getCursos(): Observable<any> {
     //console.log("GETCURSOS")

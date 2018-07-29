@@ -10,7 +10,15 @@
                 "nombre": "Matemáticas",
                 "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
                 "color": "#5bbcb7",
-                "tareasID": [ 1 ],
+                "tareasID": [ {
+                    "id": 1,
+            "descripcion": "Revisar el libro",
+            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "archivoPath": "",
+            "color": "#243a3a",
+            "fechaEntrega": 1541826000000,
+            "revisado": false
+        } ],
                 "profesor": {
                     "titulo": "Lcdo",
                     "nombres": "Kevin Rafael",
@@ -21,7 +29,25 @@
                 "nombre": "Lenguaje y Literatura",
                 "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
                 "color": "#243a3a",
-                "tareasID": [ 2, 4 ],
+                "tareasID": [ {
+                    "id": 1,
+            "descripcion": "Tarea 2",
+            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "archivoPath": "",
+            "color": "red",
+            "fechaEntrega": 1541826000000,
+            "revisado": false
+
+        }, {
+            "id": 2,
+            "descripcion": "Tarea 4",
+            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "archivoPath": "",
+            "color": "#5bbcb7",
+            "fechaEntrega": 1541826000000,
+            "revisado": false
+
+        } ],
                 "profesor": {
                     "titulo": "Lcdo",
                     "nombres": "Joel Ricardo",
@@ -52,7 +78,15 @@
                 "nombre": "Matemáticas",
                 "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
                 "color": "#5bbcb7",
-                "tareasID": [ 1 ],
+                "tareasID": [ {
+                    "id": 1,
+            "descripcion": "Revisar el libro",
+            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "archivoPath": "",
+            "color": "#243a3a",
+            "fechaEntrega": 1541826000000,
+            "revisado": false
+        } ],
                 "profesor": {
                     "titulo": "Lcdo",
                     "nombres": "Joel Ricardo",
@@ -63,7 +97,24 @@
                 "nombre": "Lenguaje y Literatura",
                 "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
                 "color": "#243a3a",
-                "tareasID": [ 2, 4 ],
+                "tareasID": [ {
+                    "id":1,
+            "descripcion": "Tarea 2",
+            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "archivoPath": "",
+            "color": "red",
+            "fechaEntrega": 1541826000000,
+            "revisado": false
+
+        }, {
+            "id": 2,
+            "descripcion": "Tarea 3",
+            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "archivoPath": "",
+            "color": "#8f05e8",
+            "fechaEntrega": 1541826000000,
+            "revisado": false
+        } ],
                 "profesor": {
                     "titulo": "Lcdo",
                     "nombres": "Kevin Rafael",
@@ -72,56 +123,37 @@
             }]
 		}
     },
+
     "cursos": {
-        "1": {
+        "1" : {
             "nombre": "Matemáticas",
             "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
             "color": "#5bbcb7",
-            "tareasID": [ 1 ]
+            "tareas": {
+                "1" : {
+                    "descripcion": "Revisar el libro",
+                    "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                    "archivoPath": "",
+                    "color": "#243a3a",
+                    "fechaEntrega": 1541826000000,
+                    "revisado": false
+                },
+                "2" : {
+                    "descripcion": "Revisar el libro 2",
+                    "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                    "archivoPath": "",
+                    "color": "#243a3a",
+                    "fechaEntrega": 1541826000000,
+                    "revisado": false
+                }
+            }
         },
-        "2": {
-            "nombre": "Lenguaje y Literatura",
+        "2" : {
+            "nombre": "Ingles",
             "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-            "color": "#243a3a",
-            "tareasID": [ 2, 4 ]
-        },
-        "3": {
-            "nombre": "Matemáticas",
-            "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-            "color": "#8f05e8",
-            "tareasID": [ ]
-        }
-    },
-    "tareas": {
-        "1": {
-            "descripcion": "Revisar el libro",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-            "archivoPath": "",
-            "color": "#243a3a",
-            "fechaEntrega": 1541826000000
-        },
-        "2": {
-            "descripcion": "Tarea 2",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-            "archivoPath": "",
-            "color": "red",
-            "fechaEntrega": 1541826000000
-
-        },
-        "3": {
-            "descripcion": "Tarea 3",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-            "archivoPath": "",
-            "color": "#8f05e8",
-            "fechaEntrega": 1541826000000
-        },
-        "4": {
-            "descripcion": "Tarea 4",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-            "archivoPath": "",
             "color": "#5bbcb7",
-            "fechaEntrega": 1541826000000
-
+            "tareas": "lista"
         }
+             
     }
 }

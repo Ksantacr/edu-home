@@ -8,8 +8,8 @@ export class Curso {
     constructor(public id?: number,
         public nombre?: string,
         public imagen?: string,
-        public cantidadTareas?: number,
-        public color?:string,){
+        public color?:string,
+        public cantidadTareas?: number,){
 
         }
 }

@@ -23,11 +23,9 @@ export class AppComponent implements OnInit {
     constructor() {
         // Use the component constructor to inject providers.
         //BackendService.setup();
-        
     }
 
     ngOnInit(): void {
-
         firebase.init({
             //persist should be set to false as otherwise numbers aren't returned during livesync
             persist: true,
@@ -48,7 +46,19 @@ export class AppComponent implements OnInit {
             function (error) {
               console.log("firebase.init error: " + error);
             }
-            );
+          );
+
+          firebase.keepInSync(
+            '/representantes/'+BackendService.token+'/cursos/', // which path in your Firebase needs to be kept in sync?
+            true      // set to false to disable this feature again
+          ).then(
+            function () {
+              console.log("firebase.keepInSync is ON for /users");
+            },
+            function (error) {
+              console.log("firebase.keepInSync error: " + error);
+            }
+          );
         // Init your component properties here.
     }
 
