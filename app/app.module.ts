@@ -15,6 +15,9 @@ import { FirebaseService } from "./services/firebase.service";
 
 import { registerLocaleData } from '@angular/common';
 import esEC from '@angular/common/locales/es';
+
+import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
+
 registerLocaleData(esEC)
 
 @NgModule({
@@ -32,7 +35,8 @@ registerLocaleData(esEC)
         AppRoutingModule,
         CoreModule,
         NativeScriptHttpModule,
-        NativeScriptFormsModule
+        NativeScriptFormsModule,
+        TNSCheckBoxModule
     ],
     declarations: [
         AppComponent,

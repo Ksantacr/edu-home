@@ -57,7 +57,6 @@ private _allYowls: Array<Yowl> = [];
           };
           firebase.addValueEventListener(onValueEvent, `/${path}`);
       })//share();
-     
     }
 
     /*publishUpdates() {
@@ -129,7 +128,7 @@ private _allYowls: Array<Yowl> = [];
     }*/
     getCursos(): Promise<any> {
       //console.log("get cursos");
-      return firebase.getValue('/representantes/'+BackendService.token+'/cursos');
+      return firebase.getValue('/representantes/'+BackendService.token+'/cursos/');
       //return firebase.getValue('/cursos');
     }
     getLista(): Observable<any> {
@@ -189,13 +188,40 @@ private _allYowls: Array<Yowl> = [];
         password: user.password
       }).then((result: any) => {
             BackendService.token = result.uid;
-            console.log("Firebase Service :User login:-->"+JSON.stringify(result))
+            //console.log("Firebase Service :User login:-->"+JSON.stringify(result))
             return JSON.stringify(result);
         }, (errorMessage: any) => {
+          console.log(errorMessage)
           //console.log("Firebase Service :User error:-->"+errorMessage)
-          alert(errorMessage);
+          alert("Por favor revisa las credenciales");
           //alert("Unfortunately we could not find your account.")
         });
+    }
+    loginProfesor(user: User){
+
+      return firebase.login({
+        type: firebase.LoginType.PASSWORD,
+        email: user.email,
+        password: user.password
+      }).then((result: any) => {
+            BackendService.token = result.uid;
+
+            this.getUserData().then( (data)=> {
+
+              console.log("Data"+ data);
+              BackendService.rol = "P";
+
+            })
+
+            //console.log("Firebase Service :User login:-->"+JSON.stringify(result))
+            return JSON.stringify(result);
+        }, (errorMessage: any) => {
+          console.log(errorMessage)
+          //console.log("Firebase Service :User error:-->"+errorMessage)
+          alert("Por favor revisa las credenciales");
+          //alert("Unfortunately we could not find your account.")
+        });
+
     }
 
   testData(): Promise<any> {

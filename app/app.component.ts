@@ -2,9 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { isAndroid } from "platform";
 import { SelectedIndexChangedEventData, TabView, TabViewItem } from "tns-core-modules/ui/tab-view";
 
-import { registerElement } from 'nativescript-angular/element-registry';
+//import { registerElement } from 'nativescript-angular/element-registry';
 import { CardView } from 'nativescript-cardview';
+import { registerElement } from 'nativescript-angular';
+import { BottomBar, BottomBarItem, TITLE_STATE,Notification } from 'nativescript-bottombar';
+
 registerElement('CardView', () => CardView);
+registerElement('BottomBar', () => BottomBar);
 
 import { BackendService } from "./services/backend.service";
 
@@ -48,7 +52,7 @@ export class AppComponent implements OnInit {
             }
           );
 
-          firebase.keepInSync(
+          /*firebase.keepInSync(
             '/representantes/'+BackendService.token+'/cursos/', // which path in your Firebase needs to be kept in sync?
             true      // set to false to disable this feature again
           ).then(
@@ -58,7 +62,7 @@ export class AppComponent implements OnInit {
             function (error) {
               console.log("firebase.keepInSync error: " + error);
             }
-          );
+          );*/
         // Init your component properties here.
     }
 

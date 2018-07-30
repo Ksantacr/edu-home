@@ -1,31 +1,27 @@
 import { Component, OnInit, ViewChild, ElementRef} from "@angular/core";
-
-//import * as localStorage from 'nativescript-localstorage';
 import { RouterExtensions } from 'nativescript-angular/router/router-extensions';
 
-//import { registerElement } from 'nativescript-angular';
+import { registerElement } from 'nativescript-angular';
 import { BottomBar, BottomBarItem, TITLE_STATE, SelectedIndexChangedEventData, Notification } from 'nativescript-bottombar';
-//import { Page } from "tns-core-modules/ui/page/page";
 import { Page } from "tns-core-modules/ui/page";
-//import { Page } from "ui/page";
 
 import {Observable} from 'rxjs';
 
 import { FirebaseService } from "../services/firebase.service";
 
 import { Color } from "color";
-import * as application from "application";
-import * as platform from "platform";
+//import * as application from "application";
+//import * as platform from "platform";
 import { UserEduHome } from "../shared/user-eduhome";
 
 //registerElement('BottomBar', () => BottomBar);
 
 @Component({
-    selector: "app-main",
+    selector: "app-main-profesor",
     moduleId: module.id,
-    templateUrl: "./main.component.html"
+    templateUrl: "./main-profesor.component.html"
 })
-export class MainComponent implements OnInit {
+export class MainProfesorComponent implements OnInit {
 
     //message = "You have successfully authenticated. This is where you build your core application functionality.";
 
@@ -48,22 +44,21 @@ export class MainComponent implements OnInit {
         this.items[0].notification.value = "2";
         this.items[0].notification.textColor = "white";*/
 //        this.firebaseService.getCursos
-        this.routerExtensions.navigate(["/main/home"], { clearHistory: true });
+
+
+        //this.routerExtensions.navigate(["/mainprofesor"], { clearHistory: true });
         
     }
 
     constructor(private routerExtensions:RouterExtensions, private firebaseService:FirebaseService) {
 
-        //this.items[0].notification = new Notification("#17375e", "white", "4"); 
         let mensajes_notificaciones = new Notification("#17375e", "white", "4");
-        this.items = [new BottomBarItem(0, "Materias", "student", "#17375e", null),
-        new BottomBarItem(1, "Mensajes", "chat", "#17375e", mensajes_notificaciones)
-        //new BottomBarItem(2, "Mensajes", "chat", "#17375e", new Notification("#17375e", "white", "1"))
+        this.items = [new BottomBarItem(0, "Enviar tarea", "student", "#17375e", null),
+        new BottomBarItem(1, "Tomar lista", "chat", "#17375e"),
+        new BottomBarItem(2, "Mensajes", "chat", "#17375e", new Notification("#17375e", "white", "1"))
         //,new BottomBarItem(3, "Notificaciones", "notification", "#17375e", new Notification("#17375e", "white", "4"))
     ]
     }
-
-    
     
 
     tabLoaded(event) {
@@ -72,17 +67,18 @@ export class MainComponent implements OnInit {
         this.titleState = TITLE_STATE.SHOW_WHEN_ACTIVE;
         this.inactiveColor = "#BBBBBB";
         this.accentColor = "white";
-
     }
     
      tabSelected(args: SelectedIndexChangedEventData) {
          // only triggered when a different tab is tapped
-        if(args.newIndex == 0 ){
-            this.routerExtensions.navigate(['/main/home'], { clearHistory: true });
+        /*if(args.newIndex == 0 ){
+            this.routerExtensions.navigate(['/mainprofesor/home'], { clearHistory: true });
         }
         if(args.newIndex == 1 ){
-            this.routerExtensions.navigate(['/main/mensajes'], { clearHistory: true });
-           
+            this.routerExtensions.navigate(['/mainprofesor/mensajes'], { clearHistory: true });
         }
+        if(args.newIndex == 2 ){
+            this.routerExtensions.navigate(['/mainprofesor/home'], { clearHistory: true });
+        }*/
      }
 }

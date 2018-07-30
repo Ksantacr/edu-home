@@ -15,17 +15,21 @@ import { HomeworkComponent } from "./homework/homework.component";
 
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from "./main/main.component";
+import { MainProfesorComponent } from "./main-profesor/main.profesor.component";
 //import { path } from "tns-core-modules/file-system/file-system";
 
 import { AuthGuard } from "./auth-guard.service";
+import { AuthGuardProfesor } from "./auth-guard-profesor.service";
+
 import { MensajesComponent } from "./mensajes/mensajes.component";
 import { MensajesDetailComponent } from "./mensajes-detail/mensajes-detail.component";
 
-export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent,MensajesComponent, MensajesDetailComponent];
+export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent,MensajesComponent, MensajesDetailComponent, MainProfesorComponent];
 
 
 export const authProviders = [
-    AuthGuard
+    AuthGuard,
+    AuthGuardProfesor
   ];
 
 const routes: Routes = [
@@ -37,6 +41,9 @@ const routes: Routes = [
    /**const listRoutes: Routes = [
   { path: "", component: ListComponent, canActivate: [AuthGuard] },
 ]; */
+/*{ path: "mainprofesor", component: MainProfesorComponent, canActivate: [AuthGuard],
+        children: [
+    ]},*/
     { path: "main", component: MainComponent, canActivate: [AuthGuard],
         children: [
             {path: "homework", component: HomeworkComponent},
@@ -46,6 +53,7 @@ const routes: Routes = [
     ]},
     {path: "curso/:id", component: HomeDetalleComponent},
     {path: "chat/:id", component: MensajesDetailComponent},
+    
 ];
 
 @NgModule({

@@ -106,7 +106,7 @@ export class MensajesDetailComponent implements OnInit {
         console.log("ID del chat: "+this.idProfesor);
 
         this.chats$ = <any>this.firebaseService.getChats(this.idProfesor);
-
+        
         this.firebaseService.getCurso(1).then(data=>{
 
             //console.log(data.value.color);

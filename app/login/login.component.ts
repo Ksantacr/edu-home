@@ -1,11 +1,11 @@
 import { Component, ElementRef, ViewChild, OnInit } from "@angular/core";
 //import { Router } from "@angular/router";
 import { RouterExtensions } from 'nativescript-angular/router/router-extensions';
-import { alert, prompt } from "tns-core-modules/ui/dialogs";
+//import { alert, prompt } from "tns-core-modules/ui/dialogs";
 import { Page } from "tns-core-modules/ui/page";
 //import { Page } from "ui/page";
 
-import {Observable} from 'rxjs';
+//import {Observable} from 'rxjs';
 import { User } from "../shared/user.model";
 //import { UserService } from "../shared/user.service";
 
@@ -20,17 +20,9 @@ import {FirebaseService} from "../services/firebase.service";
 })
 export class LoginComponent implements OnInit{
 
-    //isLogged:boolean = false;
     user: User;
     processing = false;
-
-    //user: User;
-    isLoggingIn = true;
-    //isAuthenticating = false;
-
-
-    //@ViewChild("page") loginPage: ElementRef;
-
+    //isLoggingIn = true;
     ngOnInit(): void {
 
         this.user = new User();
@@ -39,6 +31,7 @@ export class LoginComponent implements OnInit{
         this.page.actionBarHidden = true;
 
     }
+    @ViewChild("profesor") profesorCheckBox: ElementRef;
     
     @ViewChild("password") password: ElementRef;
     //@ViewChild("confirmPassword") confirmPassword: ElementRef;
@@ -49,70 +42,47 @@ export class LoginComponent implements OnInit{
         //this.page.actionBarHidden = true; 
     }
     submit() {
-        //this.isAuthenticating = true;
-        //if (this.isLoggingIn) {
         this.processing = true;
-          this.login();
-        /*} else {
-          //this.signUp();
-          alert("No es login")
-        }*/
-      }
-/*
-    submit() {
-        this.processing = true;
-        setTimeout(()=>{
-            
+        /*if(this.profesorCheckBox.nativeElement.checked) {
+            console.log("checked")
+            this.loginProfesor();
+        }else {
             this.login();
-        }, 1000)
-        
-
+        }*/        
+        this.login();        
     }
-*/
-login() {
-    /*this.firebaseService.login(this.user)
-     .then(() => {
-       //this.isAuthenticating = false;
-       this.processing = false;
+    /*loginProfesor() {
 
-       console.log()
-       this.routerExtensions.navigate(["main"], { clearHistory: true } );
-       
-     })
-     .catch((message:any) => {
+        this.firebaseService.loginProfesor(this.user)
+            .then(() => {
 
-        console.log(`Login Component err message: ${message}`);
-        alert(message);
-       //this.isAuthenticating = false;
-     });*/
-     this.firebaseService.login(this.user)
+                console.log("Login profesor")
+
+                this.processing = false;
+                this.routerExtensions.navigate(["mainprofesor"] , { clearHistory: true });
+            })
+            .catch(() => {
+                this.processing = false;
+                alert("No hemos encontrado tu cuenta.");
+        });
+
+    }*/
+    login() {
+        this.firebaseService.login(this.user)
             .then(() => {
                 this.processing = false;
                 this.routerExtensions.navigate(["main"] , { clearHistory: true });
+            }, () => {
+                alert("Verifica tu conexión a internet.");
             })
             .catch(() => {
                 this.processing = false;
-                alert("Unfortunately we could not find your account.");
+                alert("No hemos encontrado tu cuenta.");
         });
- }
- focusPassword() {
-    this.password.nativeElement.focus();
-}
- 
-    /*login() {
-        this.processing = false;
-        //this.routerExtensions.navigate(["main"]);
-        this.routerExtensions.navigate(["main"], { clearHistory: true } );
-       
-        this.userService.login(this.user)
-            .then(() => {
-                this.processing = false;
-                this.router.navigate(["/home"]);
-            })
-            .catch(() => {
-                this.processing = false;
-                this.alert("Unfortunately we could not find your account.");
-        });
-}*/
+    }
+
+    focusPassword() {
+        this.password.nativeElement.focus();
+    }
 }
 

@@ -124,6 +124,31 @@
 		}
     },
 
+"profesores": {
+		"ULkcfwOT8KUx5YspqUZKncNVCF12": {
+			"nombres": "Kevin Rafael",
+			"apellidos": "Santacruz Burgos",
+			"fotoPerfil": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+            "cursos" :[
+                {
+                "id": 1,
+                "nombre": "Matemáticas",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#5bbcb7"
+            }, {
+                "id": 2,
+                "nombre": "Lenguaje y Literatura",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#243a3a"
+            }, {
+                "id": 3,
+                "nombre": "Matemáticas",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#8f05e8"
+            }]
+        }
+    },
+
     "cursos": {
         "1" : {
             "nombre": "Matemáticas",

@@ -16,6 +16,8 @@
 			<StackLayout row="1" class="input-field">
 				<TextField #password class="input input-eduhome" hint="Contraseña" secure="true" [(ngModel)]="user.password" (returnPress)="submit()"></TextField>
 				<!--<StackLayout class="hr-light"></StackLayout>-->
+
+				<CheckBox #profesor text="Soy profesor" class="text-center" class="" checked="false" fillColor="white" color="white"></CheckBox>
 			</StackLayout>
 
 			<!--<StackLayout row="2" *ngIf="!isLoggingIn" class="input-field">

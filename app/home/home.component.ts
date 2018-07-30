@@ -10,10 +10,10 @@ import { Page } from "tns-core-modules/ui/page/page";
 import { UserEduHome } from "../shared/user-eduhome";
 import { User } from "../shared/user.model";
 
-import {BehaviorSubject} from 'rxjs';
+//import {BehaviorSubject} from 'rxjs';
 import { BackendService } from "../services/backend.service";
-import { forEach } from "@angular/router/src/utils/collection";
-import { NgAnalyzedFileWithInjectables } from "@angular/compiler";
+//import { forEach } from "@angular/router/src/utils/collection";
+//import { NgAnalyzedFileWithInjectables } from "@angular/compiler";
 
 
 /*import { registerElement } from 'nativescript-angular/element-registry';
@@ -52,7 +52,12 @@ export class HomeComponent implements OnInit {
         this.user = new UserEduHome("", "", "");
         this.lista = new Observable();
     }
+    logout() {
+        this.firebaseService.logout();
+        this.router.navigate(["login"] , { clearHistory: true });
+    }
 
+    
     ngOnInit(): void {
         //console.log("INIT");
         //console.dir("USER;"+this.user$.nombre)
@@ -65,20 +70,17 @@ export class HomeComponent implements OnInit {
         <any>this.firebaseService.getCursos().then(
             (data)=>{
 
-                //console.dir(data)
+                //console.dir(data.value)
 
                 this.cursos = [];
-                data.value.forEach((data)=>{
+                data.value.forEach((curso)=>{
 
-                    let cantidad = data.tareasID.filter( tarea => tarea.revisado==false)
-                   // let cantidad = data.tareas.filter( tarea => tarea.revisado==false)
+                   let tareas:Array<Curso> = curso.tareasID.filter( tarea => tarea.revisado==false);
+                   //.filter( tarea => !tarea.revisado) || [];
+                   //let cantidad = data.tareas.filter( tarea => tarea.revisado==false)
 
-                    this.cursos.push(new Curso(data.id, data.nombre, data.imagen, data.color, cantidad.length));
-                    
-                    
-                    //words.filter(word => word==true);
+                    this.cursos.push(new Curso(curso.id, curso.nombre, curso.imagen, curso.color, tareas.length));
                 })
-                //console.dir(this.cursos)
             }
             
         );
