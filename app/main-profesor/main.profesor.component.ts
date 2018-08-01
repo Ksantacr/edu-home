@@ -53,8 +53,8 @@ export class MainProfesorComponent implements OnInit {
     constructor(private routerExtensions:RouterExtensions, private firebaseService:FirebaseService) {
 
         let mensajes_notificaciones = new Notification("#17375e", "white", "4");
-        this.items = [new BottomBarItem(0, "Enviar tarea", "student", "#17375e", null),
-        new BottomBarItem(1, "Tomar lista", "chat", "#17375e"),
+        this.items = [new BottomBarItem(0, "Enviar tarea", "book", "#17375e", null),
+        new BottomBarItem(1, "Tomar lista", "list", "#17375e"),
         new BottomBarItem(2, "Mensajes", "chat", "#17375e", new Notification("#17375e", "white", "1"))
         //,new BottomBarItem(3, "Notificaciones", "notification", "#17375e", new Notification("#17375e", "white", "4"))
     ]
@@ -81,4 +81,9 @@ export class MainProfesorComponent implements OnInit {
             this.routerExtensions.navigate(['/mainprofesor/home'], { clearHistory: true });
         }*/
      }
+
+     logout() {
+        this.firebaseService.logout();
+        this.routerExtensions.navigate(["login"] , { clearHistory: true });
+    }
 }

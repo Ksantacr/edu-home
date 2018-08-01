@@ -9,6 +9,7 @@ import {Observable} from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
 import { share } from 'rxjs/operators';
+import { QueryOrderByType } from "nativescript-plugin-firebase";
 
 export class Yowl {
   constructor
@@ -97,7 +98,7 @@ private _allYowls: Array<Yowl> = [];
           "/Chats/"+idProfesor,
           { "message":message,
             "to": idProfesor,
-            "from": BackendService.token,
+            "from": BackendService.tokenKeyRepresentante,
             "date": 0 - Date.now()
           }
         ).then(
@@ -114,13 +115,13 @@ private _allYowls: Array<Yowl> = [];
       });
     }*/
     getUserData(): Promise<any> {
-      return firebase.getValue('/representantes/'+BackendService.token);
+      return firebase.getValue('/representantes/'+BackendService.tokenKeyRepresentante);
     }
     getDatosProfesor(id:number): Promise<any> {
-      return firebase.getValue('/representantes/'+BackendService.token+'/cursos/'+(id-1)+'/profesor');
+      return firebase.getValue('/representantes/'+BackendService.tokenKeyRepresentante+'/cursos/'+(id-1)+'/profesor');
     }
     getCurso(id:number): Promise<any> {
-      return firebase.getValue('/representantes/'+BackendService.token+'/cursos/'+(id-1));
+      return firebase.getValue('/representantes/'+BackendService.tokenKeyRepresentante+'/cursos/'+(id-1));
     }
     
     /*getCursos(): Promise<any> {
@@ -128,13 +129,13 @@ private _allYowls: Array<Yowl> = [];
     }*/
     getCursos(): Promise<any> {
       //console.log("get cursos");
-      return firebase.getValue('/representantes/'+BackendService.token+'/cursos/');
+      return firebase.getValue('/representantes/'+BackendService.tokenKeyRepresentante+'/cursos/');
       //return firebase.getValue('/cursos');
     }
     getLista(): Observable<any> {
       //console.log("GETCURSOS")
       return new Observable((observer: any) => {
-        let path = '/representantes/'+BackendService.token+'/cursos';
+        let path = '/representantes/'+BackendService.tokenKeyRepresentante+'/cursos';
         
           let onValueEvent = (snapshot: any) => {
             this.ngZone.run(() => {
@@ -155,7 +156,7 @@ private _allYowls: Array<Yowl> = [];
         //console.log("-->")
         console.log("Value: " + JSON.stringify(result.value));
       };
-      firebase.addValueEventListener(onValueEvent, `/representantes/${BackendService.token}/`).then(
+      firebase.addValueEventListener(onValueEvent, `/representantes/${BackendService.tokenKeyRepresentante}/`).then(
         function(listenerWrapper) {
           //let path = listenerWrapper.path;
           //let listeners = listenerWrapper.listeners; // an Array of listeners added
@@ -170,7 +171,7 @@ private _allYowls: Array<Yowl> = [];
       //console.log("idTarea: "+idTarea)
       console.dir("Tarea: "+tarea)
       return firebase.update(
-        '/representantes/'+BackendService.token+'/cursos/'+id+'/tareasID/'+idTarea, {
+        '/representantes/'+BackendService.tokenKeyRepresentante+'/cursos/'+id+'/tareasID/'+idTarea, {
           "id": tarea.id,
           "descripcion": tarea.descripcion,
           "fotoUrl": tarea.fotoUrl,
@@ -187,7 +188,11 @@ private _allYowls: Array<Yowl> = [];
         email: user.email,
         password: user.password
       }).then((result: any) => {
-            BackendService.token = result.uid;
+            //BackendService.token = result.uid;
+            BackendService.tokenKeyRepresentante = result.uid;
+            console.log(BackendService.tokenKeyRepresentante)
+
+            console.log("Estado: "+BackendService.isRepresentante())
             //console.log("Firebase Service :User login:-->"+JSON.stringify(result))
             return JSON.stringify(result);
         }, (errorMessage: any) => {
@@ -199,40 +204,43 @@ private _allYowls: Array<Yowl> = [];
     }
     loginProfesor(user: User){
 
-      return firebase.login({
-        type: firebase.LoginType.PASSWORD,
-        email: user.email,
-        password: user.password
-      }).then((result: any) => {
-            BackendService.token = result.uid;
+      BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
 
-            this.getUserData().then( (data)=> {
+      let data = (e) => {
 
-              console.log("Data"+ data);
-              BackendService.rol = "P";
+        console.dir(e)
+        BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
 
-            })
-
-            //console.log("Firebase Service :User login:-->"+JSON.stringify(result))
-            return JSON.stringify(result);
-        }, (errorMessage: any) => {
-          console.log(errorMessage)
-          //console.log("Firebase Service :User error:-->"+errorMessage)
-          alert("Por favor revisa las credenciales");
-          //alert("Unfortunately we could not find your account.")
-        });
-
+      }
+      return firebase.query(data, '/profesores/', {
+        //usersRef.child(userId).once('value
+        singleEvent:true,
+        orderBy: {
+          type: firebase.QueryOrderByType.CHILD,
+          value: 'id' // mandatory when type is 'child'
+      },
+      range: {
+            type: firebase.QueryRangeType.EQUAL_TO,
+            value: "VAKxe9S9wXSJ3mBVchZs24yw97p2"
+            //user.id
+      },
+        /*limit: {
+          type: firebase.QueryLimitType.LAST,
+          value: 1
+        }*/
+      })
     }
 
   testData(): Promise<any> {
-    return firebase.getValue('/representantes/'+BackendService.token);
+    return firebase.getValue('/representantes/'+BackendService.tokenKeyRepresentante);
       //.then(result => {console.log(JSON.stringify(result.value))})
       //.catch(error => {console.log("Error: " + error)});
   }
 
   logout(){
     console.log("Cerrar sesion");
-    BackendService.token = "";
+    BackendService.tokenKeyProfesor = "";
+    BackendService.tokenKeyRepresentante = "";
     firebase.logout();    
   }
 

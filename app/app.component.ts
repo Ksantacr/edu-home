@@ -37,10 +37,16 @@ export class AppComponent implements OnInit {
             onAuthStateChanged: (data: any) => {
               //console.log(JSON.stringify(data))
               if (data.loggedIn) {
-                BackendService.token = data.user.uid;
+                //BackendService.token = data.user.uid;
+                if(BackendService.isProfesor()){
+                  BackendService.tokenKeyProfesor = data.user.uid;
+                }else if(BackendService.isRepresentante()){
+                  BackendService.tokenKeyRepresentante = data.user.uid;
+                }
               }
               else {
-                BackendService.token = "";
+                BackendService.tokenKeyProfesor = "";
+                BackendService.tokenKeyRepresentante = "";
               }
             }
           }).then(

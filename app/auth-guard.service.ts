@@ -8,10 +8,14 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate() {
-    if (BackendService.isLoggedIn()) {
+    if (BackendService.isRepresentante()) {
       return true;
     }
-    else {
+    else if(BackendService.isProfesor()){
+      //this.router.navigate(["/login"]);
+      this.router.navigate(["/profesor"]);
+      return false;
+    }else {
       this.router.navigate(["/login"]);
       return false;
     }

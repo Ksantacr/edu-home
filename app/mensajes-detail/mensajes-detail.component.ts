@@ -70,7 +70,7 @@ export class MensajesDetailComponent implements OnInit {
      }
 
      filter(sender) {
-        if (sender == BackendService.token) {
+        if (sender == BackendService.tokenKeyRepresentante) {
             return "me"
         }
         else {
@@ -79,7 +79,7 @@ export class MensajesDetailComponent implements OnInit {
     }
 
     align(sender) {
-        if (sender == BackendService.token) {
+        if (sender == BackendService.tokenKeyRepresentante) {
             return "right"
         }
         else {
@@ -87,7 +87,7 @@ export class MensajesDetailComponent implements OnInit {
         }
     }
     showImage(sender) {
-        if (sender == BackendService.token) {
+        if (sender == BackendService.tokenKeyRepresentante) {
             return "collapsed"
         }
         else {
@@ -100,7 +100,7 @@ export class MensajesDetailComponent implements OnInit {
         this.list = this.lv.nativeElement;
         this.textfield = this.tf.nativeElement;
 
-        this.me = BackendService.token;
+        this.me = BackendService.tokenKeyRepresentante;
 
         this.idProfesor = this.route.snapshot.params.id;
         console.log("ID del chat: "+this.idProfesor);

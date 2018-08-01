@@ -11,6 +11,7 @@ import { User } from "../shared/user.model";
 
 //import * as localStorage from 'nativescript-localstorage';
 import {FirebaseService} from "../services/firebase.service";
+import { BackendService } from "~/services/backend.service";
 
 @Component({
     selector: "app-login",
@@ -42,16 +43,19 @@ export class LoginComponent implements OnInit{
         //this.page.actionBarHidden = true; 
     }
     submit() {
+        console.log("SUBMIT")
         this.processing = true;
-        /*if(this.profesorCheckBox.nativeElement.checked) {
-            console.log("checked")
+
+        
+        if(this.profesorCheckBox.nativeElement.checked) {
+            console.log("checked");
             this.loginProfesor();
         }else {
             this.login();
-        }*/        
-        this.login();        
+        }
+        //this.login();     
     }
-    /*loginProfesor() {
+    loginProfesor() {
 
         this.firebaseService.loginProfesor(this.user)
             .then(() => {
@@ -59,24 +63,27 @@ export class LoginComponent implements OnInit{
                 console.log("Login profesor")
 
                 this.processing = false;
-                this.routerExtensions.navigate(["mainprofesor"] , { clearHistory: true });
+                //loginRedirect
+                this.routerExtensions.navigate(["/profesor"] , { clearHistory: true });
             })
             .catch(() => {
                 this.processing = false;
                 alert("No hemos encontrado tu cuenta.");
         });
 
-    }*/
+    }
     login() {
         this.firebaseService.login(this.user)
             .then(() => {
                 this.processing = false;
-                this.routerExtensions.navigate(["main"] , { clearHistory: true });
+                //if(BackendService.isProfesor() || BackendService.isRepresentante())
+                    this.routerExtensions.navigate(["/main"] , { clearHistory: true });
             }, () => {
                 alert("Verifica tu conexión a internet.");
             })
             .catch(() => {
                 this.processing = false;
+                //this.routerExtensions.navigate(["login"] , { clearHistory: true });
                 alert("No hemos encontrado tu cuenta.");
         });
     }

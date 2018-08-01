@@ -57,8 +57,8 @@ export class MainComponent implements OnInit {
         //this.items[0].notification = new Notification("#17375e", "white", "4"); 
         let mensajes_notificaciones = new Notification("#17375e", "white", "4");
         this.items = [new BottomBarItem(0, "Materias", "student", "#17375e", null),
-        new BottomBarItem(1, "Mensajes", "chat", "#17375e", mensajes_notificaciones)
-        //new BottomBarItem(2, "Mensajes", "chat", "#17375e", new Notification("#17375e", "white", "1"))
+        new BottomBarItem(1, "Mensajes", "chat", "#17375e"),
+        new BottomBarItem(2, "Informacion", "briefcase", "#17375e", new Notification("#17375e", "white", "1"))
         //,new BottomBarItem(3, "Notificaciones", "notification", "#17375e", new Notification("#17375e", "white", "4"))
     ]
     }

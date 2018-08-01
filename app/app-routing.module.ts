@@ -11,9 +11,8 @@ import { ItemDetailComponent } from "./item-detail/item-detail.component";
 import { SearchComponent } from "./search/search.component";
 
 import { HomeworkComponent } from "./homework/homework.component";
-
-
 import { LoginComponent } from './login/login.component';
+//import { LoginRedirectComponent } from './login-redirect/login-redirect.component';
 import { MainComponent } from "./main/main.component";
 import { MainProfesorComponent } from "./main-profesor/main.profesor.component";
 //import { path } from "tns-core-modules/file-system/file-system";
@@ -36,6 +35,8 @@ const routes: Routes = [
 
     { path: "", redirectTo: "main", pathMatch: "full" },
     //{ path: "", component: MainComponent, canActivate: [AuthGuard] },
+
+    //{ path: "loginRedirect", component: LoginRedirectComponent },
     { path: "login", component: LoginComponent },
 
    /**const listRoutes: Routes = [
@@ -53,7 +54,10 @@ const routes: Routes = [
     ]},
     {path: "curso/:id", component: HomeDetalleComponent},
     {path: "chat/:id", component: MensajesDetailComponent},
-    
+
+    { path: "profesor", component: MainProfesorComponent, canActivate: [AuthGuardProfesor],
+        children: [
+    ]}
 ];
 
 @NgModule({
