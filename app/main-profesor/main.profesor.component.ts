@@ -45,8 +45,8 @@ export class MainProfesorComponent implements OnInit {
         this.items[0].notification.textColor = "white";*/
 //        this.firebaseService.getCursos
 
-
-        //this.routerExtensions.navigate(["/mainprofesor"], { clearHistory: true });
+        console.log("Main profesor");
+        this.routerExtensions.navigate(["/profesor/home"], { clearHistory: true });
         
     }
 
@@ -59,7 +59,6 @@ export class MainProfesorComponent implements OnInit {
         //,new BottomBarItem(3, "Notificaciones", "notification", "#17375e", new Notification("#17375e", "white", "4"))
     ]
     }
-    
 
     tabLoaded(event) {
         this._bar = <BottomBar>event.object;        
@@ -71,15 +70,15 @@ export class MainProfesorComponent implements OnInit {
     
      tabSelected(args: SelectedIndexChangedEventData) {
          // only triggered when a different tab is tapped
-        /*if(args.newIndex == 0 ){
-            this.routerExtensions.navigate(['/mainprofesor/home'], { clearHistory: true });
+        if(args.newIndex == 0 ){
+            this.routerExtensions.navigate(['/profesor/home'], { clearHistory: true });
         }
         if(args.newIndex == 1 ){
-            this.routerExtensions.navigate(['/mainprofesor/mensajes'], { clearHistory: true });
+            this.routerExtensions.navigate(['/profesor/mensajes'], { clearHistory: true });
         }
         if(args.newIndex == 2 ){
-            this.routerExtensions.navigate(['/mainprofesor/home'], { clearHistory: true });
-        }*/
+            this.routerExtensions.navigate(['/profesor/home'], { clearHistory: true });
+        }
      }
 
      logout() {

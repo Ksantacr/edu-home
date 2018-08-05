@@ -38,9 +38,12 @@ export class HomeComponent implements OnInit {
     //nombres:string;
     //apellidos:string;
     //private sub:any;
-    public lista: Observable<any>;
+    //public lista: Observable<any>;
 
     public gifts$: Observable<any>;
+
+    public visibility:string;
+    public cantidadTareas:number = 0;
 
     //constructor(private itemService: DataService, private router: RouterExtensions) { }
 
@@ -50,11 +53,18 @@ export class HomeComponent implements OnInit {
 
     constructor(private router: RouterExtensions, private firebaseService:FirebaseService ) {
         this.user = new UserEduHome("", "", "");
-        this.lista = new Observable();
+        //this.lista = new Observable();
+        this.visibility = "visible";
     }
     logout() {
         this.firebaseService.logout();
         this.router.navigate(["login"] , { clearHistory: true });
+    }
+
+    ocultarMensaje($event) {
+
+        this.visibility = "hidden";
+
     }
 
     
@@ -76,15 +86,25 @@ export class HomeComponent implements OnInit {
                 data.value.forEach((curso)=>{
 
                    let tareas:Array<Curso> = curso.tareasID.filter( tarea => tarea.revisado==false);
+
+                   //let tareas = [];
+
+                   /*curso.tareasID.forEach( (test) => {
+                    console.log(curso.nombre)   
+                    console.log(test)
+                   });*/
+
                    //.filter( tarea => !tarea.revisado) || [];
                    //let cantidad = data.tareas.filter( tarea => tarea.revisado==false)
 
                     this.cursos.push(new Curso(curso.id, curso.nombre, curso.imagen, curso.color, tareas.length));
                 })
+
+                //this.visibility = "hidden";
             }
             
         );
-        <any>this.firebaseService.testData().then(
+        <any>this.firebaseService.datosRepresentante().then(
             data => {
                 this.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
             }

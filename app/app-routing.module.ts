@@ -17,13 +17,17 @@ import { MainComponent } from "./main/main.component";
 import { MainProfesorComponent } from "./main-profesor/main.profesor.component";
 //import { path } from "tns-core-modules/file-system/file-system";
 
+
+import { HomeProfesorComponent } from "./home-profesor/home-profesor.component";
 import { AuthGuard } from "./auth-guard.service";
 import { AuthGuardProfesor } from "./auth-guard-profesor.service";
 
 import { MensajesComponent } from "./mensajes/mensajes.component";
 import { MensajesDetailComponent } from "./mensajes-detail/mensajes-detail.component";
+import {CursoProfesorDetalleComponent } from "./curso-profesor-detalle/curso-profesor-detalle.component" ;
+import { EnviarTrabajoComponent } from "./enviar-trabajo/enviar-trabajo.component";
 
-export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent,MensajesComponent, MensajesDetailComponent, MainProfesorComponent];
+export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent,MensajesComponent, MensajesDetailComponent, MainProfesorComponent, HomeProfesorComponent, CursoProfesorDetalleComponent, EnviarTrabajoComponent];
 
 
 export const authProviders = [
@@ -57,7 +61,10 @@ const routes: Routes = [
 
     { path: "profesor", component: MainProfesorComponent, canActivate: [AuthGuardProfesor],
         children: [
-    ]}
+            {path: "home", component: HomeProfesorComponent}
+    ]},
+    {path: "profesorcurso/:id", component: CursoProfesorDetalleComponent},
+    {path: "enviartrabajo/:id", component: EnviarTrabajoComponent},
 ];
 
 @NgModule({

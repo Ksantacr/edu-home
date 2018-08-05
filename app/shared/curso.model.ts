@@ -9,7 +9,8 @@ export class Curso {
         public nombre?: string,
         public imagen?: string,
         public color?:string,
-        public cantidadTareas?: number,){
+        public cantidadTareas?: number,
+    public grado?: string){
 
         }
 }

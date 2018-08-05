@@ -1,6 +1,7 @@
 {
 "representantes": {
 		"ULkcfwOT8KUx5YspqUZKncNVCF12": {
+            "id": "ULkcfwOT8KUx5YspqUZKncNVCF12",
 			"nombres": "Kevin Rafael",
 			"apellidos": "Santacruz Burgos",
 			"fotoPerfil": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
@@ -68,7 +69,7 @@
         },
 
 		"mnqlgrPCJEYuYBBsZZvQBRnxmUy1": {
-
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
             "nombres": "Tamara",
 			"apellidos": "Santacruz Burgos",
 			"fotoPerfil": "http://pm1.narvii.com/6462/1c033cbd2c7b86c970c3aa77e15f6c9ee0431897_00.jpg",
@@ -125,24 +126,53 @@
     },
 
 "profesores": {
-		"VAKxe9S9wXSJ3mBVchZs24yw97p2": {
-            "id": "VAKxe9S9wXSJ3mBVchZs24yw97p2",
+        "mnqlgrPCJEYuYBBsZZvQBRnxmUy1": {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+			"nombres": "Kevin Rafael",
+			"apellidos": "Santacruz Burgos",
+			"fotoPerfil": "https://pbs.twimg.com/profile_images/922082337696907264/o4qnbSB0_400x400.jpg",
+            "cursos" :[
+                {
+                "id": 1,
+                "curso": "5to 'A'",
+                "nombre": "Matemáticas",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#5bbcb7"
+            }, {
+                "id": 2,
+                "curso": "5to 'A'",
+                "nombre": "Lenguaje y Literatura",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#243a3a"
+            }, {
+                "id": 3,
+                "curso": "5to 'A'",
+                "nombre": "Matemáticas",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#8f05e8"
+            }]
+        },
+        "UnHxI5wC6LTO6bNucZn9Z48Cv6V2": {
+            "id": "UnHxI5wC6LTO6bNucZn9Z48Cv6V2",
 			"nombres": "Kevin Rafael",
 			"apellidos": "Santacruz Burgos",
 			"fotoPerfil": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
             "cursos" :[
                 {
                 "id": 1,
+                "curso": "5to 'A'",
                 "nombre": "Matemáticas",
                 "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
                 "color": "#5bbcb7"
             }, {
                 "id": 2,
+                "curso": "5to 'A'",
                 "nombre": "Lenguaje y Literatura",
                 "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
                 "color": "#243a3a"
             }, {
                 "id": 3,
+                "curso": "5to 'A'",
                 "nombre": "Matemáticas",
                 "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
                 "color": "#8f05e8"
@@ -183,3 +213,4 @@
              
     }
 }
+

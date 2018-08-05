@@ -1,0 +1,70 @@
+<ActionBar [title]="curso.nombre" [backgroundColor]="curso.color" *ngIf="curso">
+    <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+        <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
+                    <FlexboxLayout width="100%" alignItems="center" flexDirection="column">
+                            
+                        <StackLayout width="100%" class="text-center" horizontalAlignment="center" verticalAlignment="center" orientation="vertical">
+
+                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" backgroundColor="#f9ae06" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/chat']">
+
+                                        <StackLayout orientation="horizontal" width="100%" horizontalAlignment="center" verticalAlignment="center">
+                            
+                                                    <FlexboxLayout flexDirection="column" width="70%" horizontalAlignment="center" verticalAlignment="center" class="">
+                            
+                                                        <Label text="Tomar asistencia" textWrap="true" class="nombre-maestro" color="white" fontWeight="bold" fontSize="30" style="text-align: left;"></Label>
+
+                                                        
+                                                    </FlexboxLayout>
+
+                                                    <Label text="&#xf044;" class="fa" color="white" fontWeight="bold" fontSize="22" horizontalAlignment="center" verticalAlignment="center"></Label>
+                                                    
+                                            
+                                        </StackLayout>
+                                    </FlexboxLayout>
+
+
+                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" backgroundColor="#8f05e8" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/enviartrabajo', curso.id]">
+
+                                        <StackLayout orientation="horizontal" width="100%" horizontalAlignment="center" verticalAlignment="center">
+                            
+                                                    <FlexboxLayout flexDirection="column" width="70%" horizontalAlignment="center" verticalAlignment="center" class="">
+                            
+                                                        <Label text="Enviar Trabajo" textWrap="true" class="nombre-maestro" color="white" fontWeight="bold" fontSize="30" style="text-align: left;"></Label>
+
+                                                        
+                                                    </FlexboxLayout>
+
+                                                    <Label text="&#xf02d;" class="fa" color="white" fontWeight="bold" fontSize="22" horizontalAlignment="center" verticalAlignment="center"></Label>
+                                                    
+                                            
+                                        </StackLayout>
+                                    </FlexboxLayout>
+
+
+
+                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" backgroundColor="#f7996b" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/chat']">
+
+                                        <StackLayout orientation="horizontal" width="100%" horizontalAlignment="center" verticalAlignment="center">
+                            
+                                                    <FlexboxLayout flexDirection="column" width="70%" horizontalAlignment="center" verticalAlignment="center" class="">
+                            
+                                                        <Label text="Boletín de atención" textWrap="true" class="nombre-maestro" color="white" fontWeight="bold" fontSize="30" style="text-align: left;"></Label>
+
+                                                        
+                                                    </FlexboxLayout>
+
+                                                    <Label text="&#xf003;" class="fa" color="white" fontWeight="bold" fontSize="22" horizontalAlignment="center" verticalAlignment="center"></Label>
+                                                    
+                                            
+                                        </StackLayout>
+                                    </FlexboxLayout>
+
+
+                            </StackLayout>
+                        
+                    </FlexboxLayout>
+        </FlexboxLayout>
+</ScrollView>

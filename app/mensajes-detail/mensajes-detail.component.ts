@@ -7,11 +7,13 @@ import { Observable } from 'rxjs';
 
 import { FirebaseService } from "../services/firebase.service";
 import { BackendService } from "../services/backend.service";
-
+import * as app from "application"
 import { ListView } from 'ui/list-view';
 import { TextField } from 'ui/text-field';
 import { ScrollView } from 'ui/scroll-view';
+import {Page} from "ui/page";
 
+declare var android:any;
 @Component({
     selector: 'MensajesDetalle',
     moduleId: module.id,
@@ -38,9 +40,13 @@ export class MensajesDetailComponent implements OnInit {
     public chats$: Observable<any>;
 
 
-    constructor(private route: ActivatedRoute,private router: RouterExtensions, private firebaseService:FirebaseService ) {
+    constructor(private route: ActivatedRoute,private router: RouterExtensions, private firebaseService:FirebaseService, private page:Page) {
         this.curso = new Curso();
         //this.profesor = new Profesor();
+        this.page.on("loaded", (args)=>{
+            var window = app.android.startActivity.getWindow();
+            window.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        })
     }
 
     public ngAfterViewInit() {
@@ -51,11 +57,11 @@ export class MensajesDetailComponent implements OnInit {
     }
 
     chat(message: string) {
-        if(message.length>0){
-            this.firebaseService.chat(message, this.idProfesor).then((data: any) => {
+        if(message!=undefined && message.length>0){
+            this.firebaseService.chat(message, this.idProfesor, Date.now()).then((data: any) => {
                 let count = this.list.items.length;
-                this.list.refresh();
-                this.scroll(count+5);
+                //this.list.refresh();
+                //this.scroll(count+5);
                 this.textfield.text = '';
             });
         }
@@ -96,10 +102,10 @@ export class MensajesDetailComponent implements OnInit {
     }
 
     ngOnInit():void {
-
+/*
         this.list = this.lv.nativeElement;
         this.textfield = this.tf.nativeElement;
-
+*/
         this.me = BackendService.tokenKeyRepresentante;
 
         this.idProfesor = this.route.snapshot.params.id;

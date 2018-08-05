@@ -11,7 +11,8 @@ import { User } from "../shared/user.model";
 
 //import * as localStorage from 'nativescript-localstorage';
 import {FirebaseService} from "../services/firebase.service";
-import { BackendService } from "~/services/backend.service";
+import { BackendService } from "../services/backend.service";
+import * as dialogs from "ui/dialogs";
 
 @Component({
     selector: "app-login",
@@ -19,7 +20,7 @@ import { BackendService } from "~/services/backend.service";
     templateUrl: "./login.component.html",
     styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
 
     user: User;
     processing = false;
@@ -29,6 +30,15 @@ export class LoginComponent implements OnInit{
         this.user = new User();
         this.user.email = "demo@eduhome.com";
         this.user.password = "eduhom3";
+
+        //this.user.email = "prueba@eduhome.com";
+        this.user.password = "prueba123";
+        this.user.email = "kevn.santacruz@gmail.com"
+
+        this.user.email = "profe@eduhome.com";
+        this.user.password = "prueba";
+
+
         this.page.actionBarHidden = true;
 
     }
@@ -58,17 +68,35 @@ export class LoginComponent implements OnInit{
     loginProfesor() {
 
         this.firebaseService.loginProfesor(this.user)
-            .then(() => {
+            .then((data) => {
 
-                console.log("Login profesor")
+                //console.dir(data);
+                console.log("Login profesor");
 
                 this.processing = false;
-                //loginRedirect
+
+                if(data.value!=null){
                 this.routerExtensions.navigate(["/profesor"] , { clearHistory: true });
+                }else{
+                    dialogs.alert({
+                        title: "EduHome",
+                        message: "No hemos encontrado tu cuenta, verifique los datos.",
+                        okButtonText: "Aceptar"
+                    }).then(() => {
+                        console.log("Dialog closed!");
+                    });
+                }
             })
             .catch(() => {
                 this.processing = false;
-                alert("No hemos encontrado tu cuenta.");
+                //alert("No hemos encontrado tu cuenta, verifique los datos.");
+                dialogs.alert({
+                    title: "EduHome",
+                    message: ":(",
+                    okButtonText: "Aceptar"
+                }).then(() => {
+                    console.log("Dialog closed!");
+                });
         });
 
     }
@@ -79,12 +107,26 @@ export class LoginComponent implements OnInit{
                 //if(BackendService.isProfesor() || BackendService.isRepresentante())
                     this.routerExtensions.navigate(["/main"] , { clearHistory: true });
             }, () => {
-                alert("Verifica tu conexión a internet.");
+                dialogs.alert({
+                    title: "EduHome",
+                    message: "No hemos encontrado tu cuenta, verifique los datos.",
+                    okButtonText: "Aceptar"
+                }).then(() => {
+                    console.log("Dialog closed!");
+                });
+                //alert("Verifica tu conexión a internet.");
             })
             .catch(() => {
                 this.processing = false;
                 //this.routerExtensions.navigate(["login"] , { clearHistory: true });
-                alert("No hemos encontrado tu cuenta.");
+                //alert("No hemos encontrado tu cuenta.");
+                dialogs.alert({
+                    title: "EduHome",
+                    message: ":(",
+                    okButtonText: "Aceptar"
+                }).then(() => {
+                    console.log("Dialog closed!");
+                });
         });
     }
 

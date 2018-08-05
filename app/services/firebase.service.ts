@@ -10,6 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { share } from 'rxjs/operators';
 import { QueryOrderByType } from "nativescript-plugin-firebase";
+import * as dialogs from "ui/dialogs";
 
 export class Yowl {
   constructor
@@ -91,7 +92,7 @@ private _allYowls: Array<Yowl> = [];
       return this._allChats;
     }
 
-    chat(message:string, idProfesor:string) {
+    chat(message:string, idProfesor:string, date:number) {
       //let chat = Chat; 
       console.log(message)  
       return firebase.push(
@@ -99,7 +100,7 @@ private _allYowls: Array<Yowl> = [];
           { "message":message,
             "to": idProfesor,
             "from": BackendService.tokenKeyRepresentante,
-            "date": 0 - Date.now()
+            "date": 0 - date
           }
         ).then(
           function (result:any) {
@@ -123,6 +124,10 @@ private _allYowls: Array<Yowl> = [];
     getCurso(id:number): Promise<any> {
       return firebase.getValue('/representantes/'+BackendService.tokenKeyRepresentante+'/cursos/'+(id-1));
     }
+
+    getCursoProfesor(id:number): Promise<any> {
+      return firebase.getValue('/profesores/'+BackendService.tokenKeyProfesor+'/cursos/'+(id-1));
+    }
     
     /*getCursos(): Promise<any> {
       return firebase.getValue('/representantes/'+BackendService.token+'/cursos');
@@ -132,6 +137,15 @@ private _allYowls: Array<Yowl> = [];
       return firebase.getValue('/representantes/'+BackendService.tokenKeyRepresentante+'/cursos/');
       //return firebase.getValue('/cursos');
     }
+
+    getCursosProfesor(): Promise<any> {
+      //console.log("get cursos");
+      return firebase.getValue('/profesores/'+BackendService.tokenKeyProfesor+'/cursos/');
+      //return firebase.getValue('/cursos');
+    }
+
+
+
     getLista(): Observable<any> {
       //console.log("GETCURSOS")
       return new Observable((observer: any) => {
@@ -189,50 +203,120 @@ private _allYowls: Array<Yowl> = [];
         password: user.password
       }).then((result: any) => {
             //BackendService.token = result.uid;
-            BackendService.tokenKeyRepresentante = result.uid;
-            console.log(BackendService.tokenKeyRepresentante)
+            /*BackendService.tokenKeyRepresentante = result.uid;
+            //console.log(BackendService.tokenKeyRepresentante)
+            //console.log("Estado: "+BackendService.isRepresentante())
 
-            console.log("Estado: "+BackendService.isRepresentante())
+            console.log(JSON.stringify(result))
             //console.log("Firebase Service :User login:-->"+JSON.stringify(result))
-            return JSON.stringify(result);
+            return JSON.stringify(result);*/
+
+            let data = (e) => {
+
+              console.dir(e)
+              //BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
+              //if()
+              if(e.value!=null) {
+                BackendService.tokenKeyRepresentante = result.uid;
+                return JSON.stringify(result)
+              }else {
+                dialogs.alert({
+                  title: "EduHome",
+                  message: "No hemos encontrado tu cuenta.",
+                  okButtonText: "Aceptar"
+              }).then(() => {
+                  console.log("Dialog closed!");
+              });
+              }
+            }
+            return firebase.query(data, '/representantes/', {
+              singleEvent:true,
+              orderBy: {
+                type: firebase.QueryOrderByType.CHILD,
+                value: 'id' // mandatory when type is 'child'
+            },
+            range: {
+                  type: firebase.QueryRangeType.EQUAL_TO,
+                  value: result.uid
+            },
+            })
+
+
         }, (errorMessage: any) => {
           console.log(errorMessage)
           //console.log("Firebase Service :User error:-->"+errorMessage)
-          alert("Por favor revisa las credenciales");
+          //alert("Por favor revisa las credenciales");
           //alert("Unfortunately we could not find your account.")
+          dialogs.alert({
+            title: "EduHome",
+            message: "No hemos encontrado tu cuenta.",
+            okButtonText: "Aceptar"
+        }).then(() => {
+            console.log("Dialog closed!");
+        });
+          
         });
     }
     loginProfesor(user: User){
 
-      BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
+      return firebase.login({
+        type: firebase.LoginType.PASSWORD,
+        email: user.email,
+        password: user.password
+      }).then((result: any) => {
+            //BackendService.token = result.uid;
+            //console.log(BackendService.tokenKeyRepresentante)
 
-      let data = (e) => {
+            //console.log("Estado: "+BackendService.isRepresentante())
+            //console.log("Firebase Service :User login:-->"+JSON.stringify(result))
+            //return JSON.stringify(result);
+            console.log("data:");
+            console.log(JSON.stringify(result))
+            
 
-        console.dir(e)
-        BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
+            console.log(result.uid)
+            //BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
+            let data = (e) => {
 
-      }
-      return firebase.query(data, '/profesores/', {
-        //usersRef.child(userId).once('value
-        singleEvent:true,
-        orderBy: {
-          type: firebase.QueryOrderByType.CHILD,
-          value: 'id' // mandatory when type is 'child'
-      },
-      range: {
-            type: firebase.QueryRangeType.EQUAL_TO,
-            value: "VAKxe9S9wXSJ3mBVchZs24yw97p2"
-            //user.id
-      },
-        /*limit: {
-          type: firebase.QueryLimitType.LAST,
-          value: 1
-        }*/
-      })
+              console.dir(e)
+              //BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
+              //if()
+              if(e.value!=null) {
+                BackendService.tokenKeyProfesor = result.uid;
+                return JSON.stringify(result)
+              }
+      
+            }
+            return firebase.query(data, '/profesores/', {
+              singleEvent:true,
+              orderBy: {
+                type: firebase.QueryOrderByType.CHILD,
+                value: 'id' // mandatory when type is 'child'
+            },
+            range: {
+                  type: firebase.QueryRangeType.EQUAL_TO,
+                  value: result.uid
+            },
+            })
+
+        }, (errorMessage: any) => {
+          console.log(errorMessage)
+          //console.log("Firebase Service :User error:-->"+errorMessage)
+          //alert("Por favor revisa las credenciales");
+          //alert("Unfortunately we could not find your account.")
+        });
+
+      
     }
 
-  testData(): Promise<any> {
+  datosRepresentante(): Promise<any> {
     return firebase.getValue('/representantes/'+BackendService.tokenKeyRepresentante);
+      //.then(result => {console.log(JSON.stringify(result.value))})
+      //.catch(error => {console.log("Error: " + error)});
+  }
+
+  datosProfesor(): Promise<any> {
+    return firebase.getValue('/profesores/'+BackendService.tokenKeyProfesor);
       //.then(result => {console.log(JSON.stringify(result.value))})
       //.catch(error => {console.log("Error: " + error)});
   }
