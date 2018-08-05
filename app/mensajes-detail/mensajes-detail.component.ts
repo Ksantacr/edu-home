@@ -43,10 +43,10 @@ export class MensajesDetailComponent implements OnInit {
     constructor(private route: ActivatedRoute,private router: RouterExtensions, private firebaseService:FirebaseService, private page:Page) {
         this.curso = new Curso();
         //this.profesor = new Profesor();
-        this.page.on("loaded", (args)=>{
+        /*this.page.on("loaded", (args)=>{
             var window = app.android.startActivity.getWindow();
             window.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-        })
+        })*/
     }
 
     public ngAfterViewInit() {
@@ -61,18 +61,25 @@ export class MensajesDetailComponent implements OnInit {
             this.firebaseService.chat(message, this.idProfesor, Date.now()).then((data: any) => {
                 let count = this.list.items.length;
                 //this.list.refresh();
-                //this.scroll(count+5);
+                //this.scroll();
                 this.textfield.text = '';
             });
         }
+        //this.scroll(0);
         
     }
 
 
-    scroll(count:number){
-        console.log("scrolling to ", count)
-        //this.list.refresh();
-        this.list.scrollToIndex(count-1);
+    scroll(){
+
+        setTimeout(()=>{
+            //console.log("scrolling to ", count)
+            this.list.refresh();
+            console.log("Cantidad de mensajeS:"+this.list.items.length);
+            this.list.scrollToIndex(this.list.items.length-1);
+        }, 200);
+
+       
      }
 
      filter(sender) {
@@ -102,10 +109,10 @@ export class MensajesDetailComponent implements OnInit {
     }
 
     ngOnInit():void {
-/*
+
         this.list = this.lv.nativeElement;
         this.textfield = this.tf.nativeElement;
-*/
+
         this.me = BackendService.tokenKeyRepresentante;
 
         this.idProfesor = this.route.snapshot.params.id;
@@ -113,6 +120,12 @@ export class MensajesDetailComponent implements OnInit {
 
         this.chats$ = <any>this.firebaseService.getChats(this.idProfesor);
         
+
+        //this.scroll()
+        this.chats$.subscribe(()=>{
+            console.log("Chat suscribe");
+            this.scroll();
+        })
         this.firebaseService.getCurso(1).then(data=>{
 
             //console.log(data.value.color);
@@ -125,12 +138,9 @@ export class MensajesDetailComponent implements OnInit {
 
     }
     regresar() {
-        this.router.back();
+        this.router.backToPreviousPage();
+        //this.router.navigate("");
+        //this.router.navigate(["/main/mensajes"] , { clearHistory: true });
     }
-
-    listo() {
-        console.log("listo");
-    }
-
 
 }

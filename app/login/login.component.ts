@@ -28,8 +28,7 @@ export class LoginComponent {
     ngOnInit(): void {
 
         this.user = new User();
-        this.user.email = "demo@eduhome.com";
-        this.user.password = "eduhom3";
+       
 
         //this.user.email = "prueba@eduhome.com";
         this.user.password = "prueba123";
@@ -37,6 +36,9 @@ export class LoginComponent {
 
         this.user.email = "profe@eduhome.com";
         this.user.password = "prueba";
+
+        this.user.email = "demo@eduhome.com";
+        this.user.password = "eduhom3";
 
 
         this.page.actionBarHidden = true;

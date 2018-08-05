@@ -23,8 +23,52 @@
 
 </StackLayout>-->
 
+<DockLayout stretchLastChild="false">
+        <StackLayout  orientation="vertical" dock="top" height="90%">
+        <ListView #list [items]="chats$ | async">
+                <ng-template let-item="item">
+                    <GridLayout columns="*" rows="auto" class="msg">
+                        <StackLayout [class]="filter(item.from)" orientation="horizontal" [horizontalAlignment]="align(item.from)">
+                            <Label [text]='item.message' class="msg_text" textWrap="true" verticalAlignment="top"></Label>
+                        </StackLayout>
+                    </GridLayout>
+                </ng-template>
+        </ListView>
+        </StackLayout>
+                
+        <StackLayout #chatbox dock="bottom" height="10%">
+                <GridLayout columns="*,auto">
+                        <TextField #textfield class="chatTextField" row="0" col="0" [(ngModel)]="message"></TextField>
+                        <Button #btn class="chatBtn fa" row="0" col="1" text="&#xf1d9;" (tap)=chat(message)></Button>
+                    </GridLayout>
+                    </StackLayout>
+                
+</DockLayout>
+<!--<GridLayout rows="*, auto">
+        <ListView #list [items]="chats$ | async" row="0">
+                <ng-template let-item="item">
+                    <GridLayout columns="*" rows="auto" class="msg">
+                        <StackLayout [class]="filter(item.from)" orientation="horizontal" [horizontalAlignment]="align(item.from)">
+                            <Label [text]='item.message' class="msg_text" textWrap="true" verticalAlignment="top"></Label>
+                        </StackLayout>
+                    </GridLayout>
+                </ng-template>
+        </ListView>
 
-<GridLayout rows="*, auto">
+        <StackLayout #chatbox row="1">
+                <GridLayout columns="*,auto">
+                    <TextField #textfield class="chatTextField" row="0" col="0" [(ngModel)]="message"></TextField>
+                    <Button #btn class="chatBtn fa" row="0" col="1" text="&#xf1d9;" (tap)=chat(message)></Button>
+                </GridLayout>
+        </StackLayout>
+    
+        
+    
+    </GridLayout>-->
+
+
+
+<!--<GridLayout rows="*, auto">
     <StackLayout  orientation="vertical" row="0">
             <ListView #list [items]="chats$ | async">
                     <ng-template let-item="item">
@@ -42,7 +86,7 @@
                 <Button #btn class="chatBtn fa" row="0" col="1" text="&#xf1d9;" (tap)=chat(message)></Button>
             </GridLayout>
     </StackLayout>
-</GridLayout>
+</GridLayout>-->
     
 <!--<StackLayout class="m-b-50">
     <ListView #list height="90%" [items]="chats$ | async">

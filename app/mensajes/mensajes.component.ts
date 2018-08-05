@@ -1,4 +1,7 @@
-import {Component, ChangeDetectionStrategy} from "@angular/core";
+import {Component} from "@angular/core";
+
+
+import { RouterExtensions } from "nativescript-angular/router";
 
 var imageSource = require("image-source");
 
@@ -12,8 +15,7 @@ class Nombres {
     selector: 'Mensajes',
     moduleId: module.id,
     templateUrl: "./mensajes.component.html",
-    styleUrls: ['./mensajes.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrls: ['./mensajes.component.css']
 
 
 })
@@ -27,7 +29,7 @@ export class MensajesComponent {
     public listaNombres:Array<Nombres>;
     private contador:number;
 
-    constructor() {
+    constructor(private router: RouterExtensions) {
 
 
         this.listaNombres = [];

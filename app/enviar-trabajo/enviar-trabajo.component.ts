@@ -7,6 +7,7 @@ import { Observable } from "rxjs";
 import { FirebaseService } from "../services/firebase.service";
 import { RouterExtensions } from "nativescript-angular/router";
 
+import { ModalDatetimepicker, PickerOptions } from 'nativescript-modal-datetimepicker';
 
 @Component({
     moduleId: module.id,
@@ -17,7 +18,14 @@ export class EnviarTrabajoComponent {
 
     curso: Curso;
 
-    constructor(private route: ActivatedRoute, private firebaseService:FirebaseService, private router: RouterExtensions) {}
+    public date: string;
+    public time: string;
+    private modalDatetimepicker: ModalDatetimepicker;
+    
+
+    constructor(private route: ActivatedRoute, private firebaseService:FirebaseService, private router: RouterExtensions) {
+        this.modalDatetimepicker = new ModalDatetimepicker();
+    }
 
     ngOnInit() {
         const id = +this.route.snapshot.params.id;
@@ -29,6 +37,28 @@ export class EnviarTrabajoComponent {
         });
 
     }
+
+    selectDate() {
+        this.modalDatetimepicker.pickDate(<PickerOptions>{
+            title: "Configurable Title",
+            theme: "dark",
+            startingDate: new Date(),
+            //maxDate: new Date(),
+            minDate: new Date()
+        }).then((result:any) => {
+            if (result) {
+
+                console.log("Date is: " + result.day + "-" + result.month + "-" + result.year)
+                this.date = "Date is: " + result.day + "-" + result.month + "-" + result.year;
+            } else {
+                console.log(false)
+                //this.set("date", false);
+            }
+        })
+        .catch((error) => {
+            console.log("Error: " + error);
+        });
+    };
 
     onPickerLoaded(args) {
         let datePicker = <DatePicker>args.object;

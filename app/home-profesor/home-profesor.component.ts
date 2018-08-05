@@ -3,6 +3,7 @@ import { Page } from "tns-core-modules/ui/page/page";
 import { UserEduHome } from "../shared/user-eduhome";
 import { FirebaseService } from "../services/firebase.service";
 import { Curso } from "../shared/curso.model";
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
     selector: "app-home-profesor",
@@ -16,7 +17,9 @@ export class HomeProfesorComponent {
     public user:UserEduHome;
     cursos: Array<Curso>;
 
-    constructor(private firebaseService:FirebaseService) {
+    
+
+    constructor(private firebaseService:FirebaseService, private router: RouterExtensions) {
 
         this.user = new UserEduHome("", "", "");
 
@@ -48,6 +51,11 @@ export class HomeProfesorComponent {
             
         );
 
+    }
+
+    logout() {
+        this.firebaseService.logout();
+        this.router.navigate(["login"] , { clearHistory: true });
     }
 
     
