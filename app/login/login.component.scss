@@ -33,11 +33,15 @@
   }
   
   .btn-primary {
-    margin: 50 5 15 5;
+    margin: 25 10 10 5;
     background-color: #FF9100;
     border-radius: 5;
     font-size: 17;
     text-transform: capitalize;
+    width: 65%;
+  }
+  .btn-primary:active {
+    opacity: 0.5;
   }
   .btn-primary:disabled {
     opacity: 0.5;

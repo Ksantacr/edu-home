@@ -1,6 +1,32 @@
 <ActionBar [title]="curso.nombre" backgroundColor="{{ color }}">
-  <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
+        <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
 </ActionBar>
+<GridLayout rows="*, auto" columns="auto" class="">
+        <StackLayout row="0" column="0" width="100%" height="90%">
+                <ListView #list height="100%" [items]="chats$ | async">
+                        <ng-template let-item="item">
+                            <GridLayout columns="*" rows="auto" class="msg">
+                                <StackLayout [class]="filter(item.from)" orientation="horizontal" [horizontalAlignment]="align(item.from)">
+                                    <!--<Image [visibility]="showImage(item.from)" class="authorimg" stretch="aspectFill" height="30" width="30" verticalAlignment="top" src="http://i.imgur.com/tHVIB.jpg" col="1"></Image>-->
+                                    <Label [text]='item.message' class="msg_text" textWrap="true" verticalAlignment="top"></Label>
+                                </StackLayout>
+                            </GridLayout>
+                        </ng-template>
+                    </ListView>
+        </StackLayout>
+        <StackLayout row="1" column="0" width="100%">
+                <FlexboxLayout class="message-box">
+                        <GridLayout columns="*,auto" style="padding: 10;">
+                                <TextField #textfield class="chatTextField" row="0" col="0" [(ngModel)]="message"></TextField>
+                                <Button #btn class="chatBtn fa" row="0" col="1" text="&#xf1d9;" (tap)=chat(message)></Button>
+                        </GridLayout>
+                </FlexboxLayout>
+        </StackLayout>
+</GridLayout>
+
+<!--<ActionBar [title]="curso.nombre" backgroundColor="{{ color }}">
+  <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
+</ActionBar>-->
 <!--
 <StackLayout class="m-b-50">
 <ListView #list height="90%" [items]="chats$ | async">
@@ -23,7 +49,65 @@
 
 </StackLayout>-->
 
-<DockLayout stretchLastChild="false">
+
+<!----
+
+    .home-panel{
+    vertical-align: center; 
+    font-size: 20;
+    margin: 15;
+}
+
+.description-label{
+    margin-bottom: 15;
+}
+
+-->
+<!--
+<GridLayout>
+	<ScrollView>
+		<StackLayout class="m-20">
+            <Label class="m-b-20" text="Give focus to one of the text fields below and watch the labels float up." textWrap="true"></Label>
+            
+             <GridLayout rows="30, auto" marginBottom="5">
+            <Label row="1" text="Username" opacity="0.4" fontSize="14"  class="input"></Label>
+            <TextField row="1" borderBottomWidth="3" borderBottomColor="#cec8c8" padding="2"></TextField>
+        </GridLayout>
+
+
+         <GridLayout rows="30, auto" marginBottom="5">
+            <Label row="1" text="password" opacity="0.4" fontSize="14"  class="input"></Label>
+            <TextField row="1" borderBottomWidth="3" borderBottomColor="#cec8c8" padding="2"></TextField>
+        </GridLayout>
+
+        <GridLayout rows="30, auto" marginBottom="5">
+            <Label row="1" text="password" opacity="0.4" fontSize="14"  class="input"></Label>
+            <TextField row="1" borderBottomWidth="3" borderBottomColor="#cec8c8" padding="2"></TextField>
+        </GridLayout>
+
+
+        <GridLayout rows="30, auto" marginBottom="5">
+            <Label row="1" text="password" opacity="0.4" fontSize="14"  class="input"></Label>
+            <TextField row="1" borderBottomWidth="3" borderBottomColor="#cec8c8" padding="2"></TextField>
+        </GridLayout>
+
+
+        <GridLayout rows="30, auto" marginBottom="5">
+            <Label row="1" text="password" opacity="0.4" fontSize="14"  class="input"></Label>
+            <TextField row="1" borderBottomWidth="3" borderBottomColor="#cec8c8" padding="2"></TextField>
+        </GridLayout>
+
+        <GridLayout rows="30, auto" marginBottom="5">
+            <Label row="1" text="password" opacity="0.4" fontSize="14"  class="input"></Label>
+            <TextField row="1" borderBottomWidth="3" borderBottomColor="#cec8c8" padding="2"></TextField>
+        </GridLayout>
+		</StackLayout>
+	</ScrollView>
+</GridLayout>
+-->
+
+
+<!--<DockLayout stretchLastChild="false">
         <StackLayout  orientation="vertical" dock="top" height="90%">
         <ListView #list [items]="chats$ | async">
                 <ng-template let-item="item">
@@ -43,7 +127,7 @@
                     </GridLayout>
                     </StackLayout>
                 
-</DockLayout>
+</DockLayout>-->
 <!--<GridLayout rows="*, auto">
         <ListView #list [items]="chats$ | async" row="0">
                 <ng-template let-item="item">

@@ -32,7 +32,7 @@ export class LoginComponent {
 
         //this.user.email = "prueba@eduhome.com";
         this.user.password = "prueba123";
-        this.user.email = "kevn.santacruz@gmail.com"
+        this.user.email = "kevn.santacruz@gmail.com";
 
         this.user.email = "profe@eduhome.com";
         this.user.password = "prueba";

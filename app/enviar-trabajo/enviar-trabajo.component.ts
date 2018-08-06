@@ -17,7 +17,6 @@ import { ModalDatetimepicker, PickerOptions } from 'nativescript-modal-datetimep
 export class EnviarTrabajoComponent {
 
     curso: Curso;
-
     public date: string;
     public time: string;
     private modalDatetimepicker: ModalDatetimepicker;
@@ -59,40 +58,6 @@ export class EnviarTrabajoComponent {
             console.log("Error: " + error);
         });
     };
-
-    onPickerLoaded(args) {
-        let datePicker = <DatePicker>args.object;
-
-        datePicker.year = 1980;
-        datePicker.month = 2;
-        datePicker.day = 9;
-        datePicker.minDate = new Date(1975, 0, 29);
-        datePicker.maxDate = new Date(2045, 4, 12);
-    }
-
-    onDateChanged(args) {
-        console.log("Date changed");
-        console.log("New value: " + args.value);
-        console.log("Old value: " + args.oldValue);
-    }
-
-    onDayChanged(args) {
-        console.log("Day changed");
-        console.log("New value: " + args.value);
-        console.log("Old value: " + args.oldValue);
-    }
-
-    onMonthChanged(args) {
-        console.log("Month changed");
-        console.log("New value: " + args.value);
-        console.log("Old value: " + args.oldValue);
-    }
-
-    onYearChanged(args) {
-        console.log("Year changed");
-        console.log("New value: " + args.value);
-        console.log("Old value: " + args.oldValue);
-    }
 
     regresar() {
         this.router.back();

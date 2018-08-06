@@ -28,7 +28,7 @@
 			<ActivityIndicator rowSpan="2" [busy]="processing"></ActivityIndicator>
         </GridLayout>
         
-        <Button text="Iniciar Sesión" (tap)="submit()" class="btn btn-primary m-t-20" clearHistory="true"></Button>
+        <Button text="Iniciar Sesión" (tap)="submit()" class="btn btn-primary" clearHistory="true"></Button>
 		<!--<Button [text]="isLoggingIn ? 'Log In' : 'Sign Up'" [isEnabled]="!processing" (tap)="submit()" class="btn btn-primary m-t-20"></Button>-->
 		<!--<Label *ngIf="isLoggingIn" text="Me gustaría ser parte" class="login-label" (tap)="forgotPassword()"></Label>-->
 	</StackLayout>

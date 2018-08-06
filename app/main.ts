@@ -5,9 +5,9 @@ import { AppModule } from "./app.module";
 import { BackendService } from "./services/backend.service";
 
 
-//import { setStatusBarColors } from "./utils/status-bar-util";
+import { setStatusBarColors } from "./utils/status-bar-util";
 
-//setStatusBarColors();
+setStatusBarColors();
 /*import firebase = require("nativescript-plugin-firebase");
 
 firebase.init({

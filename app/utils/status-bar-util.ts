@@ -1,6 +1,7 @@
 import * as application from "application";
 import * as platform from "platform";
 import * as utils from "utils/utils";
+import { Color } from "color";
 
 declare var android: any;
 declare var UIResponder: any;
@@ -33,14 +34,21 @@ export function setStatusBarColors() {
       if (application.android && platform.device.sdkVersion >= "21") {
         let View = android.view.View;
         let window = application.android.startActivity.getWindow();
-        window.setStatusBarColor(0x000000);
+
+        //const color = new Color(100, 255, 100, 100);
+        //let nuevo = 
+        window.setStatusBarColor(new Color('#17375e').android);
 
         let decorView = window.getDecorView();
         decorView.setSystemUiVisibility(
-          View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-          | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-          | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-          | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+          //View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+          
+          //| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+           View.SYSTEM_UI_FLAG_IMMERSIVE_STICK
+
+          //| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+          
+        );
       }
     });
   }
