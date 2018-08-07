@@ -17,7 +17,7 @@
         <StackLayout row="1" column="0" width="100%">
                 <FlexboxLayout class="message-box">
                         <GridLayout columns="*,auto" style="padding: 10;">
-                                <TextField #textfield class="chatTextField" row="0" col="0" [(ngModel)]="message"></TextField>
+                                <TextField #textfield class="chatTextField" row="0" col="0" [(ngModel)]="message" (focus)="onFocus($event)" (tap)="onTap($event)" hint="Escriba su mensaje..."></TextField>
                                 <Button #btn class="chatBtn fa" row="0" col="1" text="&#xf1d9;" (tap)=chat(message)></Button>
                         </GridLayout>
                 </FlexboxLayout>

@@ -37,6 +37,7 @@ export function setStatusBarColors() {
 
         //const color = new Color(100, 255, 100, 100);
         //let nuevo = 
+        //'#17375e'
         window.setStatusBarColor(new Color('#17375e').android);
 
         let decorView = window.getDecorView();

@@ -143,4 +143,16 @@ export class MensajesDetailComponent implements OnInit {
         //this.router.navigate(["/main/mensajes"] , { clearHistory: true });
     }
 
+    onFocus($event) {
+        this.scroll();
+        console.log("onFocus")
+    }
+
+    onTap($event) {
+        this.scroll();
+        console.log("Tap")
+    }
+
+    
+
 }
