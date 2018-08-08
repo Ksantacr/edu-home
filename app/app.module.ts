@@ -17,6 +17,7 @@ import { registerLocaleData } from '@angular/common';
 import esEC from '@angular/common/locales/es';
 
 import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
+import { UtilsService } from "./utils/util.service";
 
 registerLocaleData(esEC)
 
@@ -25,6 +26,7 @@ registerLocaleData(esEC)
     BackendService,
     FirebaseService,
     authProviders,
+    UtilsService,
     { provide: esEC, useValue: 'es' }
 ],
     bootstrap: [

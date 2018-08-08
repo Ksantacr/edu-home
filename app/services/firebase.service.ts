@@ -12,6 +12,10 @@ import { share } from 'rxjs/operators';
 import { QueryOrderByType } from "nativescript-plugin-firebase";
 import * as dialogs from "ui/dialogs";
 
+
+import {  UtilsService } from "../utils/util.service";
+import { NewTarea } from "../shared/tarea.new.model";
+
 export class Yowl {
   constructor
     (
@@ -39,7 +43,7 @@ yowls: BehaviorSubject<Array<Yowl>> = new BehaviorSubject([]);
 private _allYowls: Array<Yowl> = [];
 
   private user:UserEduHome;
-  constructor(private ngZone: NgZone, //private utils: UtilsService
+  constructor(private ngZone: NgZone, private utils: UtilsService
     ){}
 
     getChats(idProfesor:string): Observable<any> {
@@ -143,6 +147,52 @@ private _allYowls: Array<Yowl> = [];
       return firebase.getValue('/profesores/'+BackendService.tokenKeyProfesor+'/cursos/');
       //return firebase.getValue('/cursos');
     }
+
+    uploadFile(localPath: string, file?: any): Promise<any> {
+      let filename = this.utils.getFilename(localPath);
+      let remotePath = `${filename}`;
+      
+      return firebase.storage.uploadFile({
+        remoteFullPath: remotePath,
+        localFullPath: localPath,
+        onProgress: function(status) {
+            console.log("Uploaded fraction: " + status.fractionCompleted);
+            console.log("Percentage complete: " + status.percentageCompleted);
+        }
+      });
+  }
+
+  getDownloadUrl(remoteFilePath: string): Promise<any> {
+    return firebase.storage.getDownloadUrl({
+      remoteFullPath: remoteFilePath})
+    .then(
+      function (url:string) {
+        return url;
+      },
+      function (errorMessage:any) {
+        console.log(errorMessage);
+      });
+}
+
+agregarTarea(tarea:NewTarea) {
+  return firebase.push(
+    "/tareas",
+    {
+      "archivoPath": tarea.archivoPath,
+      "color": tarea.color,
+      "descripcion": tarea.descripcion,
+      "fechaEntrega": tarea.fechaEntrega,
+      "fotoUrl": tarea.fotoUrl
+    }
+  ).then(
+    function (result:any) {
+      return 'Gift added to your wishlist!';
+    },
+    function (errorMessage:any) {
+      console.log(errorMessage);
+    });
+}
+
 
 
 

@@ -1,13 +1,80 @@
 <ActionBar [title]="curso.nombre" [backgroundColor]="curso.color" *ngIf="curso">
         <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
-    </ActionBar>
+</ActionBar>
 
-    <StackLayout class="p-20">
-            <Button text="Pick a Date" (tap)="selectDate()" style="margin-top: 100;" class="btn btn-primary btn-active"></Button>
-            <Button text="Pick a Time" tap="{{ selectTime }}" style="margin-top: 20; margin-bottom: 100;" class="btn btn-primary btn-active"></Button>
-            <Label visibility="{{ date ? 'visible' : 'collapsed' }}" text="{{date}}" style="color: black; text-align: center; font-size: 20; font-weight: bold;" ></Label>
-            <Label visibility="{{ time ? 'visible' : 'collapsed' }}" text="{{time}}" style="color: white; text-align: center; font-size: 20; font-weight: bold;" ></Label>
+        <GridLayout rows="auto, auto, *, auto" class="form p-10">
+		<GridLayout row="0" column="0" columns="auto,*" class="input input-wrap" padding="0" (tap)="selectDate()">
+                        
+                        <Image col="0" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png" width="24" height="24" style="margin-left: 5"></Image>
+                        
+                        <!--<TextField col="1" hint="Cambiar fecha de entrega" class="input" horizontalAlignment="stretch" [(ngModel)]="fecha" (tap)="selectDate()"></TextField>-->
+
+                        <TextField col="1" hint="Cambiar fecha de entrega" class="input" horizontalAlignment="stretch" text="{{ fecha | date: 'fullDate':'-0500':'es-EC' | titlecase }}" (tap)="selectDate()"></TextField>
+                        
+                </GridLayout>
+                
+                <GridLayout row="1" column="0" columns="auto,*" padding="0" class="input input-wrap">
+                                <Image col="0" src="https://cdn3.iconfinder.com/data/icons/gray-toolbar-2/512/tags_edit_add_seo_delete_label-512.png" width="24" height="24" style="margin-left: 5"></Image>
+                                
+                                <TextField col="1" hint="Agregar título" class="input" horizontalAlignment="stretch" [(ngModel)]="titulo"></TextField>
+                                
+                </GridLayout>
+
+                <GridLayout row="2" rows="*" columns="*, auto"class="input input-wrap">
+
+                        <StackLayout row="0" col="0">
+
+                                <TextView hint="Recuerda que puedes escribir la tarea o subir una foto" text="" editable="true" class="input" style="width: 95%"></TextView>
+
+                                <Image [src]="image" width="100" height="100"></Image>
+
+                                
+                        </StackLayout>
+
+                        
+
+                        <Label row="0" col="1" text="&#xf083;" class="fa p-10" color="black" fontWeight="bold" fontSize="26" horizontalAlignment="right"
+                        verticalAlignment="bottom" (tap)="takePhoto()"
+                        ></Label>
+
+                        <!---->
+
+
+                       
+
+                </GridLayout>
+
+                
+                <Button row="3" column="0" text="Enviar" (tap)="enviarTarea()" class="btn btn-primary"></Button>
+
+                <ActivityIndicator rowSpan="2" row="2" [busy]="processing" width="50%"></ActivityIndicator>
+                
+        </GridLayout>
+
+<!--<GridLayout rows="auto, auto, *, auto" columns="auto" class="p-20">
+        <StackLayout row="0" column="0">
+                <TextField hint="Ejemplo text field" text=""></TextField>
         </StackLayout>
 
-        <StackLayout>
+        <StackLayout row="1" column="0">
+                <TextField hint="Ejemplo text field" text=""></TextField>
+        </StackLayout>
+
+        <TextView row="2" column="0" hint="Ejemplo text view" text="" editable="true"></TextView>
+
+        <Button row="3" text="Enviar"></Button>
+
+</GridLayout>
+-->
+
+<!--<StackLayout class="p-20">
+        <Button text="Pick a Date" (tap)="selectDate()" style="margin-top: 100;" class="btn btn-primary btn-active"></Button>
+        <Button text="Pick a Time" tap="{{ selectTime }}" style="margin-top: 20; margin-bottom: 100;" class="btn btn-primary btn-active"></Button>
+        <Label visibility="{{ date ? 'visible' : 'collapsed' }}" text="{{date}}" style="color: black; text-align: center; font-size: 20; font-weight: bold;" ></Label>
+        <Label visibility="{{ time ? 'visible' : 'collapsed' }}" text="{{time}}" style="color: white; text-align: center; font-size: 20; font-weight: bold;" ></Label>
 </StackLayout>
+
+<StackLayout>
+        <TextField hint="Ejemplo text field" text=""></TextField>
+</StackLayout>
+-->
