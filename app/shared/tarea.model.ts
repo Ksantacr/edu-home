@@ -6,6 +6,7 @@ export class Tarea {
     fechaEntrega:Date;*/
 
     constructor(public id:string,
+        public titulo?:string,
         public descripcion?:string,
         public fotoUrl?:string,
         public archivoPath?:string,

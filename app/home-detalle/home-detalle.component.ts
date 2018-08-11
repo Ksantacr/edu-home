@@ -36,6 +36,7 @@ export class HomeDetalleComponent implements OnInit{
     image: any;
 
     public listaTareas:Array<Tarea>;
+    listaTareas_:Array<Tarea>;
 
     public gift:Observable<any>;
     //public hidden:boolean;
@@ -43,6 +44,7 @@ export class HomeDetalleComponent implements OnInit{
     constructor(private route: ActivatedRoute, private router: RouterExtensions, private firebaseService:FirebaseService ) {
         this.curso = new Curso();
         this.listaTareas = [];
+        this.listaTareas_= [];
     }
 
 
@@ -55,14 +57,12 @@ export class HomeDetalleComponent implements OnInit{
         this.firebaseService.getCurso(id).then(data=>{
 
             this.curso = new Curso(data.value.id, data.value.nombre, data.value.imagen, data.value.color);
-            
 
             data.value.tareasID.forEach((tarea) => {
-                console.log(tarea.fechaEntrega)
+                console.log(new Date(tarea.fechaEntrega))
                 
-                if(!tarea.revisado){
-                    this.listaTareas.push(new Tarea(tarea.id,tarea.descripcion, tarea.fotoUrl, tarea.archivoPath, tarea.color, tarea.fechaEntrega, tarea.revisado));
-                    
+                if(!tarea.revisado && (new Date(tarea.fechaEntrega)>=new Date())) {
+                    this.listaTareas.push(new Tarea(tarea.id,tarea.titulo, tarea.descripcion, tarea.fotoUrl, tarea.archivoPath, tarea.color, tarea.fechaEntrega, tarea.revisado));
                 }
             });
 
@@ -75,6 +75,19 @@ export class HomeDetalleComponent implements OnInit{
         //console.log(""+JSON.stringify(this.curso))
         
     }
+    actualizarTareas() {
+        //this.listaTareas_ = this.listaTareas;
+        /*this.listaTareas.forEach(tarea=>{
+            if(!tarea.revisado){
+                this.listaTareas_.push(new Tarea(tarea.id,tarea.titulo, tarea.descripcion, tarea.fotoUrl, tarea.archivoPath, tarea.color, tarea.fechaEntrega, tarea.revisado));
+            }
+        })*/
+        this.listaTareas = this.listaTareas.filter(tarea=>{
+            return (!tarea.revisado && new Date(tarea.fechaEntrega)>=new Date())
+        })
+
+        //this.listaTareas = this.listaTareas_;
+    }
     regresar() {
         //console.log("Back tap");
         this.router.back();
@@ -86,7 +99,7 @@ export class HomeDetalleComponent implements OnInit{
 
         dialogs.confirm({
             title: "Tarea",
-            message: "La tarea sólo se ocultará",
+            message: "Marcar la tarea como revisada!",
             okButtonText: "Aceptar",
             cancelButtonText: "Cancelar"
             //neutralButtonText: "Neutral text"
@@ -95,18 +108,22 @@ export class HomeDetalleComponent implements OnInit{
 
             if(result) {
                 this.listaTareas[this.listaTareas.indexOf(tarea)].revisado = true;
-                console.log(this.listaTareas[this.listaTareas.indexOf(tarea)])
+
+
+                console.log("Indice de la tarea"+this.listaTareas[this.listaTareas.indexOf(tarea)])
 
                 console.dir(this.listaTareas[0])
                 
                 this.firebaseService.actualizarCurso(this.curso.id - 1, this.listaTareas.indexOf(tarea), this.listaTareas[this.listaTareas.indexOf(tarea)]).then(
+
+                    ()=>{this.actualizarTareas()}
                     //data => {
                     //    console.log(data)
                     //}
 
                     //this.firebaseService.getCursos()
                 );
-                this.listaTareas.splice(this.listaTareas.indexOf(tarea), 1);
+                //this.listaTareas.splice(this.listaTareas.indexOf(tarea), 1);
             }
             //console.log("Dialog result: " + result);
         });

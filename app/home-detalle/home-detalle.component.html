@@ -95,7 +95,7 @@
                   <Label text="Entrega: {{ tarea.fechaEntrega | date: 'fullDate':'-0500':'es-EC' | titlecase }}" textWrap="true" class="m-l-5"></Label>
               </FlexboxLayout>
   
-              <Label text="Lección" textWrap="true" fontWeight="bold" fontSize="19" class="m-t-5"></Label>
+              <Label text="{{ tarea.titulo}}" textWrap="true" fontWeight="bold" fontSize="19" class="m-t-5"></Label>
   
               <Label [text]="tarea.descripcion" textWrap="true" fontSize="17" class="m-t-5 m-b-5"></Label>
               

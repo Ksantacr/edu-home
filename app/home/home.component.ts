@@ -79,20 +79,23 @@ export class HomeComponent implements OnInit {
 
         <any>this.firebaseService.getCursos().then(
             (data)=>{
-
-                //console.dir(data.value)
+                console.log("--<<<>>>")  
+                console.dir(data.value)
 
                 this.cursos = [];
                 data.value.forEach((curso)=>{
 
-                   let tareas:Array<Curso> = curso.tareasID.filter( tarea => tarea.revisado==false);
+                   //let tareas:Array<Curso> = curso.tareasID.filter( tarea => tarea.revisado==false);
 
-                   //let tareas = [];
+                   let tareas = [];
 
-                   /*curso.tareasID.forEach( (test) => {
-                    console.log(curso.nombre)   
-                    console.log(test)
-                   });*/
+                   curso.tareasID.forEach( (test) => {
+                    //console.log("--<<<>>>")   
+                    //console.dir(test)
+                    //if(test)
+                    if(test.revisado==false)
+                        tareas.push(0)
+                   });
 
                    //.filter( tarea => !tarea.revisado) || [];
                    //let cantidad = data.tareas.filter( tarea => tarea.revisado==false)

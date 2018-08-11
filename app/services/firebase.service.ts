@@ -8,6 +8,7 @@ import firebase = require("nativescript-plugin-firebase");
 import {Observable} from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
+
 import { share } from 'rxjs/operators';
 import { QueryOrderByType } from "nativescript-plugin-firebase";
 import * as dialogs from "ui/dialogs";
@@ -43,6 +44,8 @@ yowls: BehaviorSubject<Array<Yowl>> = new BehaviorSubject([]);
 private _allYowls: Array<Yowl> = [];
 
   private user:UserEduHome;
+
+  public cantidad:Observable<any>;
   constructor(private ngZone: NgZone, private utils: UtilsService
     ){}
 
@@ -57,7 +60,7 @@ private _allYowls: Array<Yowl> = [];
               let results = this.handleChatSnapshot(snapshot.value);
                observer.next(results);
 
-               console.log(snapshot.value);
+               //console.log(snapshot.value);
 
             });
           };
@@ -129,6 +132,14 @@ private _allYowls: Array<Yowl> = [];
       return firebase.getValue('/representantes/'+BackendService.tokenKeyRepresentante+'/cursos/'+(id-1));
     }
 
+    /*getTareas(id:any) {
+      return firebase.getValue('/tareas/'+id+'/'); 
+    }*/
+
+    getAllRepresentantes() {
+      return firebase.getValue('/listado/');
+    }
+
     getCursoProfesor(id:number): Promise<any> {
       return firebase.getValue('/profesores/'+BackendService.tokenKeyProfesor+'/cursos/'+(id-1));
     }
@@ -173,11 +184,50 @@ private _allYowls: Array<Yowl> = [];
         console.log(errorMessage);
       });
 }
+agregarTareaRepresentante(idRepresentante:any, idCurso:string, tarea:NewTarea) {
+  //representantes/ULkcfwOT8KUx5YspqUZKncNVCF12/cursos/0/tareasID/*
 
-agregarTarea(tarea:NewTarea) {
+  console.log(idRepresentante)
+  console.log(idCurso)
+  console.log(tarea)
+
+  console.log("-----------------------<<<<<<<<<")
+  return firebase.update('/representantes/'+idRepresentante+'/cursos/'+idCurso+'/tareasID/'+tarea.id+'/', {
+    archivoPath: "",
+    color: tarea.color,
+    descripcion: tarea.descripcion,
+    fechaEntrega: tarea.fechaEntrega,
+    fotoUrl: tarea.fotoUrl,
+    id: (tarea.id+1),
+    revisado: false,
+    titulo: tarea.titulo
+
+  })
+}
+
+actualizarCantidadTareasCurso(idCurso:any, cantidad_:number) {
+
+  console.log("Actulizar cantidad Tareas")
+
+  console.log(idCurso)
+  console.log(cantidad_)
+  return firebase.update('/cantidadTareasCurso/'+idCurso+'/', {
+    cantidad: cantidad_
+  })
+
+}
+
+getCantidadTareasCurso(){
+  return firebase.getValue('/cantidadTareasCurso/');
+}
+
+
+
+agregarTarea(idCurso:any, tarea:NewTarea) {
   return firebase.push(
-    "/tareas",
+    "/tareas/"+idCurso,
     {
+      "id": tarea.id,
       "archivoPath": tarea.archivoPath,
       "color": tarea.color,
       "descripcion": tarea.descripcion,
@@ -192,9 +242,6 @@ agregarTarea(tarea:NewTarea) {
       console.log(errorMessage);
     });
 }
-
-
-
 
     getLista(): Observable<any> {
       //console.log("GETCURSOS")
@@ -230,12 +277,12 @@ agregarTarea(tarea:NewTarea) {
     }
 
 
-    actualizarCurso(id, idTarea, tarea): Promise<any> {
+    actualizarCurso(idCurso, idTarea, tarea): Promise<any> {
       //console.log("ID: "+id)
       //console.log("idTarea: "+idTarea)
       console.dir("Tarea: "+tarea)
       return firebase.update(
-        '/representantes/'+BackendService.tokenKeyRepresentante+'/cursos/'+id+'/tareasID/'+idTarea, {
+        '/representantes/'+BackendService.tokenKeyRepresentante+'/cursos/'+idCurso+'/tareasID/'+idTarea, {
           "id": tarea.id,
           "descripcion": tarea.descripcion,
           "fotoUrl": tarea.fotoUrl,

@@ -5,11 +5,15 @@ export class NewTarea {
     color:string;
     fechaEntrega:Date;*/
 
-    constructor(public descripcion?:string,
+    constructor(
+        public id?:number,
+        public titulo?:string,
+        public descripcion?:string,
         public fotoUrl?:string,
         public archivoPath?:string,
         public color?:string,
-        public fechaEntrega?:string){}
+        public fechaEntrega?:string,
+    public revisado?:boolean){}
     //constructor(private fechaEntrega:Date) {
      //   this.fechaEntrega = new Date();
     //}

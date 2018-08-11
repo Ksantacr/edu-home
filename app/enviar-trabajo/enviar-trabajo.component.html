@@ -8,25 +8,26 @@
                         <Image col="0" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png" width="24" height="24" style="margin-left: 5"></Image>
                         
                         <!--<TextField col="1" hint="Cambiar fecha de entrega" class="input" horizontalAlignment="stretch" [(ngModel)]="fecha" (tap)="selectDate()"></TextField>-->
-
-                        <TextField col="1" hint="Cambiar fecha de entrega" class="input" horizontalAlignment="stretch" text="{{ fecha | date: 'fullDate':'-0500':'es-EC' | titlecase }}" (tap)="selectDate()"></TextField>
+                        <TextView text="" col="1" hint="Fecha de entrega" editable="false" class="input p-0" horizontalAlignment="stretch" text="{{ fecha | date: 'fullDate':'-0500':'es-EC' | titlecase }}" (tap)="selectDate()"></TextView>
+                        
+                        <!--<TextField col="1" hint="Cambiar fecha de entrega" class="input" horizontalAlignment="stretch" text="{{ fecha | date: 'fullDate':'-0500':'es-EC' | titlecase }}" (tap)="selectDate()"></TextField>-->
                         
                 </GridLayout>
                 
                 <GridLayout row="1" column="0" columns="auto,*" padding="0" class="input input-wrap">
                                 <Image col="0" src="https://cdn3.iconfinder.com/data/icons/gray-toolbar-2/512/tags_edit_add_seo_delete_label-512.png" width="24" height="24" style="margin-left: 5"></Image>
                                 
-                                <TextField col="1" hint="Agregar título" class="input" horizontalAlignment="stretch" [(ngModel)]="titulo"></TextField>
+                                <TextField col="1" hint="Agregar título" class="input p-0" horizontalAlignment="stretch" [(ngModel)]="titulo"></TextField>
                                 
                 </GridLayout>
 
-                <GridLayout row="2" rows="*" columns="*, auto"class="input input-wrap">
+                <GridLayout row="2" rows="*" columns="*, auto"class="input input-wrap input-descripcion">
 
                         <StackLayout row="0" col="0">
 
-                                <TextView hint="Recuerda que puedes escribir la tarea o subir una foto" text="" editable="true" class="input" style="width: 95%"></TextView>
+                                <TextView hint="Recuerda que puedes escribir la tarea o subir una foto" text="" editable="true" class="input" style="width: 95%" [(ngModel)]="descripcion"></TextView>
 
-                                <Image [src]="image" width="100" height="100"></Image>
+                                <Image [src]="image" width="130" height="130" margin="10" class="p-10"></Image>
 
                                 
                         </StackLayout>

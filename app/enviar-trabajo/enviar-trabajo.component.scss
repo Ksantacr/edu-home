@@ -14,8 +14,16 @@ ActionBar {
 
   .input-wrap {
     margin-top: 5;
-    border-color: #17375E;
+    border-color: gray;
     border-width: 1;
     border-radius: 10;
     padding: 0;
+}
+
+.input-descripcion {
+    border-width: 1;
+    border-radius: 2;
+}
+.p-0 {
+    padding: 10 5 10 5;
 }

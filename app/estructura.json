@@ -2,8 +2,8 @@
 "representantes": {
 		"ULkcfwOT8KUx5YspqUZKncNVCF12": {
             "id": "ULkcfwOT8KUx5YspqUZKncNVCF12",
-			"nombres": "Kevin Rafael",
-			"apellidos": "Santacruz Burgos",
+			"nombres": "Demo",
+			"apellidos": "Representante 1",
 			"fotoPerfil": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
             "cursos" :[
                 {
@@ -13,80 +13,13 @@
                 "color": "#5bbcb7",
                 "tareasID": [ {
                     "id": 1,
-            "descripcion": "Revisar el libro",
+            "descripcion": "Repasar el ultimo capítulo del libro, revisado en clases",
             "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
             "archivoPath": "",
             "color": "#243a3a",
             "fechaEntrega": 1541826000000,
-            "revisado": false
-        } ],
-                "profesor": {
-                    "titulo": "Lcdo",
-                    "nombres": "Kevin Rafael",
-                    "apellidos": "Santacruz Burgos"
-                }
-            }, {
-                "id": 2,
-                "nombre": "Lenguaje y Literatura",
-                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-                "color": "#243a3a",
-                "tareasID": [ {
-                    "id": 1,
-            "descripcion": "Tarea 2",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-            "archivoPath": "",
-            "color": "red",
-            "fechaEntrega": 1541826000000,
-            "revisado": false
-
-        }, {
-            "id": 2,
-            "descripcion": "Tarea 4",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-            "archivoPath": "",
-            "color": "#5bbcb7",
-            "fechaEntrega": 1541826000000,
-            "revisado": false
-
-        } ],
-                "profesor": {
-                    "titulo": "Lcdo",
-                    "nombres": "Joel Ricardo",
-                    "apellidos": "Collahuazo Vaca"
-                }
-            }, {
-                "id": 3,
-                "nombre": "Matemáticas",
-                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-                "color": "#8f05e8",
-                "tareasID": [ ],
-                "profesor": {
-                    "titulo": "Lcdo",
-                    "nombres": "Diego",
-                    "apellidos": "Carrera"
-                }
-            }]
-        },
-
-		"mnqlgrPCJEYuYBBsZZvQBRnxmUy1": {
-            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
-            "nombres": "Tamara",
-			"apellidos": "Santacruz Burgos",
-			"fotoPerfil": "http://pm1.narvii.com/6462/1c033cbd2c7b86c970c3aa77e15f6c9ee0431897_00.jpg",
-			"cursos" :[
-                {
-                "id": 1,
-                "nombre": "Matemáticas",
-                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-                "color": "#5bbcb7",
-                "tareasID": [ {
-                    "id": 1,
-            "descripcion": "Revisar el libro",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
-            "archivoPath": "",
-            "color": "#243a3a",
-            "fechaEntrega": 1541826000000,
-            "revisado": false
+            "revisado": false,
+            "titulo": "Leccion"
         } ],
                 "profesor": {
                     "titulo": "Lcdo",
@@ -100,21 +33,82 @@
                 "color": "#243a3a",
                 "tareasID": [ {
                     "id":1,
-            "descripcion": "Tarea 2",
+            "descripcion": "Revisar las páginas 20-22 del libro.",
             "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
             "archivoPath": "",
             "color": "red",
             "fechaEntrega": 1541826000000,
-            "revisado": false
+            "revisado": false,
+            "titulo": "Lección proxima clase"
 
         }, {
             "id": 2,
-            "descripcion": "Tarea 3",
+            "descripcion": "Traer el cuaderno completo y firmado por el representante",
             "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
             "archivoPath": "",
             "color": "#8f05e8",
             "fechaEntrega": 1541826000000,
-            "revisado": false
+            "revisado": false,
+            "titulo": "Revisión"
+        } ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Kevin Rafael",
+                    "apellidos": "Santacruz Burgos"
+                }
+            }]
+        },
+
+		"mnqlgrPCJEYuYBBsZZvQBRnxmUy1": {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "nombres": "Demo",
+			"apellidos": "Representante 2",
+			"fotoPerfil": "http://pm1.narvii.com/6462/1c033cbd2c7b86c970c3aa77e15f6c9ee0431897_00.jpg",
+			"cursos" :[
+                {
+                "id": 1,
+                "nombre": "Matemáticas",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#5bbcb7",
+                "tareasID": [ {
+                    "id": 1,
+            "descripcion": "Repasar el ultimo capítulo del libro, revisado en clases",
+            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "archivoPath": "",
+            "color": "#243a3a",
+            "fechaEntrega": 1541826000000,
+            "revisado": false,
+            "titulo": "Leccion"
+        } ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Joel Ricardo",
+                    "apellidos": "Collahuazo Vaca"
+                }
+            }, {
+                "id": 2,
+                "nombre": "Lenguaje y Literatura",
+                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "color": "#243a3a",
+                "tareasID": [ {
+                    "id":1,
+            "descripcion": "Revisar las páginas 20-22 del libro.",
+            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "archivoPath": "",
+            "color": "red",
+            "fechaEntrega": 1541826000000,
+            "revisado": false,
+            "titulo": "Lección proxima clase"
+
+        }, {
+            "id": 2,
+            "descripcion": "Traer el cuaderno completo y firmado por el representante",
+            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "archivoPath": "",
+            "color": "#8f05e8",
+            "fechaEntrega": 1541826000000,
+            "revisado": false,
+            "titulo": "Revisión"
         } ],
                 "profesor": {
                     "titulo": "Lcdo",
@@ -211,6 +205,17 @@
             "tareas": "lista"
         }
              
-    }
+    },
+
+    "listado": [
+        {"id":"ULkcfwOT8KUx5YspqUZKncNVCF12"}
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1"}
+    ],
+
+    "cantidadTareasCurso" : [
+        {"id": 1, "cantidad": 1},
+        {"id": 2, "cantidad": 2}
+    ]
+
 }
 
