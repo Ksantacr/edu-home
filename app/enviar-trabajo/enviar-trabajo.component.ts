@@ -162,7 +162,7 @@ export class EnviarTrabajoComponent {
                     this.uploadedImageName = uploadedFile.name;
                     //get downloadURL and store it as a full path;
                     this.firebaseService.getDownloadUrl(this.uploadedImageName).then((downloadUrl: string) => {
-                        let temp_tarea = new NewTarea(this.cantidadTareasCurso[this.curso.id-1], this.titulo, this.descripcion, downloadUrl, "", this.curso.color, ""+this.fecha.getTime(), false);
+                        let temp_tarea = new NewTarea(this.cantidadTareasCurso[this.curso.id-1], this.titulo, this.descripcion, downloadUrl, "", this.curso.color,this.fecha.getTime(), false);
                         console.log("TRUE")
                         console.log(temp_tarea)
                         //this.firebaseService.agregarTarea(this.curso.id, temp_tarea)
@@ -194,7 +194,7 @@ export class EnviarTrabajoComponent {
                 });
             }else {
                 this.processing = true;
-                let temp_tarea = new NewTarea(this.cantidadTareasCurso[this.curso.id-1], this.titulo, this.descripcion,"", "", this.curso.color, ""+this.fecha.getTime(), false);
+                let temp_tarea = new NewTarea(this.cantidadTareasCurso[this.curso.id-1], this.titulo, this.descripcion,"", "", this.curso.color, this.fecha.getTime(), false);
                 console.log("TRUE")
                 console.log(temp_tarea)
                 this.listadoRepresentantes.forEach((r)=>{

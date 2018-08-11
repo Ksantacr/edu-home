@@ -15,6 +15,7 @@ import { BackendService } from "../services/backend.service";
 //import { forEach } from "@angular/router/src/utils/collection";
 //import { NgAnalyzedFileWithInjectables } from "@angular/compiler";
 
+import { PlatformLocation } from '@angular/common';
 
 /*import { registerElement } from 'nativescript-angular/element-registry';
 import { CardView } from 'nativescript-cardview';
@@ -44,16 +45,14 @@ export class HomeComponent implements OnInit {
 
     public visibility:string;
     public cantidadTareas:number = 0;
-
     //constructor(private itemService: DataService, private router: RouterExtensions) { }
 
     //public items$: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
     //private _items: Array<any>;
 
 
-    constructor(private router: RouterExtensions, private firebaseService:FirebaseService ) {
+    constructor(private router: RouterExtensions, private firebaseService:FirebaseService, private location : PlatformLocation) {
         this.user = new UserEduHome("", "", "");
-        //this.lista = new Observable();
         this.visibility = "visible";
     }
     logout() {
@@ -62,73 +61,54 @@ export class HomeComponent implements OnInit {
     }
 
     ocultarMensaje($event) {
-
         this.visibility = "hidden";
-
     }
 
-    
     ngOnInit(): void {
-        //console.log("INIT");
-        //console.dir("USER;"+this.user$.nombre)
-        //this.page.actionBarHidden = false;
-        //this.user = <any>this.firebaseService.getRepresentante();
-        //this.sub = <any>this.firebaseService.listenProfileData();
-        //console.dir(this.gifts$);
-        console.log("home");
 
-        <any>this.firebaseService.getCursos().then(
-            (data)=>{
-                console.log("--<<<>>>")  
-                console.dir(data.value)
+        this.location.onPopState(() => {
+            this.getData();
+            console.log("ESTOY EN HOME COMPONENT!!!!!!!!!!!!!!!!!!")
+        });
 
-                this.cursos = [];
-                data.value.forEach((curso)=>{
-
-                   //let tareas:Array<Curso> = curso.tareasID.filter( tarea => tarea.revisado==false);
-
-                   let tareas = [];
-
-                   curso.tareasID.forEach( (test) => {
-                    //console.log("--<<<>>>")   
-                    //console.dir(test)
-                    //if(test)
-                    if(test.revisado==false)
-                        tareas.push(0)
-                   });
-
-                   //.filter( tarea => !tarea.revisado) || [];
-                   //let cantidad = data.tareas.filter( tarea => tarea.revisado==false)
-
-                    this.cursos.push(new Curso(curso.id, curso.nombre, curso.imagen, curso.color, tareas.length));
-                })
-
-                //this.visibility = "hidden";
-            }
-            
-        );
+        this.getData();
+       
         <any>this.firebaseService.datosRepresentante().then(
             data => {
                 this.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
             }
         );
-        /*<any>this.firebaseService.getCursosListener().then(data => {
-            console.log("Listener")
-            console.dir(data)
-        })*/
+    }
 
-        //this.lista = this.firebaseService.getCursosListener();
+    getData() {
+        <any>this.firebaseService.getCursos().then(
+            (data)=>{
+                //console.log("--<<<>>>")  
+                //console.dir(data.value)
 
-        
-        /*this.firebaseService.getUserData().then((gift) => {
-              this.ngZone.run(() => {
-                console.log("Get user data")
-                console.log(gift.value)
-              });
-        }); */
+                this.cursos = [];
+                data.value.forEach((curso)=>{
 
-        //this.cursos = this.cursoService.getCursos();
-        
-        
+                   let tareas = [];
+
+                   curso.tareasID.forEach((tarea)=>{
+                    if(!tarea.revisado && (new Date(tarea.fechaEntrega)>=new Date())){
+                       console.dir(tarea)
+                       tareas.push(0)
+                    }
+                   })
+
+                   
+
+                   /*curso.tareasID.forEach( (tarea) => {
+                    if(!tarea.revisado && (new Date(tarea.fechaEntrega)>=new Date()))
+                        console.log(tarea)
+                        tareas.push(0)
+                   });*/
+
+                    this.cursos.push(new Curso(curso.id, curso.nombre, curso.imagen, curso.color, tareas.length));
+                })
+            }
+        );
     }
 }

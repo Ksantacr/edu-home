@@ -12,7 +12,7 @@ export class NewTarea {
         public fotoUrl?:string,
         public archivoPath?:string,
         public color?:string,
-        public fechaEntrega?:string,
+        public fechaEntrega?:number,
     public revisado?:boolean){}
     //constructor(private fechaEntrega:Date) {
      //   this.fechaEntrega = new Date();

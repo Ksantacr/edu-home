@@ -58,6 +58,8 @@ export class HomeDetalleComponent implements OnInit{
 
             this.curso = new Curso(data.value.id, data.value.nombre, data.value.imagen, data.value.color);
 
+            console.dir(data.value.tareasID)
+
             data.value.tareasID.forEach((tarea) => {
                 console.log(new Date(tarea.fechaEntrega))
                 
@@ -83,8 +85,13 @@ export class HomeDetalleComponent implements OnInit{
             }
         })*/
         this.listaTareas = this.listaTareas.filter(tarea=>{
-            return (!tarea.revisado && new Date(tarea.fechaEntrega)>=new Date())
+
+            console.log(tarea)
+            //return (!tarea.revisado && new Date(tarea.fechaEntrega)>=new Date())
         })
+        
+
+        
 
         //this.listaTareas = this.listaTareas_;
     }
