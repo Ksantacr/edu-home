@@ -75,7 +75,7 @@ export class EnviarTrabajoComponent {
        });
 
        this.firebaseService.getCantidadTareasCurso().then(data=>{
-
+        this.cantidadTareasCurso = [];
         //console.log(data)
 
         data.value.forEach(element => {

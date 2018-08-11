@@ -1,13 +1,22 @@
 import {Component} from "@angular/core";
-
-
 import { RouterExtensions } from "nativescript-angular/router";
-
+import { FirebaseService } from "../services/firebase.service";
 var imageSource = require("image-source");
 
 
-class Nombres {
+/*class Nombres {
     constructor(public id: string, public nombre: string, public color:string, public materia:string, public foto:string) { }
+}*/
+
+class ChatId {
+
+    constructor(public id?:string,
+        public idChat?:string,
+    public nombres?:string,
+    public apellidos?:string,
+    public color?:string,
+    public materia?:string,
+    public foto?:string){}
 }
 
 
@@ -22,26 +31,33 @@ class Nombres {
 
 export class MensajesComponent {
 
+    public listaNombres:Array<ChatId>;
+    constructor(private router: RouterExtensions, private firebaseService:FirebaseService) {
+        this.listaNombres = new Array<ChatId>();
+        /*this.listaNombres.push(new Nombres("ULkcfwOT8KUx5YspqUZKncNVCF12", "Kevin Santacruz","#fc762b", "Matemáticas", "https://www.superprof.es/imagenes/anuncios/profesor-home-profesora-ciencias-con-perfil-bilingue-imparte-clases-particulares.jpg"))
+        this.listaNombres.push(new Nombres("VAKxe9S9wXSJ3mBVchZs24yw97p2", "Prueba", "#5bbcb7", "Lenguaje y Literatura", "https://ekuatio.com/wp-content/uploads/metodo-ekuatio.jpg"))
+        this.listaNombres.push(new Nombres("mnqlgrPCJEYuYBBsZZvQBRnxmUy1", "Demo", "#aa7100", "Ciencias Naturales", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKGRifBcv9Yh4uYo_nbooSO2uC0MdBVShWL40_Zr-SiFQ2CJei"))*/
 
-    //public myItems: Array<DataItem>;
-    private counter: number;
+    }
+    ngOnInit () {
 
-    public listaNombres:Array<Nombres>;
-    private contador:number;
+        <any>this.firebaseService.getChatInfoProfesores().then((data)=>{
 
-    constructor(private router: RouterExtensions) {
+            //console.log(data.value)
+            data.value.forEach((chat)=>{
 
+                //console.log(chat)
+                //let tmp = new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto);
 
-        this.listaNombres = [];
-        this.contador = 0;
+                //console.dir(tmp)
+                this.listaNombres.push(new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto))
+            })
+
+        })
+        console.dir(this.listaNombres)
+
         
 
-        this.listaNombres.push(new Nombres("ULkcfwOT8KUx5YspqUZKncNVCF12", "Kevin Santacruz","#fc762b", "Matemáticas", "https://www.superprof.es/imagenes/anuncios/profesor-home-profesora-ciencias-con-perfil-bilingue-imparte-clases-particulares.jpg"))
-        this.listaNombres.push(new Nombres("VAKxe9S9wXSJ3mBVchZs24yw97p2", "Prueba", "#5bbcb7", "Lenguaje y Literatura", "https://ekuatio.com/wp-content/uploads/metodo-ekuatio.jpg"))
-        this.listaNombres.push(new Nombres("mnqlgrPCJEYuYBBsZZvQBRnxmUy1", "Demo", "#aa7100", "Ciencias Naturales", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKGRifBcv9Yh4uYo_nbooSO2uC0MdBVShWL40_Zr-SiFQ2CJei"))
-        /*this.listaNombres.push(new Nombres(1, "Lcdo Kevin Santacruz", "#8f05e8", "Emprendimiento", "https://i2.wp.com/seryhumano.com/web/wp-content/uploads/2016/01/Maestros1-e1453558688254.jpg?resize=500%2C297"))
-        this.listaNombres.push(new Nombres(2, "Lcdo Joel Collahuazo", "#f9ae06", "Estudios Sociales", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYPXG7sa8qXAL2JFbagGrG-hjLLDhktwNOAJD8PQjMVgEp5xkjfg"))
-        this.listaNombres.push(new Nombres(3, "Diego Carrera", "#a757e5", "Cultura Estética", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaTZrE5rVUpmKJEIZlM4vq5np9HL6zVHOgxak8kjau6vHl0A6hEQ"))*/
     }
 
     /*public imageLoaded(args) {

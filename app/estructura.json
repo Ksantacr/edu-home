@@ -141,7 +141,7 @@
             }, {
                 "id": 3,
                 "curso": "5to 'A'",
-                "nombre": "Matemáticas",
+                "nombre": "Ciencias Naturales",
                 "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
                 "color": "#8f05e8"
             }]
@@ -207,9 +207,77 @@
              
     },
 
+    "listadoProfesores": {
+        "ULkcfwOT8KUx5YspqUZKncNVCF12":[{
+        "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+        "idChat": "-LJbUWk5ftydrGMufEHh",
+        "nombres": "Kevin Rafael",
+        "apellidos": "Santacruz Burgos",
+        "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "materia": "Matemáticas",
+        "color": "#5bbcb7"
+        },
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Kevin Rafael",
+            "apellidos": "Santacruz Burgos",
+            "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+            "materia": "Lenguaje y Literatura",
+            "color": "#243a3a"
+
+        },
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk7ftydrGMufEHh",
+            "nombres": "Kevin Rafael",
+            "apellidos": "Santacruz Burgos",
+            "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+            "materia": "Ciencias Naturales",
+            "color": "#8f05e8"
+        }],
+
+        "mnqlgrPCJEYuYBBsZZvQBRnxmUy1":[{
+        "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+        "idChat": "-LJbUWk8ftydrGMufEHh",
+        "nombres": "Kevin Rafael",
+        "apellidos": "Santacruz Burgos",
+        "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "materia": "Matemáticas",
+        "color": "#5bbcb7"
+        },
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk9ftydrGMufEHh",
+            "nombres": "Kevin Rafael",
+            "apellidos": "Santacruz Burgos",
+            "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+            "materia": "Lenguaje y Literatura",
+            "color": "#243a3a"
+
+        },
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk0ftydrGMufEHh",
+            "nombres": "Kevin Rafael",
+            "apellidos": "Santacruz Burgos",
+            "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+            "materia": "Ciencias Naturales",
+            "color": "#8f05e8"
+
+        }]
+
+    },
+
     "listado": [
-        {"id":"ULkcfwOT8KUx5YspqUZKncNVCF12"}
-        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1"}
+        {"id":"ULkcfwOT8KUx5YspqUZKncNVCF12",
+            "idChat": "-LJbUWk5ftydrGMufEHh",
+        "nombres": "Demo", "apellidos": "Representante 1",
+    "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg"}
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Demo", "apellidos": "Representante 2",
+        "foto": "http://pm1.narvii.com/6462/1c033cbd2c7b86c970c3aa77e15f6c9ee0431897_00.jpg"}
     ],
 
     "cantidadTareasCurso" : [

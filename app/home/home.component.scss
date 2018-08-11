@@ -17,5 +17,26 @@ ActionBar {
 }
 
 DockLayout {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.85);
 }
+
+.text-white label{
+    color:white;
+    font-size: 20;
+}
+.text-white {
+    text-align: left;
+    margin-top: 30;
+}
+
+.img-personaje {
+    margin-top: 30;
+    margin-left: 50;
+    height: 350;
+}
+
+.btn-primary {
+    background-color: #FF9100;
+    border-radius: 5;
+    text-transform: capitalize;
+  }
