@@ -1,0 +1,26 @@
+<ActionBar title="" class="action-bar">
+    <StackLayout orientation="horizontal">
+   <StackLayout class="" width="100%">
+           <Label text="Chat en línea"></Label>
+           <!--<Label text="Profesor de ABC" class="estado"></Label>-->
+   </StackLayout>
+   </StackLayout>
+</ActionBar>
+
+<ScrollView>
+ <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
+             <FlexboxLayout width="100%" *ngFor="let maestro of listaNombres" alignItems="center" justifyContent="space-around">
+                     <StackLayout width="100%" class="text-center" horizontalAlignment="center" verticalAlignment="center">
+                             <FlexboxLayout width="100%" alignItems="center" justifyContent="center" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/chat', maestro.idChat]">
+
+                                 <StackLayout orientation="horizontal">
+                                     <Label text="{{ maestro.nombres + ' '+ maestro.apellidos}}" textWrap="true"></Label>
+                                     
+                                 </StackLayout>
+                                 
+                             </FlexboxLayout>
+                     </StackLayout>
+                 
+             </FlexboxLayout>
+ </FlexboxLayout>
+</ScrollView>

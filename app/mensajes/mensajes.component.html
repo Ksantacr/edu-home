@@ -11,7 +11,7 @@
         <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
                     <FlexboxLayout width="100%" *ngFor="let maestro of listaNombres" alignItems="center" justifyContent="space-around">
                             <StackLayout width="100%" height="130" class="text-center" horizontalAlignment="center" verticalAlignment="center">
-                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" [backgroundColor]="maestro.color" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/chat', maestro.idChat]">
+                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" [backgroundColor]="maestro.color" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/chat', maestro.idChat, maestro.idCurso]">
 
                                         <StackLayout orientation="horizontal" width="90%" horizontalAlignment="center" verticalAlignment="center">
                                                     <Image [src]="maestro.foto" class="foto-perfil-maestro" stretch="fill"></Image>
@@ -19,16 +19,9 @@
                             
                                                     <FlexboxLayout flexDirection="column" width="70%" horizontalAlignment="center" verticalAlignment="center" class="">
                             
-                                                        <Label [text]="maestro.nombres" textWrap="true" class="nombre-maestro"></Label>
+                                                        <Label text="{{ maestro.nombres + ' ' +maestro.apellidos}}" textWrap="true" class="nombre-maestro"></Label>
                             
                                                         <Label [text]="maestro.materia" textWrap="true" class="nombre-materia"></Label>
-
-                                                        <StackLayout orientation="horizontal" horizontalAlignment="center">
-                                                            <Label text="" class="circle"></Label>
-                                                            
-
-                                                                <Label text="En linea" textWrap="true" class="estado"></Label>    
-                                                        </StackLayout>
 
                                                         
                                                     </FlexboxLayout>

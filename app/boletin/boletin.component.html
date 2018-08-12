@@ -1,0 +1,45 @@
+<ActionBar [title]="curso.nombre" [backgroundColor]="curso.color" *ngIf="curso">
+    <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+ <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
+
+        <GridLayout rows="auto" columns="*, auto" *ngFor="let maestro of listaNombres" class="p-20 m-b-5 m-t-5" [nsRouterLink]="['/chat', maestro.idChat, maestro.idCurso]">
+            
+            <Label col="0" text="{{ maestro.nombres + ' ' + maestro.apellidos }}" textWrap="true" class="nombre-maestro" verticalAlignment="center"></Label>
+            
+            <Label col="1" text="&#xf003;" textWrap="true" class="fa" horizontalAlignment="center" verticalAlignment="center" fontSize="20"></Label>
+            
+        </GridLayout>
+
+             <!--<FlexboxLayout width="100%"  alignItems="center" justifyContent="space-around">
+                     <StackLayout width="100%" height="70" class="text-center border-bottom" horizontalAlignment="center" verticalAlignment="center">
+
+                        
+
+
+
+                             <FlexboxLayout height="70" width="100%" alignItems="center" justifyContent="center"  verticalAlignment="center" [nsRouterLink]="['/chat', maestro.idChat]">
+
+                                 <StackLayout orientation="horizontal" width="100%"  verticalAlignment="center">
+                                        <Label text="{{ maestro.nombres + ' ' + maestro.apellidos}}" textWrap="true" class="nombre-maestro" horizontalAlignment="left" textAlgin="left"></Label>
+                                             
+                     
+                                             <FlexboxLayout horizontalAlignment="right" verticalAlignment="center" class="">
+
+
+                                                 <Label text="&#xf003;" textWrap="true" class="nombre-maestro fa" textAlign="right"></Label>
+                     
+
+                                                 
+                                             </FlexboxLayout>
+                                     
+                                 </StackLayout>
+                                 
+                             </FlexboxLayout>
+                     </StackLayout>
+                 
+             </FlexboxLayout>-->
+ </FlexboxLayout>
+</ScrollView>

@@ -16,20 +16,20 @@ class ChatId {
     public apellidos?:string,
     public color?:string,
     public materia?:string,
-    public foto?:string, public idCurso?:string){}
+    public foto?:string){}
 }
 
 
 @Component({
-    selector: 'Mensajes',
+    selector: 'Mensajes-profesor',
     moduleId: module.id,
-    templateUrl: "./mensajes.component.html",
-    styleUrls: ['./mensajes.component.css']
+    templateUrl: "./mensajes-profesor.component.html",
+    styleUrls: ['./mensajes-profesor.component.css']
 
 
 })
 
-export class MensajesComponent {
+export class MensajesProfesorComponent {
 
     public listaNombres:Array<ChatId>;
     constructor(private router: RouterExtensions, private firebaseService:FirebaseService) {
@@ -41,39 +41,21 @@ export class MensajesComponent {
     }
     ngOnInit () {
 
-        <any>this.firebaseService.getChatInfoProfesores().then((data)=>{
+        /*<any>this.firebaseService.getChatInfoRepresentantes(2).then((data)=>{
 
+            console.log(data.value)
             //console.log(data.value)
             data.value.forEach((chat)=>{
-
-                console.log("--->")
-                console.dir(chat)
-                //let tmp = new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto);
-
-                //console.dir(tmp)
-                this.listaNombres.push(new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto, chat.idCurso))
+                this.listaNombres.push(new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto))
             })
 
-        })
-        console.dir(this.listaNombres)
+        })*/
+        
+
+        //console.dir(this.listaNombres)
 
         
 
     }
-
-    /*public imageLoaded(args) {
-        var img = args.object;
-        var bc = img.bindingContext;
-    
-        if (bc.Loaded) {
-            img.imageSource = bc.ImageSource;
-        } else {
-            imageSource.fromUrl(bc.ImageURL).then(function (iSource) {
-                img.imageSource = iSource;
-                bc.set('ImageSource', iSource);
-                bc.set('Loaded', true);
-            });
-        }
-    }*/
 
 }

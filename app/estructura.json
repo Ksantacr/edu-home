@@ -3,20 +3,21 @@
 		"ULkcfwOT8KUx5YspqUZKncNVCF12": {
             "id": "ULkcfwOT8KUx5YspqUZKncNVCF12",
 			"nombres": "Demo",
-			"apellidos": "Representante 1",
+            "apellidos": "Representante 1",
+            "genero": "m",
 			"fotoPerfil": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
             "cursos" :[
                 {
                 "id": 1,
                 "nombre": "Matemáticas",
-                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "imagen": "",
                 "color": "#5bbcb7",
                 "tareasID": [ {
                     "id": 1,
             "descripcion": "Repasar el ultimo capítulo del libro, revisado en clases",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "fotoUrl": "",
             "archivoPath": "",
-            "color": "#243a3a",
+            "color": "#5bbcb7",
             "fechaEntrega": 1541826000000,
             "revisado": false,
             "titulo": "Leccion"
@@ -29,14 +30,14 @@
             }, {
                 "id": 2,
                 "nombre": "Lenguaje y Literatura",
-                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "imagen": "",
                 "color": "#243a3a",
                 "tareasID": [ {
                     "id":1,
-            "descripcion": "Revisar las páginas 20-22 del libro.",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "descripcion": "Repasar las páginas 20-22 del libro para la lección.",
+            "fotoUrl": "",
             "archivoPath": "",
-            "color": "red",
+            "color": "#243a3a",
             "fechaEntrega": 1541826000000,
             "revisado": false,
             "titulo": "Lección proxima clase"
@@ -44,38 +45,86 @@
         }, {
             "id": 2,
             "descripcion": "Traer el cuaderno completo y firmado por el representante",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "fotoUrl": "",
             "archivoPath": "",
-            "color": "#8f05e8",
+            "color": "#243a3a",
             "fechaEntrega": 1541826000000,
             "revisado": false,
             "titulo": "Revisión"
-        } ],
+        }],
                 "profesor": {
                     "titulo": "Lcdo",
                     "nombres": "Kevin Rafael",
                     "apellidos": "Santacruz Burgos"
                 }
-            }]
+            }, 
+            {
+                "id": 3,
+                "nombre": "Ciencias Naturales",
+                "imagen": "",
+                "color": "#8f05e8",
+                "tareasID": [ {
+                    "id":1,
+            "descripcion": "Traer los materiales solicitados en clase.",
+            "fotoUrl": "",
+            "archivoPath": "",
+            "color": "#8f05e8",
+            "fechaEntrega": 1541826000000,
+            "revisado": false,
+            "titulo": "Recordatorio"
+
+        } ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Joel Ricardo",
+                    "apellidos": "Collahuazo Vaca"
+                }
+            },
+
+            {
+                "id": 4,
+                "nombre": "Emprendimiento",
+                "imagen": "",
+                "color": "#f7996b",
+                "tareasID": [ {
+                    "id":1,
+            "descripcion": "Todos los grupos deben traer sus materiales para ralizar el trabajo en la siguiente clase.",
+            "fotoUrl": "",
+            "archivoPath": "",
+            "color": "#f7996b",
+            "fechaEntrega": 1541826000000,
+            "revisado": false,
+            "titulo": "Trabajo en grupo"
+
+        } ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Joel Ricardo",
+                    "apellidos": "Collahuazo Vaca"
+                }
+            }
+        
+        ]
         },
 
 		"mnqlgrPCJEYuYBBsZZvQBRnxmUy1": {
             "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
             "nombres": "Demo",
-			"apellidos": "Representante 2",
+            "apellidos": "Representante 2",
+            "genero": "f",
 			"fotoPerfil": "http://pm1.narvii.com/6462/1c033cbd2c7b86c970c3aa77e15f6c9ee0431897_00.jpg",
 			"cursos" :[
                 {
                 "id": 1,
                 "nombre": "Matemáticas",
-                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "imagen": "",
                 "color": "#5bbcb7",
                 "tareasID": [ {
                     "id": 1,
             "descripcion": "Repasar el ultimo capítulo del libro, revisado en clases",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "fotoUrl": "",
             "archivoPath": "",
-            "color": "#243a3a",
+            "color": "#5bbcb7",
             "fechaEntrega": 1541826000000,
             "revisado": false,
             "titulo": "Leccion"
@@ -88,14 +137,14 @@
             }, {
                 "id": 2,
                 "nombre": "Lenguaje y Literatura",
-                "imagen": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+                "imagen": "",
                 "color": "#243a3a",
                 "tareasID": [ {
                     "id":1,
-            "descripcion": "Revisar las páginas 20-22 del libro.",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "descripcion": "Repasar las páginas 20-22 del libro para la lección.",
+            "fotoUrl": "",
             "archivoPath": "",
-            "color": "red",
+            "color": "#243a3a",
             "fechaEntrega": 1541826000000,
             "revisado": false,
             "titulo": "Lección proxima clase"
@@ -103,19 +152,66 @@
         }, {
             "id": 2,
             "descripcion": "Traer el cuaderno completo y firmado por el representante",
-            "fotoUrl": "https://www.doteros.com/wp-content/uploads/2013/11/dota2_chibi_phantom_lancer_por_virtualman209.jpg",
+            "fotoUrl": "",
             "archivoPath": "",
-            "color": "#8f05e8",
+            "color": "#243a3a",
             "fechaEntrega": 1541826000000,
             "revisado": false,
             "titulo": "Revisión"
-        } ],
+        }],
                 "profesor": {
                     "titulo": "Lcdo",
                     "nombres": "Kevin Rafael",
                     "apellidos": "Santacruz Burgos"
                 }
-            }]
+            }, 
+            {
+                "id": 3,
+                "nombre": "Ciencias Naturales",
+                "imagen": "",
+                "color": "#8f05e8",
+                "tareasID": [ {
+                    "id":1,
+            "descripcion": "Traer los materiales solicitados en clase.",
+            "fotoUrl": "",
+            "archivoPath": "",
+            "color": "#8f05e8",
+            "fechaEntrega": 1541826000000,
+            "revisado": false,
+            "titulo": "Recordatorio"
+
+        } ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Joel Ricardo",
+                    "apellidos": "Collahuazo Vaca"
+                }
+            },
+
+            {
+                "id": 4,
+                "nombre": "Emprendimiento",
+                "imagen": "",
+                "color": "#f7996b",
+                "tareasID": [ {
+                    "id":1,
+            "descripcion": "Todos los grupos deben traer sus materiales para ralizar el trabajo en la siguiente clase.",
+            "fotoUrl": "",
+            "archivoPath": "",
+            "color": "#f7996b",
+            "fechaEntrega": 1541826000000,
+            "revisado": false,
+            "titulo": "Trabajo en grupo"
+
+        } ],
+                "profesor": {
+                    "titulo": "Lcdo",
+                    "nombres": "Joel Ricardo",
+                    "apellidos": "Collahuazo Vaca"
+                }
+            }
+        
+        ]
 		}
     },
 
@@ -213,28 +309,31 @@
         "idChat": "-LJbUWk5ftydrGMufEHh",
         "nombres": "Kevin Rafael",
         "apellidos": "Santacruz Burgos",
-        "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "foto": "http://www.edcom.espol.edu.ec/sites/edcom.espol.edu.ec/files/carrera.png",
         "materia": "Matemáticas",
-        "color": "#5bbcb7"
+        "color": "#5bbcb7",
+        "idCurso":"1"
         },
         {
             "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
             "idChat": "-LJbUWk6ftydrGMufEHh",
             "nombres": "Kevin Rafael",
-            "apellidos": "Santacruz Burgos",
-            "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "apellidos": "Santacruz Burgos",
+            "foto": "http://www.edcom.espol.edu.ec/sites/edcom.espol.edu.ec/files/carrera.png",
             "materia": "Lenguaje y Literatura",
-            "color": "#243a3a"
+            "color": "#243a3a",
+            "idCurso":"2"
 
         },
         {
             "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
             "idChat": "-LJbUWk7ftydrGMufEHh",
             "nombres": "Kevin Rafael",
-            "apellidos": "Santacruz Burgos",
-            "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "apellidos": "Santacruz Burgos",
+            "foto": "http://www.edcom.espol.edu.ec/sites/edcom.espol.edu.ec/files/carrera.png",
             "materia": "Ciencias Naturales",
-            "color": "#8f05e8"
+            "color": "#8f05e8",
+            "idCurso":"3"
         }],
 
         "mnqlgrPCJEYuYBBsZZvQBRnxmUy1":[{
@@ -242,32 +341,106 @@
         "idChat": "-LJbUWk8ftydrGMufEHh",
         "nombres": "Kevin Rafael",
         "apellidos": "Santacruz Burgos",
-        "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "foto": "http://www.edcom.espol.edu.ec/sites/edcom.espol.edu.ec/files/carrera.png",
         "materia": "Matemáticas",
-        "color": "#5bbcb7"
+        "color": "#5bbcb7",
+        "idCurso":"1"
         },
         {
             "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
             "idChat": "-LJbUWk9ftydrGMufEHh",
             "nombres": "Kevin Rafael",
-            "apellidos": "Santacruz Burgos",
-            "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "apellidos": "Santacruz Burgos",
+            "foto": "http://www.edcom.espol.edu.ec/sites/edcom.espol.edu.ec/files/carrera.png",
             "materia": "Lenguaje y Literatura",
-            "color": "#243a3a"
+            "color": "#243a3a",
+            "idCurso":"2"
 
         },
         {
             "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
             "idChat": "-LJbUWk0ftydrGMufEHh",
             "nombres": "Kevin Rafael",
-            "apellidos": "Santacruz Burgos",
-            "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "apellidos": "Santacruz Burgos",
+            "foto": "http://www.edcom.espol.edu.ec/sites/edcom.espol.edu.ec/files/carrera.png",
             "materia": "Ciencias Naturales",
-            "color": "#8f05e8"
+            "color": "#8f05e8",
+            "idCurso":"3"
 
         }]
 
     },
+
+    "listadoRepresentantes": {
+        "1":[{
+        "id": "ULkcfwOT8KUx5YspqUZKncNVCF12",
+        "idChat": "-LJbUWk5ftydrGMufEHh",
+        "nombres": "Demo",
+        "apellidos": "Representante 1",
+        "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "materia": "Matemáticas",
+        "color": "#5bbcb7",
+        "idCurso":"1"
+        },
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk8ftydrGMufEHh",
+            "nombres": "Demo",
+            "apellidos": "Representante 2",
+            "foto": "http://pm1.narvii.com/6462/1c033cbd2c7b86c970c3aa77e15f6c9ee0431897_00.jpg",
+            "materia": "Matemáticas",
+            "color": "#5bbcb7",
+            "idCurso":"1"
+
+        }],
+
+        "2":[{
+        "id": "ULkcfwOT8KUx5YspqUZKncNVCF12",
+        "idChat": "-LJbUWk6ftydrGMufEHh",
+        "nombres": "Demo",
+        "apellidos": "Representante 1",
+        "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "materia": "Lenguaje y Literatura",
+            "color": "#243a3a",
+            "idCurso":"2"
+        },
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk9ftydrGMufEHh",
+            "nombres": "Demo",
+            "apellidos": "Representante 2",
+            "foto": "http://pm1.narvii.com/6462/1c033cbd2c7b86c970c3aa77e15f6c9ee0431897_00.jpg",
+            "materia": "Lenguaje y Literatura",
+            "color": "#243a3a",
+            "idCurso":"2"
+
+        }],
+
+
+        "3":[{
+        "id": "ULkcfwOT8KUx5YspqUZKncNVCF12",
+        "idChat": "-LJbUWk7ftydrGMufEHh",
+        "nombres": "Demo",
+        "apellidos": "Representante 1",
+        "foto": "https://lh3.googleusercontent.com/-rEx6MvYpSR8/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7qEfSYGjsdTYq1i0e8oKafOm0Hs5w/s32-c-mo/photo.jpg",
+        "materia": "Ciencias Naturales",
+            "color": "#8f05e8",
+            "idCurso":"3"
+        },
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk0ftydrGMufEHh",
+            "nombres": "Demo",
+            "apellidos": "Representante 2",
+            "foto": "http://pm1.narvii.com/6462/1c033cbd2c7b86c970c3aa77e15f6c9ee0431897_00.jpg",
+            "materia": "Ciencias Naturales",
+            "color": "#8f05e8",
+            "idCurso":"3"
+
+        }]
+
+    }
+    ,
 
     "listado": [
         {"id":"ULkcfwOT8KUx5YspqUZKncNVCF12",
@@ -282,8 +455,57 @@
 
     "cantidadTareasCurso" : [
         {"id": 1, "cantidad": 1},
-        {"id": 2, "cantidad": 2}
-    ]
+        {"id": 2, "cantidad": 2},
+        {"id":3, "cantidad":1},
+        {"id":4, "cantidad":1}
+    ],
+
+    "Chats" : {
+    "-LJbUWk0ftydrGMufEHh" : {
+      "-LJddA__nR4WbAc20VZF" : {
+        "date" : -1534001984163,
+        "from" : "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+        "message" : "Hola, el dia de mñn me puede atender?",
+        "to" : "-LJbUWk0ftydrGMufEHh"
+      }
+    },
+    "-LJbUWk5ftydrGMufEHh" : {
+      "-LJdeGPsxd5tB-jLpEcX" : {
+        "date" : -1534002270198,
+        "from" : "ULkcfwOT8KUx5YspqUZKncNVCF12",
+        "message" : "Hola, me puede ayudar con el ultimo capitulo visto en clases? Gracias 🤗",
+        "to" : "-LJbUWk5ftydrGMufEHh"
+      },
+      "-LJdmzJfDxQzysW0zKXA" : {
+        "date" : -1534004555597,
+        "from" : "",
+        "message" : "Hola si claro el 2 se reviso en clases",
+        "to" : "-LJbUWk5ftydrGMufEHh"
+      },
+      "-LJdnAjlooBonzcp4Shn" : {
+        "date" : -1534004606483,
+        "from" : "ULkcfwOT8KUx5YspqUZKncNVCF12",
+        "message" : "gracias",
+        "to" : "-LJbUWk5ftydrGMufEHh"
+      }
+    },
+    "-LJbUWk8ftydrGMufEHh" : {
+      "-LJdcFYOmRhwNmGD6UVt" : {
+        "date" : -1534001742352,
+        "from" : "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+        "message" : "Mensaje 📲",
+        "to" : "-LJbUWk8ftydrGMufEHh"
+      }
+    },
+    "-LJbUWk9ftydrGMufEHh" : {
+      "-LJdd6GmC1UQSCTtN93X" : {
+        "date" : -1534001966512,
+        "from" : "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+        "message" : "Hola, la tarea del libro no esta clara",
+        "to" : "-LJbUWk9ftydrGMufEHh"
+      }
+    }
+  }
 
 }
 

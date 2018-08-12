@@ -116,24 +116,37 @@ export class MensajesDetailComponent implements OnInit {
         this.me = BackendService.tokenKeyRepresentante;
 
         this.idProfesor = this.route.snapshot.params.id;
+
+
+        let demo = this.route.snapshot.params.curso;
+
+        console.log("------------>"+demo)
+
         console.log("ID del chat: "+this.idProfesor);
 
         this.chats$ = <any>this.firebaseService.getChats(this.idProfesor);
-        
-
-        //this.scroll()
         this.chats$.subscribe(()=>{
             console.log("Chat suscribe");
             this.scroll();
         })
-        this.firebaseService.getCurso(1).then(data=>{
 
-            //console.log(data.value.color);
-            this.color = data.value.color;
+        if(BackendService.isRepresentante()){
+            console.log("SOY REPRESENTANTE")
 
-            this.curso = new Curso(data.value.id, data.value.nombre, data.value.imagen, data.value.tareasID.length, data.value.color);
-            //console.log(this.curso);
-        })
+            this.firebaseService.getCurso(demo).then(data=>{
+                this.color = data.value.color;
+                this.curso = new Curso(data.value.id, data.value.nombre, data.value.imagen, data.value.tareasID.length, data.value.color);
+            })
+        }else {
+
+            console.log("SOY PROFESOR")
+            this.firebaseService.getCursoProfesor(demo).then(data=>{
+
+                console.log(data)
+                this.color = data.value.color;
+                //this.curso = new Curso(data.value.id, data.value.nombre, data.value.imagen, data.value.tareasID.length, data.value.color);
+            })
+        }
         
 
     }

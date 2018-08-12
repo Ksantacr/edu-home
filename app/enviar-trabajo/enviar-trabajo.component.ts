@@ -153,11 +153,12 @@ export class EnviarTrabajoComponent {
         }).then(result => {
 
         if(result) {
-            console.log(`La imagen esta en el path ${this.image} es hora de subirlo al server todo`)
-
-            console.log(this.image)
+            //console.log(`La imagen esta en el path ${this.image} es hora de subirlo al server todo`)
+            //console.log(this.image)
             
             if(this.image){
+                this.processing = true;
+
                 this.firebaseService.uploadFile(this.imagePath).then((uploadedFile: any) => {
                     this.uploadedImageName = uploadedFile.name;
                     //get downloadURL and store it as a full path;
@@ -177,9 +178,10 @@ export class EnviarTrabajoComponent {
                     this.cantidadTareasCurso[this.curso.id-1]+=1;
 
                     this.firebaseService.actualizarCantidadTareasCurso(this.curso.id-1, this.cantidadTareasCurso[this.curso.id-1]).then(data=>{
+                        this.processing = false;
                         dialogs.alert({
                             title: "Tarea enviada",
-                            message: "La tarea se ha enviado correctamente",
+                            message: "Gracias por tu participación. La tarea se ha enviado correctamente.",
                             okButtonText: "Aceptar"
                         }).then(()=>{
                             this.router.navigate(["/profesor/home"] , { clearHistory: true });
@@ -187,9 +189,10 @@ export class EnviarTrabajoComponent {
                     });
                     })
                 }, (error: any) => {
+                    this.processing = false;
                     dialogs.alert({
                         title: "Problema al enviar tarea",
-                        message: "La tarea no se ha enviado. Porfavor intentalo de nuevo"
+                        message: "La tarea no se ha enviado. Porfavor intentalo de nuevo."
                     })
                 });
             }else {
@@ -208,9 +211,10 @@ export class EnviarTrabajoComponent {
                 this.cantidadTareasCurso[this.curso.id-1]+=1;
 
                     this.firebaseService.actualizarCantidadTareasCurso(this.curso.id-1, this.cantidadTareasCurso[this.curso.id-1]).then(()=>{
+                        this.processing = false;
                         dialogs.alert({
                             title: "Tarea enviada",
-                            message: "La tarea se ha enviado correctamente",
+                            message: "Gracias por tu participación. La tarea se ha enviado correctamente.",
                             okButtonText: "Aceptar"
                         }).then(()=>{
                             this.router.navigate(["/profesor/home"] , { clearHistory: true });

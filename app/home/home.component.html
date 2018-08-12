@@ -132,7 +132,9 @@
       </StackLayout>
       
       
-      <Image src="~/images/personaje_1_n.png" dock="right" class="img-personaje" fill="stretch" ></Image>
+      <Image *ngIf="genero=='m'" src="~/images/personaje_m.png" dock="right" class="img-personaje" fill="stretch" ></Image>
+
+      <Image *ngIf="genero=='f'" src="~/images/personaje_f.png" dock="right" class="img-personaje" fill="stretch" ></Image>
 
 
     </DockLayout>

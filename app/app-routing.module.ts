@@ -27,7 +27,10 @@ import { MensajesDetailComponent } from "./mensajes-detail/mensajes-detail.compo
 import {CursoProfesorDetalleComponent } from "./curso-profesor-detalle/curso-profesor-detalle.component" ;
 import { EnviarTrabajoComponent } from "./enviar-trabajo/enviar-trabajo.component";
 
-export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent,MensajesComponent, MensajesDetailComponent, MainProfesorComponent, HomeProfesorComponent, CursoProfesorDetalleComponent, EnviarTrabajoComponent];
+import { MensajesProfesorComponent } from "./mensajes-profesor/mensajes-profesor.component";
+import { BoletinComponent } from "./boletin/boletin.component";
+
+export const COMPONENTS = [BrowseComponent, HomeComponent, ItemDetailComponent, SearchComponent, LoginComponent, MainComponent, HomeworkComponent, HomeDetalleComponent,MensajesComponent, MensajesDetailComponent, MainProfesorComponent, HomeProfesorComponent, CursoProfesorDetalleComponent, EnviarTrabajoComponent, MensajesProfesorComponent, BoletinComponent];
 
 
 export const authProviders = [
@@ -57,14 +60,16 @@ const routes: Routes = [
             {path: "home", component: HomeComponent},
     ]},
     {path: "curso/:id", component: HomeDetalleComponent},
-    {path: "chat/:id", component: MensajesDetailComponent},
+    {path: "chat/:id/:curso", component: MensajesDetailComponent},
 
     { path: "profesor", component: MainProfesorComponent, canActivate: [AuthGuardProfesor],
         children: [
-            {path: "home", component: HomeProfesorComponent}
+            {path: "home", component: HomeProfesorComponent},
+            {path: "mensajes", component: MensajesProfesorComponent}
     ]},
     {path: "profesorcurso/:id", component: CursoProfesorDetalleComponent},
     {path: "enviartrabajo/:id", component: EnviarTrabajoComponent},
+    {path: "boletin/:id", component:BoletinComponent}
 ];
 
 @NgModule({

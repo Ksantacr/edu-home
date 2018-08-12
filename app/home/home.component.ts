@@ -45,6 +45,8 @@ export class HomeComponent implements OnInit {
 
     public visibility:string;
     public cantidadTareas:number = 0;
+
+    public genero:string;
     //constructor(private itemService: DataService, private router: RouterExtensions) { }
 
     //public items$: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
@@ -54,6 +56,7 @@ export class HomeComponent implements OnInit {
     constructor(private router: RouterExtensions, private firebaseService:FirebaseService, private location : PlatformLocation) {
         this.user = new UserEduHome("", "", "");
         this.visibility = "visible";
+        this.genero = "";
     }
     logout() {
         this.firebaseService.logout();
@@ -76,6 +79,10 @@ export class HomeComponent implements OnInit {
         <any>this.firebaseService.datosRepresentante().then(
             data => {
                 this.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
+
+                this.genero = data.value.genero;
+
+                console.log(this.genero)
             }
         );
     }
@@ -83,9 +90,6 @@ export class HomeComponent implements OnInit {
     getData() {
         <any>this.firebaseService.getCursos().then(
             (data)=>{
-                //console.log("--<<<>>>")  
-                //console.dir(data.value)
-
                 this.cursos = [];
                 data.value.forEach((curso)=>{
 
@@ -97,15 +101,6 @@ export class HomeComponent implements OnInit {
                        tareas.push(0)
                     }
                    })
-
-                   
-
-                   /*curso.tareasID.forEach( (tarea) => {
-                    if(!tarea.revisado && (new Date(tarea.fechaEntrega)>=new Date()))
-                        console.log(tarea)
-                        tareas.push(0)
-                   });*/
-
                     this.cursos.push(new Curso(curso.id, curso.nombre, curso.imagen, curso.color, tareas.length));
                 })
             }
