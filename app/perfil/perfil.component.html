@@ -1,0 +1,21 @@
+<ActionBar title="Perfil">
+    <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
+</ActionBar>         
+
+    <ScrollView>
+    
+    <GridLayout rows="*, auto, auto, auto" class="p-20">
+
+        <Image [src]="user.fotoPerfil" row="0" stretch="fill" class="perfil"></Image>
+        <TextView [text]="user.nombre" editable="false" row="1" class="perfil-txt"></TextView>
+        <TextView [text]="user.apellidos" editable="false" row="2" class="perfil-txt"></TextView>
+
+
+        <button class="btn-primary" text="{{ 'Cerrar sesión' | titlecase }}" row="3" (tap)="logout()"></button>
+        
+        
+
+    </GridLayout>
+    
+    
+    

@@ -13,6 +13,12 @@ import { TextField } from 'ui/text-field';
 import { ScrollView } from 'ui/scroll-view';
 import {Page} from "ui/page";
 
+
+import * as application from "application";
+import { AndroidApplication, AndroidActivityBackPressedEventData } from "application";
+import { isAndroid } from "platform";
+
+
 declare var android:any;
 @Component({
     selector: 'MensajesDetalle',
@@ -109,6 +115,15 @@ export class MensajesDetailComponent implements OnInit {
     }
 
     ngOnInit():void {
+
+        if(isAndroid){
+            application.android.on(AndroidApplication.activityBackPressedEvent, (data: AndroidActivityBackPressedEventData) => {
+
+                //console.log("Back button pressed")
+                data.cancel = true;
+                this.regresar();
+            });
+        }
 
         this.list = this.lv.nativeElement;
         this.textfield = this.tf.nativeElement;

@@ -53,9 +53,9 @@ export class MainProfesorComponent implements OnInit {
     constructor(private routerExtensions:RouterExtensions, private firebaseService:FirebaseService) {
 
         let mensajes_notificaciones = new Notification("#17375e", "white", "4");
-        this.items = [new BottomBarItem(0, "Enviar tarea", "book", "#17375e", null),
-        new BottomBarItem(1, "Tomar lista", "list", "#17375e"),
-        new BottomBarItem(2, "Mensajes", "chat", "#17375e", new Notification("#17375e", "white", "1"))
+        this.items = [new BottomBarItem(0, "Materias", "book", "#17375e", null),
+        new BottomBarItem(1, "Perfil", "student", "#17375e"),
+        //new BottomBarItem(2, "Mensajes", "chat", "#17375e")
         //,new BottomBarItem(3, "Notificaciones", "notification", "#17375e", new Notification("#17375e", "white", "4"))
     ]
     }
@@ -73,11 +73,11 @@ export class MainProfesorComponent implements OnInit {
         if(args.newIndex == 0 ){
             this.routerExtensions.navigate(['/profesor/home'], { clearHistory: true });
         }
-        if(args.newIndex == 1 ){
+        /*if(args.newIndex == 1 ){
             this.routerExtensions.navigate(['/profesor/mensajes'], { clearHistory: true });
-        }
-        if(args.newIndex == 2 ){
-            this.routerExtensions.navigate(['/profesor/home'], { clearHistory: true });
+        }*/
+        if(args.newIndex == 1 ){
+            this.routerExtensions.navigate(['/perfil/2'], { clearHistory: true });
         }
      }
 

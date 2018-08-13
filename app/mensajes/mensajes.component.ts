@@ -4,6 +4,9 @@ import { FirebaseService } from "../services/firebase.service";
 var imageSource = require("image-source");
 
 
+import * as application from "application";
+import { AndroidApplication, AndroidActivityBackPressedEventData } from "application";
+import { isAndroid } from "platform";
 /*class Nombres {
     constructor(public id: string, public nombre: string, public color:string, public materia:string, public foto:string) { }
 }*/
@@ -39,23 +42,35 @@ export class MensajesComponent {
         this.listaNombres.push(new Nombres("mnqlgrPCJEYuYBBsZZvQBRnxmUy1", "Demo", "#aa7100", "Ciencias Naturales", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKGRifBcv9Yh4uYo_nbooSO2uC0MdBVShWL40_Zr-SiFQ2CJei"))*/
 
     }
-    ngOnInit () {
+
+    public ngAfterViewInit() {
 
         <any>this.firebaseService.getChatInfoProfesores().then((data)=>{
 
             //console.log(data.value)
             data.value.forEach((chat)=>{
-
-                console.log("--->")
-                console.dir(chat)
+                
+                //console.log(chat.foto)
                 //let tmp = new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto);
 
                 //console.dir(tmp)
-                this.listaNombres.push(new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto, chat.idCurso))
+                this.listaNombres.push(new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.fotoPerfil, chat.idCurso))
             })
 
         })
         console.dir(this.listaNombres)
+        
+    }
+    
+    ngOnInit () {
+
+        /*if(isAndroid){
+            application.android.on(AndroidApplication.activityBackPressedEvent, (data: AndroidActivityBackPressedEventData) => {
+
+                console.log("Back button pressed")
+                data.cancel = true;
+            });
+        }*/
 
         
 

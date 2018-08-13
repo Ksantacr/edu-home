@@ -100,15 +100,15 @@
 
               <!--<Label *ngIf="tarea.fotoUrl" text="&#xf1c5;" textWrap="true" fontSize="17" class="m-t-5 m-b-5"></Label>-->
 
-              <Image [src]="tarea.fotoUrl" *ngIf="tarea.fotoUrl"></Image>
-
               <Label *ngIf="tarea.descripcion" [text]="tarea.descripcion" textWrap="true" fontSize="17" class="m-t-5 m-b-5"></Label>
+
+              <Image [src]="tarea.fotoUrl" *ngIf="tarea.fotoUrl" (tap)="openGallery(tarea.id)" ></Image>
 
               <!--<Label *ngIf="tarea.fotoUrl" text="&#xf1c5; Ver Imagen" textWrap="true" fontSize="17" class="fa" style="color:steelblue;"></Label>-->
 
               <!--<Image *ngIf="imagepath" width="100" height="100" [src]="imagepath"></Image>-->
               
-              
+              <!--<Button (tap)="openGallery(tarea.id)" text="abrir imagen"></Button>-->
               <Button text="Listo" (tap)="listo(tarea.id)" style="background-color: #17375E;color:white;"></Button>
             </StackLayout>
 

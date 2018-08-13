@@ -12,7 +12,9 @@ import { Observable } from "rxjs";
 import { FirebaseService } from "../services/firebase.service";
 
 import * as dialogs from "ui/dialogs";
+const PhotoViewer = require("nativescript-photoviewer");
 
+var photoViewer;
 @Component({
 
     selector: "HomeDetalle",
@@ -27,32 +29,38 @@ export class HomeDetalleComponent implements OnInit{
 
     private sub: any;
     curso:Curso;
-
-
     id: string;
     name: string;
     description: string;
     imagepath: string;
     image: any;
-
     public listaTareas:Array<Tarea>;
     listaTareas_:Array<Tarea>;
-
     public genero:string;
-
-    //public gift:Observable<any>;
-
     public cantidadTareas:number;
-    //public hidden:boolean;
 
     constructor(private route: ActivatedRoute, private router: RouterExtensions, private firebaseService:FirebaseService ) {
         this.curso = new Curso();
         this.listaTareas = [];
         this.listaTareas_= [];
-
         this.cantidadTareas = 0;
     }
 
+    galleryLoaded(){
+        console.log("gallery loaded...");
+    }
+
+    openGallery(id){
+        let image1 = this.listaTareas[id-1].fotoUrl;
+	    var myImages = [image1];
+
+        if(!photoViewer)
+            photoViewer = new PhotoViewer();
+        photoViewer.paletteType = "LIGHT_MUTED"; // Android only
+        photoViewer.showAlbum = false; // Android only (true = shows album first, false = shows fullscreen gallery directly)
+        photoViewer.startIndex = 0; // start index for the fullscreen gallery
+        photoViewer.showViewer(myImages);
+    }
 
     ngOnInit():void {
 

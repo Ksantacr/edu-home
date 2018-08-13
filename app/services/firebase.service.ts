@@ -229,6 +229,18 @@ getCantidadTareasCurso(){
   return firebase.getValue('/cantidadTareasCurso/');
 }
 
+guardarLista(idCurso:any, listado:any[]) {
+
+  return firebase.push(
+    '/lista/'+idCurso,
+    {
+      "fecha": new Date().getTime(),
+      "lista": listado
+    }
+  )
+
+}
+
 
 
 agregarTarea(idCurso:any, tarea:NewTarea) {
