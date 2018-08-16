@@ -1,5 +1,6 @@
 <ActionBar [title]="curso.nombre" [backgroundColor]="curso.color" *ngIf="curso">
-    <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
+    <!--<NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>-->
+    <NavigationButton text="go back" icon="res://arrow_b" ios.position="left" (tap)="regresar()"></NavigationButton>
 </ActionBar>
 
     <GridLayout rows="auto, *, auto" class="form p-10">

@@ -84,8 +84,8 @@
         </FlexboxLayout>
     </ActionBar>-->
     <ActionBar [title]="curso.nombre" [backgroundColor]="curso.color" *ngIf="curso">
-            <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
-          </ActionBar>         
+            <NavigationButton text="go back" icon="res://arrow_b" ios.position="left" (tap)="regresar()"></NavigationButton>
+          </ActionBar>
 
     <ScrollView>
         <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
@@ -143,8 +143,8 @@
                   <Image *ngIf="genero=='f'" src="~/images/personaje_f.png" dock="bottom" class="img-personaje" fill="stretch" ></Image>
 
 
-                  <Image *ngIf="genero=='m'" src="~/images/personaje_m.png" dock="bottom" class="img-personaje" fill="stretch" ></Image>
-            
+                  <Image *ngIf="genero=='m'" src="~/images/personaje_m.png" dock="bottom" class="img-personaje" fill="stretch" ></Image>   
+
                 </DockLayout>
         </FlexboxLayout>
     </ScrollView>

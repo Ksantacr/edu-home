@@ -35,7 +35,6 @@ export class MainProfesorComponent implements OnInit {
     //@ViewChild("dockDisplay") dockDisplay: ElementRef;
 
 
-
     public items: Array<BottomBarItem>;
     ngOnInit(): void {
         //this.page.actionBarHidden = true;
@@ -77,7 +76,7 @@ export class MainProfesorComponent implements OnInit {
             this.routerExtensions.navigate(['/profesor/mensajes'], { clearHistory: true });
         }*/
         if(args.newIndex == 1 ){
-            this.routerExtensions.navigate(['/perfil/2'], { clearHistory: true });
+            this.routerExtensions.navigate(['/profesor/perfil/2'], { clearHistory: true });
         }
      }
 

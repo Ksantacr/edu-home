@@ -1,5 +1,6 @@
 <ActionBar [title]="curso.nombre" [backgroundColor]="curso.color" *ngIf="curso">
-        <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
+        <!--<NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>-->
+        <NavigationButton text="go back" icon="res://arrow_b" ios.position="left" (tap)="regresar()"></NavigationButton>
 </ActionBar>
 
         <GridLayout rows="auto, auto, *, auto" class="form p-10">
@@ -27,7 +28,7 @@
 
                                 <TextView hint="Recuerda que puedes escribir la tarea o subir una foto" text="" editable="true" class="input" style="width: 95%" [(ngModel)]="descripcion"></TextView>
 
-                                <Image [src]="image" width="130" height="130" margin="10" class="p-10"></Image>
+                                <Image [src]="image" class="img-enviar-trabajo" margin="10" class="p-10"></Image>
 
                                 
                         </StackLayout>

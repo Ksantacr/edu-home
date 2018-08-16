@@ -40,7 +40,6 @@ export class LoginComponent {
         this.user.email = "demo@eduhome.com";
         this.user.password = "eduhom3";
 
-
         this.page.actionBarHidden = true;
 
     }

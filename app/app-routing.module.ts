@@ -39,20 +39,24 @@ const routes: Routes = [
             {path: "homework", component: HomeworkComponent},
             {path: "mensajes", component: MensajesComponent},
             {path: "home", component: HomeComponent},
+            {path: "curso/:id", component: HomeDetalleComponent},
+            {path: "perfil/:tipo", component: PerfilComponent},
     ]},
-    {path: "curso/:id", component: HomeDetalleComponent},
+//    {path: "curso/:id", component: HomeDetalleComponent},
     {path: "chat/:id/:curso", component: MensajesDetailComponent},
-    {path: "perfil/:tipo", component: PerfilComponent},
+    //{path: "perfil/:tipo", component: PerfilComponent},
 
     { path: "profesor", component: MainProfesorComponent, canActivate: [AuthGuardProfesor],
         children: [
             {path: "home", component: HomeProfesorComponent},
-            {path: "mensajes", component: MensajesProfesorComponent}
+            {path: "mensajes", component: MensajesProfesorComponent},
+            {path: "profesorcurso/:id", component: CursoProfesorDetalleComponent},
+            {path: "enviartrabajo/:id", component: EnviarTrabajoComponent},
+            {path: "boletin/:id", component:BoletinComponent},
+            {path: "asistencia/:id", component:ListaComponent},
+            {path: "perfil/:tipo", component: PerfilComponent},
     ]},
-    {path: "profesorcurso/:id", component: CursoProfesorDetalleComponent},
-    {path: "enviartrabajo/:id", component: EnviarTrabajoComponent},
-    {path: "boletin/:id", component:BoletinComponent},
-    {path: "asistencia/:id", component:ListaComponent}
+    
 ];
 
 @NgModule({

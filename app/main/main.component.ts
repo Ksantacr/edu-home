@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef} from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter} from "@angular/core";
 
 //import * as localStorage from 'nativescript-localstorage';
 import { RouterExtensions } from 'nativescript-angular/router/router-extensions';
@@ -38,6 +38,7 @@ export class MainComponent implements OnInit {
     public uncoloredBackgroundColor :string;
     //@ViewChild("dockDisplay") dockDisplay: ElementRef;
 
+    
 
 
     public items: Array<BottomBarItem>;
@@ -90,7 +91,7 @@ export class MainComponent implements OnInit {
             this.routerExtensions.navigate(['/main/mensajes'], { clearHistory: true });
         }
         if(args.newIndex == 2 ){
-            this.routerExtensions.navigate(['/perfil/1']);
+            this.routerExtensions.navigate(['/main/perfil/1']);
         }
      }
 }

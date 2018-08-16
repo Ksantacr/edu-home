@@ -13,7 +13,7 @@
                 <FlexboxLayout width="100%" *ngFor="let curso of cursos" alignItems="center" justifyContent="space-around">
 
                         <StackLayout width="100%" height="130" class="text-center m-b-10" horizontalAlignment="center" verticalAlignment="center">
-                                <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" [backgroundColor]="curso.color" class="" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/profesorcurso', curso.id]">
+                                <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" [backgroundColor]="curso.color" class="" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/profesor/profesorcurso', curso.id]">
 
                                     <StackLayout orientation="horizontal" width="100%" horizontalAlignment="center" verticalAlignment="center">
                                                 

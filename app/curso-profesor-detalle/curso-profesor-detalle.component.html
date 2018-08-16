@@ -1,5 +1,7 @@
 <ActionBar [title]="curso.nombre" [backgroundColor]="curso.color" *ngIf="curso">
-    <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
+    <!--<NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>-->
+
+    <NavigationButton text="go back" icon="res://arrow_b" ios.position="left" (tap)="regresar()"></NavigationButton>
 </ActionBar>
 
 <ScrollView>
@@ -8,7 +10,7 @@
                             
                         <StackLayout width="100%" class="text-center" horizontalAlignment="center" verticalAlignment="center" orientation="vertical">
 
-                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" backgroundColor="#f9ae06" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/asistencia', curso.id]">
+                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" backgroundColor="#f9ae06" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/profesor/asistencia', curso.id]">
 
                                         <StackLayout orientation="horizontal" width="100%" horizontalAlignment="center" verticalAlignment="center">
                             
@@ -26,7 +28,7 @@
                                     </FlexboxLayout>
 
 
-                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" backgroundColor="#8f05e8" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/enviartrabajo', curso.id]">
+                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" backgroundColor="#8f05e8" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/profesor/enviartrabajo', curso.id]">
 
                                         <StackLayout orientation="horizontal" width="100%" horizontalAlignment="center" verticalAlignment="center">
                             
@@ -45,7 +47,7 @@
 
 
 
-                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" backgroundColor="#f7996b" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/boletin', curso.id]">
+                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" backgroundColor="#f7996b" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/profesor/boletin', curso.id]">
 
                                         <StackLayout orientation="horizontal" width="100%" horizontalAlignment="center" verticalAlignment="center">
                             

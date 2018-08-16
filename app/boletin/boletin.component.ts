@@ -78,7 +78,7 @@ export class BoletinComponent implements OnInit {
         
     }
     regresar() {
-        this.router.backToPreviousPage();
+        this.router.back();
     }  
 
 }

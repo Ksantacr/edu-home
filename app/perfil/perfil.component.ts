@@ -41,17 +41,11 @@ export class PerfilComponent implements OnInit {
     ngOnInit(): void {
 
         this.tipo = this.route.snapshot.params.tipo;
-
         console.log(this.tipo);
-
         /*if(isAndroid){
             application.android.on(AndroidApplication.activityBackPressedEvent, (data: AndroidActivityBackPressedEventData) => {
-                
-                if(!this.router.canGoBackToPreviousPage()) {
-                    data.cancel = true;
-                    this.regresar();
-                }
-               
+                data.cancel = true;
+                this.regresar();
             });
         }*/
        
@@ -73,16 +67,7 @@ export class PerfilComponent implements OnInit {
     }
 
     regresar() {
-
-        console.log("regresar")
-        
-        if(this.tipo==1) {
-            this.router.navigate(['/main'], { clearHistory: true });
-        } else if(this.tipo == 2) {
-            this.router.navigate(['/profesor'], { clearHistory: true });
-        }
         //this.router.backToPreviousPage();
-        //this.router.back();
-        
+        this.router.back();
     }
 }

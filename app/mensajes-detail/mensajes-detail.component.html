@@ -1,5 +1,6 @@
 <ActionBar [title]="curso.nombre" backgroundColor="{{ color }}">
-        <NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>
+        <!--<NavigationButton text="Go Back" ios.position="left" android.systemIcon="ic_menu_back" (tap)="regresar()"></NavigationButton>-->
+        <NavigationButton text="go back" icon="res://arrow_b" ios.position="left" (tap)="regresar()"></NavigationButton>
 </ActionBar>
 <GridLayout rows="*, auto" columns="auto" class="">
         <StackLayout row="0" column="0" width="100%" height="90%">
