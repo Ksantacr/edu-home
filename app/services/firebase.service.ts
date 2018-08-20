@@ -330,7 +330,7 @@ agregarTarea(idCurso:any, tarea:NewTarea) {
 
             let data = (e) => {
 
-              console.dir(e)
+              //console.dir(e)
               //BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
               //if()
               if(e.value!=null) {
@@ -387,15 +387,15 @@ agregarTarea(idCurso:any, tarea:NewTarea) {
             //console.log("Estado: "+BackendService.isRepresentante())
             //console.log("Firebase Service :User login:-->"+JSON.stringify(result))
             //return JSON.stringify(result);
-            console.log("data:");
-            console.log(JSON.stringify(result))
+            //console.log("data:");
+            //console.log(JSON.stringify(result))
             
 
-            console.log(result.uid)
+            //console.log(result.uid)
             //BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
             let data = (e) => {
 
-              console.dir(e)
+              //console.dir(e)
               //BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
               //if()
               if(e.value!=null) {

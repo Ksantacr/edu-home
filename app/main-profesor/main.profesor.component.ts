@@ -22,9 +22,6 @@ import { UserEduHome } from "../shared/user-eduhome";
     templateUrl: "./main-profesor.component.html"
 })
 export class MainProfesorComponent implements OnInit {
-
-    //message = "You have successfully authenticated. This is where you build your core application functionality.";
-
     
     public hidden: boolean;
     public titleState: TITLE_STATE;
@@ -33,20 +30,11 @@ export class MainProfesorComponent implements OnInit {
     public accentColor: string;
     public uncoloredBackgroundColor :string;
     //@ViewChild("dockDisplay") dockDisplay: ElementRef;
-
-
     public items: Array<BottomBarItem>;
-    ngOnInit(): void {
-        //this.page.actionBarHidden = true;
-        
-        /*this.items[0].notification.backgroundColor = "red";
-        this.items[0].notification.value = "2";
-        this.items[0].notification.textColor = "white";*/
-//        this.firebaseService.getCursos
 
+    ngOnInit(): void {
         console.log("Main profesor");
         this.routerExtensions.navigate(["/profesor/home"], { clearHistory: true });
-        
     }
 
     constructor(private routerExtensions:RouterExtensions, private firebaseService:FirebaseService) {
@@ -62,9 +50,15 @@ export class MainProfesorComponent implements OnInit {
     tabLoaded(event) {
         this._bar = <BottomBar>event.object;        
         this.hidden = false;
-        this.titleState = TITLE_STATE.SHOW_WHEN_ACTIVE;
+        this.titleState = TITLE_STATE.ALWAYS_SHOW;
         this.inactiveColor = "#BBBBBB";
         this.accentColor = "white";
+    }
+
+    checkItem(event) {
+
+        console.log("Evento")
+        console.dir(event)
     }
     
      tabSelected(args: SelectedIndexChangedEventData) {

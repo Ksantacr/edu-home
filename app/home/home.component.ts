@@ -16,6 +16,8 @@ import { BackendService } from "../services/backend.service";
 //import { NgAnalyzedFileWithInjectables } from "@angular/compiler";
 
 import { PlatformLocation } from '@angular/common';
+import { getString, setString } from "tns-core-modules/application-settings";
+
 
 /*import { registerElement } from 'nativescript-angular/element-registry';
 import { CardView } from 'nativescript-cardview';
@@ -40,13 +42,12 @@ export class HomeComponent implements OnInit {
     //apellidos:string;
     //private sub:any;
     //public lista: Observable<any>;
-
     public gifts$: Observable<any>;
-
     public visibility:string;
     public cantidadTareas:number = 0;
-
     public genero:string;
+    public oculto:boolean = true;
+
     //constructor(private itemService: DataService, private router: RouterExtensions) { }
 
     //public items$: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
@@ -57,6 +58,9 @@ export class HomeComponent implements OnInit {
         this.user = new UserEduHome("", "", "");
         this.visibility = "visible";
         this.genero = "";
+        //console.log(getString("genero"))
+        //if(getString("genero"))
+        //setString("genero", "");
     }
     logout() {
         this.firebaseService.logout();
@@ -70,8 +74,8 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
 
         this.location.onPopState(() => {
-            this.getData();
-            console.log("ESTOY EN HOME COMPONENT!!!!!!!!!!!!!!!!!!")
+            //this.getData();
+            //console.log("ESTOY EN HOME COMPONENT!!!!!!!!!!!!!!!!!!")
         });
 
         this.getData();
@@ -79,10 +83,14 @@ export class HomeComponent implements OnInit {
         <any>this.firebaseService.datosRepresentante().then(
             data => {
                 this.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
-
+                
                 this.genero = data.value.genero;
-
-                console.log(this.genero)
+                if(getString("genero")==undefined) {
+                    console.log(getString("genero"))
+                    setString("genero", ""+this.genero);
+                    this.oculto = false;
+                }
+                //console.log(this.genero)
             }
         );
     }
@@ -97,7 +105,7 @@ export class HomeComponent implements OnInit {
 
                    curso.tareasID.forEach((tarea)=>{
                     if(!tarea.revisado && (new Date(tarea.fechaEntrega)>=new Date())){
-                       console.dir(tarea)
+                       //console.dir(tarea)
                        tareas.push(0)
                     }
                    })

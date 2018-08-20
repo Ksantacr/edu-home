@@ -1,28 +1,19 @@
 import { Component, OnInit,NgZone } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-
 import { RouterExtensions } from "nativescript-angular/router";
-
 import { Curso }  from "../shared/curso.model";
-
 import { Tarea }  from "../shared/tarea.model";
-
-//import { CursoService} from "../core/curso.service";
 import { Observable } from "rxjs";
 import { FirebaseService } from "../services/firebase.service";
-
 import * as dialogs from "ui/dialogs";
 const PhotoViewer = require("nativescript-photoviewer");
-
 var photoViewer;
-@Component({
 
+@Component({
     selector: "HomeDetalle",
     moduleId: module.id,
     templateUrl: "./home-detalle.component.html",
     styleUrls: ['./home-detalle.component.css']
-
-
 })
 
 export class HomeDetalleComponent implements OnInit{
@@ -38,12 +29,14 @@ export class HomeDetalleComponent implements OnInit{
     listaTareas_:Array<Tarea>;
     public genero:string;
     public cantidadTareas:number;
+    public oculto:boolean;
 
     constructor(private route: ActivatedRoute, private router: RouterExtensions, private firebaseService:FirebaseService ) {
         this.curso = new Curso();
         this.listaTareas = [];
         this.listaTareas_= [];
         this.cantidadTareas = 0;
+        this.oculto = true;
     }
 
     galleryLoaded(){
@@ -70,53 +63,29 @@ export class HomeDetalleComponent implements OnInit{
             }
         );
 
-        
-        //this.hidden = true;
         const id = +this.route.snapshot.params.id;        
-        //this.curso = this.cursoService.getCurso(id);
 
         this.firebaseService.getCurso(id).then(data=>{
 
             this.curso = new Curso(data.value.id, data.value.nombre, data.value.imagen, data.value.color);
 
-            console.dir(data.value.tareasID)
-
             data.value.tareasID.forEach((tarea) => {
 
                 this.listaTareas.push(new Tarea(tarea.id,tarea.titulo, tarea.descripcion, tarea.fotoUrl, tarea.archivoPath, tarea.color, tarea.fechaEntrega, tarea.revisado))
-                //console.log(new Date(tarea.fechaEntrega))
-                
-                /*if(!tarea.revisado && (new Date(tarea.fechaEntrega)>=new Date())) {
-                    this.listaTareas.push(new Tarea(tarea.id,tarea.titulo, tarea.descripcion, tarea.fotoUrl, tarea.archivoPath, tarea.color, tarea.fechaEntrega, tarea.revisado));
-                }*/
             });
             this.actualizarTareas()
-
-            console.dir(this.listaTareas)
-            
-
-            //console.dir(this.listaTareas);
-
         });
-        //console.log(""+JSON.stringify(this.curso))
         
     }
     actualizarTareas() {
-        //this.listaTareas_ = this.listaTareas;
-        /*this.listaTareas.forEach(tarea=>{
-            if(!tarea.revisado){
-                this.listaTareas_.push(new Tarea(tarea.id,tarea.titulo, tarea.descripcion, tarea.fotoUrl, tarea.archivoPath, tarea.color, tarea.fechaEntrega, tarea.revisado));
-            }
-        })*/
+
         this.listaTareas_ = [];
-        this.listaTareas_ = this.listaTareas.filter(tarea=>{
-            //console.log(tarea)
+        this.listaTareas_ = this.listaTareas.filter(tarea=> {
             return (!tarea.revisado && new Date(tarea.fechaEntrega)>=new Date())
         })
-
         this.cantidadTareas = this.listaTareas_.length;
-        //this.curso.cantidadTareas = this.listaTareas.length;
-        //this.listaTareas = this.listaTareas_;
+        this.oculto = this.cantidadTareas >0 ? true : false;
+
     }
     regresar() {
         this.router.back();
@@ -133,22 +102,14 @@ export class HomeDetalleComponent implements OnInit{
             // result argument is boolean
 
             if(result){
-                console.log(tarea);
-
                 this.listaTareas[tarea-1].revisado = true;
-
-                console.log(this.listaTareas[tarea-1])
 
                 this.firebaseService.actualizarCurso(this.curso.id - 1, tarea-1, this.listaTareas[tarea-1]).then(
 
                     ()=>{this.actualizarTareas()}
                 );
-
-
             }
         });
-        //console.dir(e);
-        //this.listaTareas.splice(e, 1);
     }
 
 }

@@ -44,13 +44,13 @@ export class ListaComponent {
                    "nombres": representante.nombres,
                    "apellidos": representante.apellidos,
                    "pos": cont,
-                   "asistencia": false
+                   "asistencia": true
                })
 
                cont++;
             })
 
-            console.log(this.listado);
+            //console.log(this.listado);
         });
     }
     guardarLista() {

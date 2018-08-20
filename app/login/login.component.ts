@@ -54,12 +54,12 @@ export class LoginComponent {
         //this.page.actionBarHidden = true; 
     }
     submit() {
-        console.log("SUBMIT")
+        //console.log("SUBMIT")
         this.processing = true;
 
         
         if(this.profesorCheckBox.nativeElement.checked) {
-            console.log("checked");
+            //console.log("checked");
             this.loginProfesor();
         }else {
             this.login();

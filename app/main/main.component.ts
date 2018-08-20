@@ -62,7 +62,7 @@ export class MainComponent implements OnInit {
         //this.items[0].notification = new Notification("#17375e", "white", "4"); 
         let mensajes_notificaciones = new Notification("#17375e", "white", "4");
         this.items = [
-            new BottomBarItem(0, "Materias", "book", "#17375e", null),
+            new BottomBarItem(0, "Materias", "book", "#17375e"),
         new BottomBarItem(1, "Mensajes", "chat", "#17375e"),
         new BottomBarItem(2, "Perfil", "student", "#17375e")
         //,new BottomBarItem(3, "Notificaciones", "notification", "#17375e", new Notification("#17375e", "white", "4"))
@@ -73,15 +73,17 @@ export class MainComponent implements OnInit {
     
 
     tabLoaded(event) {
-        this._bar = <BottomBar>event.object;        
+        this._bar = <BottomBar>event.object;
+        
         this.hidden = false;
-        this.titleState = TITLE_STATE.SHOW_WHEN_ACTIVE;
+        this.titleState = TITLE_STATE.ALWAYS_SHOW;
         this.inactiveColor = "#BBBBBB";
         this.accentColor = "white";
 
     }
     
      tabSelected(args: SelectedIndexChangedEventData) {
+         
          // only triggered when a different tab is tapped
         if(args.newIndex == 0 ){
             this.routerExtensions.navigate(['/main/home'], { clearHistory: true });
@@ -94,4 +96,6 @@ export class MainComponent implements OnInit {
             this.routerExtensions.navigate(['/main/perfil/1']);
         }
      }
+
+     
 }

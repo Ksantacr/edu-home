@@ -3,11 +3,11 @@
     <NavigationButton text="go back" icon="res://arrow_b" ios.position="left" (tap)="regresar()"></NavigationButton>
 </ActionBar>
 
-    <GridLayout rows="auto, *, auto" class="form p-10">
+    <GridLayout rows="*, auto" class="form p-10">
 
-        <button [text]="inClass? 'Marcar con faltas': 'Todos en clase'" (tap)="cambiarEstado()" [class]="inClass? 'falta': 'asistencia'"></button>
+        <!--<button [text]="inClass? 'Marcar con faltas': 'Todos en clase'" (tap)="cambiarEstado()" [class]="inClass? 'falta': 'asistencia'"></button>-->
 
-        <ListView [items]="listado" class="list-group" row="1">
+        <ListView [items]="listado" class="list-group" row="0">
             <ng-template let-r="item">
                 <GridLayout class="list-group-item">
                     <CheckBox [(ngModel)]="r.asistencia" text="{{ r.nombres + ' '+ r.apellidos }}" fill="#17375e" fillColor="#17375e" fontSize="30" class="checkbox"></CheckBox>
@@ -16,7 +16,7 @@
             </ng-template>
         </ListView>
         
-        <Button row="2" text="Guardar lista" (tap)="guardarLista()" class="btn btn-primary"></Button>
+        <Button row="1" text="Guardar lista" (tap)="guardarLista()" class="btn btn-primary"></Button>
         
         <ActivityIndicator rowSpan="1" row="0" [busy]="processing" width="50%"></ActivityIndicator>
             

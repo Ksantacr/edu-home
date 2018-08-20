@@ -128,10 +128,10 @@
               </StackLayout>-->
               <!--<Image *ngIf="cantidadTareas==0" src="~/images/personaje_f.png" dock="right" class="img-personaje" fill="stretch"></Image>-->
 
-              <DockLayout width="100%" height="100%" row="0"  *ngIf="cantidadTareas==0">
+              <DockLayout width="100%" height="100%" row="0"  *ngIf="!oculto && cantidadTareas==0">
       
                   <!--src="~/images/logo.png"-->
-                  <StackLayout dock="top" class="text-white" verticalAlignment="center" horizontalAlignment="center">
+                  <StackLayout dock="top" class="text-white" verticalAlignment="center" horizontalAlignment="center" *ngIf="!oculto && cantidadTareas==0">
 
                       
                       <!--<Label text="Hola! :)" textWrap="true"></Label>-->
@@ -140,10 +140,10 @@
                       <Label text="de esta materia!" textWrap="true"></Label>
                   </StackLayout>
             
-                  <Image *ngIf="genero=='f'" src="~/images/personaje_f.png" dock="bottom" class="img-personaje" fill="stretch" ></Image>
+                  <Image *ngIf="genero=='f' && !oculto" src="~/images/personaje_f.png" dock="bottom" class="img-personaje" fill="stretch" ></Image>
 
 
-                  <Image *ngIf="genero=='m'" src="~/images/personaje_m.png" dock="bottom" class="img-personaje" fill="stretch" ></Image>   
+                  <Image *ngIf="genero=='m' && !oculto" src="~/images/personaje_m.png" dock="bottom" class="img-personaje" fill="stretch" ></Image>   
 
                 </DockLayout>
         </FlexboxLayout>
