@@ -3,10 +3,20 @@ import { getString, setString } from "tns-core-modules/application-settings";
 
 const tokenKeyRepresentante = "";
 const tokenKeyProfesor = "";
+const personaje = "";
+
 //const rol = "rol";
 export class BackendService {
 
-  
+
+  static esPrimeraVez():boolean {
+    return !!getString("personaje");
+  }
+
+  static set personaje(personaje: string) {
+    setString("personaje", personaje);
+  }
+
 
   static isRepresentante():boolean {
     return !!getString("representante");

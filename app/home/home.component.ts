@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     public visibility:string;
     public cantidadTareas:number = 0;
     public genero:string;
-    public oculto:boolean = true;
+    public oculto:boolean = false;
 
     //constructor(private itemService: DataService, private router: RouterExtensions) { }
 
@@ -56,43 +56,48 @@ export class HomeComponent implements OnInit {
 
     constructor(private router: RouterExtensions, private firebaseService:FirebaseService, private location : PlatformLocation) {
         this.user = new UserEduHome("", "", "");
-        this.visibility = "visible";
-        this.genero = "";
+        //this.visibility = "visible";
+        this.genero = getString("genero")? getString("genero") : "";
+        //this.oculto = BackendService.esPrimeraVez()? true : false;
+        this.visibility = BackendService.esPrimeraVez()? "hidden" : "visible";
         //console.log(getString("genero"))
         //if(getString("genero"))
         //setString("genero", "");
     }
-    logout() {
+    /*logout() {
         this.firebaseService.logout();
         this.router.navigate(["login"] , { clearHistory: true });
-    }
+    }*/
 
     ocultarMensaje($event) {
         this.visibility = "hidden";
+        //BackendService.personaje = "y";
+        console.log(BackendService.esPrimeraVez())
+        //this.oculto = !BackendService.esPrimeraVez();
     }
 
     ngOnInit(): void {
 
-        this.location.onPopState(() => {
+        /*this.location.onPopState(() => {
             //this.getData();
             //console.log("ESTOY EN HOME COMPONENT!!!!!!!!!!!!!!!!!!")
-        });
 
-        this.getData();
-       
+        });*/
         <any>this.firebaseService.datosRepresentante().then(
             data => {
                 this.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
                 
                 this.genero = data.value.genero;
-                if(getString("genero")==undefined) {
-                    console.log(getString("genero"))
-                    setString("genero", ""+this.genero);
-                    this.oculto = false;
-                }
+                //if(getString("genero")==undefined) {
+                    //console.log(getString("genero"))
+                //setString("genero", ""+this.genero);
+                //this.oculto = false;
+                //}
+
                 //console.log(this.genero)
             }
         );
+        this.getData();
     }
 
     getData() {

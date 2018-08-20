@@ -7,6 +7,7 @@ import { UserEduHome } from "../shared/user-eduhome";
 import { BackendService } from "../services/backend.service";
 import { PlatformLocation } from '@angular/common';
 import { ActivatedRoute } from "@angular/router";
+import { getString, setString } from "tns-core-modules/application-settings";
 
 import * as application from "application";
 import { AndroidApplication, AndroidActivityBackPressedEventData } from "application";
@@ -34,6 +35,9 @@ export class PerfilComponent implements OnInit {
     }
 
     logout() {
+
+        BackendService.personaje = "";
+        setString("genero", "");
         this.firebaseService.logout();
         this.router.navigate(["login"] , { clearHistory: true });
     }

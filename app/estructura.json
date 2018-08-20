@@ -112,7 +112,7 @@
             "nombres": "Andrea Doménica",
             "apellidos": "Valarezo Paz",
             "genero": "f",
-			"fotoPerfil": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg",
+			"fotoPerfil": "http://umc.minedu.gob.pe/wp-content/uploads/2017/07/image_nota.jpg",
 			"cursos" :[
                 {
                 "id": 1,
@@ -128,12 +128,7 @@
             "fechaEntrega": 1541826000000,
             "revisado": false,
             "titulo": "Leccion"
-        } ],
-                "profesor": {
-                    "titulo": "Lcdo",
-                    "nombres": "Joel Ricardo",
-                    "apellidos": "Collahuazo Vaca"
-                }
+        } ]
             }, {
                 "id": 2,
                 "nombre": "Lenguaje y Literatura",
@@ -158,12 +153,7 @@
             "fechaEntrega": 1541826000000,
             "revisado": false,
             "titulo": "Revisión"
-        }],
-                "profesor": {
-                    "titulo": "Lcdo",
-                    "nombres": "Kevin Rafael",
-                    "apellidos": "Santacruz Burgos"
-                }
+        }]
             }, 
             {
                 "id": 3,
@@ -176,18 +166,12 @@
             "fotoUrl": "",
             "archivoPath": "",
             "color": "#8f05e8",
-            "fechaEntrega": 1541826000000,
+            "fechaEntrega": 1541825000000,
             "revisado": false,
             "titulo": "Recordatorio"
 
-        } ],
-                "profesor": {
-                    "titulo": "Lcdo",
-                    "nombres": "Joel Ricardo",
-                    "apellidos": "Collahuazo Vaca"
-                }
+        } ]
             },
-
             {
                 "id": 4,
                 "nombre": "Emprendimiento",
@@ -199,16 +183,45 @@
             "fotoUrl": "",
             "archivoPath": "",
             "color": "#f7996b",
-            "fechaEntrega": 1541826000000,
+            "fechaEntrega": 1541820000000,
             "revisado": false,
             "titulo": "Trabajo en grupo"
 
-        } ],
-                "profesor": {
-                    "titulo": "Lcdo",
-                    "nombres": "Joel Ricardo",
-                    "apellidos": "Collahuazo Vaca"
-                }
+        } ]
+            },
+            {
+                "id": 5,
+                "nombre": "Estudios Sociales",
+                "imagen": "",
+                "color": "#aa7100",
+                "tareasID": [ {
+                    "id":1,
+            "descripcion": "Revisión del libro para la siguiente clase.",
+            "fotoUrl": "",
+            "archivoPath": "",
+            "color": "#aa7100",
+            "fechaEntrega": 1541810000000,
+            "revisado": false,
+            "titulo": "Revisión del libro"
+
+        } ]
+            },
+            {
+                "id": 6,
+                "nombre": "Educación Cultural",
+                "imagen": "",
+                "color": "#f9ae06",
+                "tareasID": [ {
+                    "id":1,
+            "descripcion": "Revisión de los materiales para la practica.",
+            "fotoUrl": "",
+            "archivoPath": "",
+            "color": "#f9ae06",
+            "fechaEntrega": 1541710000000,
+            "revisado": false,
+            "titulo": "Trabajo de manualidades"
+            
+        } ]
             }
         
         ]
@@ -240,6 +253,27 @@
                 "nombre": "Ciencias Naturales",
                 "imagen": "",
                 "color": "#8f05e8"
+            }]
+        },
+
+        "NrwKuwDclJT19Nivci91OuaTdoZ2": {
+            "id": "NrwKuwDclJT19Nivci91OuaTdoZ2",
+			"nombres": "Miguel Ángel",
+			"apellidos": "Burguete García",
+			"fotoPerfil": "http://biendateao.com/wp-content/uploads/2017/03/eduardo-parra.jpg",
+            "cursos" :[
+                {
+                "id": 1,
+                "curso": "5to 'A'",
+                "nombre": "Emprendimiento",
+                "imagen": "",
+                "color": "#5bbcb7"
+            }, {
+                "id": 2,
+                "curso": "5to 'A'",
+                "nombre": "Ciencias Sociales",
+                "imagen": "",
+                "color": "#243a3a"
             }]
         }
     },
@@ -282,7 +316,7 @@
         "idChat": "-LJbUWk8ftydrGMufEHh",
         "nombres": "Joan Vicente",
 		"apellidos": "Fernandez Soledispa",
-		"fotoPerfil": "https://www.colegioagorabarcelona.es/wp-content/uploads/sites/2/2018/01/Lorenzo-Fresno-agora-is-barcelona.jpg",
+		"fotoPerfil": "http://biendateao.com/wp-content/uploads/2017/03/eduardo-parra.jpg",
         "materia": "Matemáticas",
         "color": "#5bbcb7",
         "idCurso":"1"
@@ -292,7 +326,7 @@
             "idChat": "-LJbUWk9ftydrGMufEHh",
             "nombres": "Joan Vicente",
 			"apellidos": "Fernandez Soledispa",
-			"fotoPerfil": "https://www.colegioagorabarcelona.es/wp-content/uploads/sites/2/2018/01/Lorenzo-Fresno-agora-is-barcelona.jpg",
+			"fotoPerfil": "http://biendateao.com/wp-content/uploads/2017/03/eduardo-parra.jpg",
             "materia": "Lenguaje y Literatura",
             "color": "#243a3a",
             "idCurso":"2"
@@ -301,14 +335,49 @@
         {
             "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
             "idChat": "-LJbUWk0ftydrGMufEHh",
-            "nombres": "Joan Vicente",
-			"apellidos": "Fernandez Soledispa",
-			"fotoPerfil": "https://www.colegioagorabarcelona.es/wp-content/uploads/sites/2/2018/01/Lorenzo-Fresno-agora-is-barcelona.jpg",
+            "nombres": "Miguel Ángel",
+			"apellidos": "Burguete García",
+			"fotoPerfil": "http://www.cronicadelnoa.com.ar/web/wp-content/uploads/2013/12/zottos_carnet.jpg",
             "materia": "Ciencias Naturales",
             "color": "#8f05e8",
             "idCurso":"3"
 
-        }]
+        }, 
+
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk1ftydrGMufEHh",
+            "nombres": "Cuéllar",
+			"apellidos": "Avendaño Patricia",
+			"fotoPerfil": " http://www.celoriu.com/wp-content/uploads/2011/05/Dolores-Fondo-blanco.jpg",
+            "materia": "Emprendimiento",
+            "color": "#f7996b",
+            "idCurso":"4"
+
+        },
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk2ftydrGMufEHh",
+            "nombres": "Cuéllar",
+			"apellidos": "Avendaño Patricia",
+			"fotoPerfil": " http://www.celoriu.com/wp-content/uploads/2011/05/Dolores-Fondo-blanco.jpg",
+            "materia": "Estudios Sociales",
+            "color": "#aa7100",
+            "idCurso":"5"
+
+        },
+        {
+            "id": "mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk3ftydrGMufEHh",
+            "nombres": "Cuéllar",
+			"apellidos": "Avendaño Patricia",
+			"fotoPerfil": " http://www.celoriu.com/wp-content/uploads/2011/05/Dolores-Fondo-blanco.jpg",
+            "materia": "Educación Cultural",
+            "color": "#f9ae06",
+            "idCurso":"6"
+
+        }
+       ]
 
     },
 
@@ -395,13 +464,101 @@
             "nombres": "Andrea Doménica",
             "apellidos": "Valarezo Paz",
             "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Juan Manuel",
+            "apellidos": "Díaz Núñez",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+        
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Jorge Armando",
+            "apellidos": "Elizalde Herrera",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Delia",
+            "apellidos": "Espinosa Hernández",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Norma Nelia",
+            "apellidos": "Figueroa Salmorán",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+        
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Carlos Porfirio",
+            "apellidos": "Fuentes Mena",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Alba Lorenia",
+            "apellidos": "Galaviz Ramírez",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Mario Alberto",
+            "apellidos": "García García",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Mario Alberto",
+            "apellidos": "García García",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "José Antonio",
+            "apellidos": "Bermúdez Manrique",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Marisol",
+            "apellidos": "Castañeda Pérez",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Nicéforo",
+            "apellidos": "Cantú Garza",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Dante Adrián",
+            "apellidos": "Camarillo Palafox",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Guillermo",
+            "apellidos": "Bacab Pech",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+        ,{"id":"mnqlgrPCJEYuYBBsZZvQBRnxmUy1",
+            "idChat": "-LJbUWk6ftydrGMufEHh",
+            "nombres": "Sandra Walkyria",
+            "apellidos": "Ayala Jiménez",
+            "foto": "http://parroquiasabanilla.org/psrn/wp-content/uploads/2014/10/familia-400x400.jpg"}
+
+         
     ],
 
     "cantidadTareasCurso" : [
         {"id": 1, "cantidad": 1},
         {"id": 2, "cantidad": 2},
         {"id":3, "cantidad":1},
-        {"id":4, "cantidad":1}
+        {"id":4, "cantidad":1},
+        {"id": 5, "cantidad":1},
+        {"id": 6, "cantidad":1}
     ],
 
     "Chats" : {

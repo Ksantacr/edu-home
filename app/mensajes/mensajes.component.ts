@@ -45,24 +45,29 @@ export class MensajesComponent {
 
     public ngAfterViewInit() {
 
+       
+        //console.dir(this.listaNombres)
+        
+    }
+    
+    ngOnInit () {
         <any>this.firebaseService.getChatInfoProfesores().then((data)=>{
 
             //console.log(data.value)
             data.value.forEach((chat)=>{
+
                 
-                //console.log(chat.foto)
+                
+                console.dir(chat)
                 //let tmp = new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto);
 
                 //console.dir(tmp)
                 this.listaNombres.push(new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.fotoPerfil, chat.idCurso))
             })
 
+            console.log("chat: "+ this.listaNombres.length)
+
         })
-        console.dir(this.listaNombres)
-        
-    }
-    
-    ngOnInit () {
 
         /*if(isAndroid){
             application.android.on(AndroidApplication.activityBackPressedEvent, (data: AndroidActivityBackPressedEventData) => {

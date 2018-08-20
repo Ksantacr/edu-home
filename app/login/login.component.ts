@@ -93,7 +93,7 @@ export class LoginComponent {
                 //alert("No hemos encontrado tu cuenta, verifique los datos.");
                 dialogs.alert({
                     title: "EduHome",
-                    message: ":(",
+                    message: "No hemos encontrado tu cuenta, verifique los datos.",
                     okButtonText: "Aceptar"
                 }).then(() => {
                     console.log("Dialog closed!");
@@ -123,7 +123,7 @@ export class LoginComponent {
                 //alert("No hemos encontrado tu cuenta.");
                 dialogs.alert({
                     title: "EduHome",
-                    message: ":(",
+                    message: "No hemos encontrado tu cuenta, verifique los datos.",
                     okButtonText: "Aceptar"
                 }).then(() => {
                     console.log("Dialog closed!");
