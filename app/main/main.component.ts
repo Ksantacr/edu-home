@@ -38,9 +38,6 @@ export class MainComponent implements OnInit {
     public uncoloredBackgroundColor :string;
     //@ViewChild("dockDisplay") dockDisplay: ElementRef;
 
-    
-
-
     public items: Array<BottomBarItem>;
 
     public ngAfterViewInit() {
@@ -63,8 +60,8 @@ export class MainComponent implements OnInit {
         let mensajes_notificaciones = new Notification("#17375e", "white", "4");
         this.items = [
             new BottomBarItem(0, "Materias", "book", "#17375e"),
-        new BottomBarItem(1, "Mensajes", "chat", "#17375e"),
-        new BottomBarItem(2, "Perfil", "student", "#17375e")
+            new BottomBarItem(1, "Mensajes", "chat", "#17375e"),
+            new BottomBarItem(2, "Perfil", "student", "#17375e")
         //,new BottomBarItem(3, "Notificaciones", "notification", "#17375e", new Notification("#17375e", "white", "4"))
         ]
     }
@@ -74,7 +71,6 @@ export class MainComponent implements OnInit {
 
     tabLoaded(event) {
         this._bar = <BottomBar>event.object;
-        
         this.hidden = false;
         this.titleState = TITLE_STATE.ALWAYS_SHOW;
         this.inactiveColor = "#BBBBBB";
