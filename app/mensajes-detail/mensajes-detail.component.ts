@@ -48,6 +48,8 @@ export class MensajesDetailComponent implements OnInit {
 
     constructor(private route: ActivatedRoute,private router: RouterExtensions, private firebaseService:FirebaseService, private page:Page) {
         this.curso = new Curso();
+
+        this.page.backgroundImage = "~/images/fondo_chat.png";
         //this.profesor = new Profesor();
         /*this.page.on("loaded", (args)=>{
             var window = app.android.startActivity.getWindow();

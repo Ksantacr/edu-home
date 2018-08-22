@@ -38,7 +38,7 @@ registerLocaleData(esEC)
         CoreModule,
         NativeScriptHttpModule,
         NativeScriptFormsModule,
-        TNSCheckBoxModule
+        TNSCheckBoxModule,
     ],
     declarations: [
         AppComponent,

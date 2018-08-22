@@ -17,7 +17,7 @@
 				<TextField #password class="input input-eduhome" hint="Contraseña" secure="true" [(ngModel)]="user.password" (returnPress)="submit()"></TextField>
 				<!--<StackLayout class="hr-light"></StackLayout>-->
 
-				<CheckBox #profesor text="Soy profesor" class="text-center" class="" checked="false" fillColor="white" color="white"></CheckBox>
+				<CheckBox #profesor text="Soy profesor" class="text-center" class="raleway" checked="false" fillColor="white" color="white"></CheckBox>
 			</StackLayout>
 
 			<!--<StackLayout row="2" *ngIf="!isLoggingIn" class="input-field">
@@ -28,7 +28,7 @@
 			<ActivityIndicator rowSpan="2" [busy]="processing"></ActivityIndicator>
         </GridLayout>
         
-        <Button text="Iniciar Sesión" (tap)="submit()" class="btn btn-primary" clearHistory="true"></Button>
+        <Button text="Iniciar Sesión" (tap)="submit()" class="btn btn-primary raleway" clearHistory="true"></Button>
 		<!--<Button [text]="isLoggingIn ? 'Log In' : 'Sign Up'" [isEnabled]="!processing" (tap)="submit()" class="btn btn-primary m-t-20"></Button>-->
 		<!--<Label *ngIf="isLoggingIn" text="Me gustaría ser parte" class="login-label" (tap)="forgotPassword()"></Label>-->
 	</StackLayout>
@@ -36,7 +36,7 @@
 	<!--<Label class="login-label sign-up-label" (tap)="toggleForm()">-->
 	<Label class="login-label sign-up-label mensaje-eduhome">
 		<FormattedString>
-            <Span text="Un equipo asegura educación de calidad"></Span>
+            <Span text="Un equipo asegura educación de calidad" class="raleway"></Span>
 			<!--<Span [text]="isLoggingIn ? 'Don’t have an account? ' : 'Back to Login'"></Span>-->
 			<!--<Span [text]="isLoggingIn ? 'Sign up' : ''" class="bold"></Span>-->
 		</FormattedString>

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef} from "@angular/core";
 import { RouterExtensions } from 'nativescript-angular/router/router-extensions';
 
 import { registerElement } from 'nativescript-angular';
-import { BottomBar, BottomBarItem, TITLE_STATE, SelectedIndexChangedEventData, Notification } from 'nativescript-bottombar';
+//import { BottomBar, BottomBarItem, TITLE_STATE, SelectedIndexChangedEventData, Notification } from 'nativescript-bottombar';
 import { Page } from "tns-core-modules/ui/page";
 
 import {Observable} from 'rxjs';
@@ -23,6 +23,7 @@ import { UserEduHome } from "../shared/user-eduhome";
 })
 export class MainProfesorComponent implements OnInit {
     
+    /*
     public hidden: boolean;
     public titleState: TITLE_STATE;
     public _bar: BottomBar;
@@ -30,23 +31,62 @@ export class MainProfesorComponent implements OnInit {
     public accentColor: string;
     public uncoloredBackgroundColor :string;
     //@ViewChild("dockDisplay") dockDisplay: ElementRef;
-    public items: Array<BottomBarItem>;
+    public items: Array<BottomBarItem>;*/
+
+
+    public icoMaterias = "~/images/libro_g.png";
+    public icoPerfil = "~/images/estudiante_b.png";
+
+    public icoPerfilTint = "white";
+    public icoMateriasTint = "#BBBBBB";
 
     ngOnInit(): void {
         console.log("Main profesor");
-        this.routerExtensions.navigate(["/profesor/home"], { clearHistory: true });
+        //this.icoMateriasTint = "white";
+        this.irHome();
+        //this.routerExtensions.navigate(["/profesor/home"], { clearHistory: true });
     }
 
     constructor(private routerExtensions:RouterExtensions, private firebaseService:FirebaseService) {
 
-        let mensajes_notificaciones = new Notification("#17375e", "white", "4");
+        /*let mensajes_notificaciones = new Notification("#17375e", "white", "4");
         this.items = [new BottomBarItem(0, "Materias", "book", "#17375e", null),
         new BottomBarItem(1, "Perfil", "student", "#17375e"),
         //new BottomBarItem(2, "Mensajes", "chat", "#17375e")
         //,new BottomBarItem(3, "Notificaciones", "notification", "#17375e", new Notification("#17375e", "white", "4"))
-    ]
+    ]*/
+    }
+    irHome() {
+        this.icoMateriasTint = "white";
+        this.icoPerfilTint = "#BBBBBB";
+
+
+        this.icoMaterias = "~/images/libro_b.png";
+        this.icoPerfil = "~/images/estudiante_g.png";
+
+
+
+        this.routerExtensions.navigate(['/profesor/home'], { clearHistory: true });
     }
 
+    irPerfil() {
+        this.icoMateriasTint = "#BBBBBB";
+        this.icoPerfilTint = "white";
+
+        this.icoMaterias = "~/images/libro_g.png";
+        this.icoPerfil = "~/images/estudiante_b.png";
+
+        
+        this.routerExtensions.navigate(['/profesor/perfil/2'], { clearHistory: true });
+    }
+/*
+    img1 () {
+        this.icoMateriasTint = "white";
+    }
+    img2 () {
+        this.icoPerfilTint = "#BBBBBB";
+    }*/
+/*
     tabLoaded(event) {
         this._bar = <BottomBar>event.object;        
         this.hidden = false;
@@ -66,9 +106,6 @@ export class MainProfesorComponent implements OnInit {
         if(args.newIndex == 0 ){
             this.routerExtensions.navigate(['/profesor/home'], { clearHistory: true });
         }
-        /*if(args.newIndex == 1 ){
-            this.routerExtensions.navigate(['/profesor/mensajes'], { clearHistory: true });
-        }*/
         if(args.newIndex == 1 ){
             this.routerExtensions.navigate(['/profesor/perfil/2'], { clearHistory: true });
         }
@@ -78,4 +115,5 @@ export class MainProfesorComponent implements OnInit {
         this.firebaseService.logout();
         this.routerExtensions.navigate(["login"] , { clearHistory: true });
     }
+    */
 }

@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     //apellidos:string;
     //private sub:any;
     //public lista: Observable<any>;
-    public gifts$: Observable<any>;
+    //public gifts$: Observable<any>;
     public visibility:string;
     public cantidadTareas:number = 0;
     public genero:string;
@@ -57,7 +57,14 @@ export class HomeComponent implements OnInit {
     constructor(private router: RouterExtensions, private firebaseService:FirebaseService, private location : PlatformLocation) {
         this.user = new UserEduHome("", "", "");
         //this.visibility = "visible";
-        this.genero = getString("genero")? getString("genero") : "";
+        
+        this.genero = getString("genero");
+
+        if(this.genero) {
+            this.oculto = true;
+        }
+
+        console.log("Constructor:"+this.genero);
         //this.oculto = BackendService.esPrimeraVez()? true : false;
         this.visibility = BackendService.esPrimeraVez()? "hidden" : "visible";
         //console.log(getString("genero"))
@@ -88,6 +95,7 @@ export class HomeComponent implements OnInit {
                 this.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
                 
                 this.genero = data.value.genero;
+                setString("genero", this.genero);
                 //if(getString("genero")==undefined) {
                     //console.log(getString("genero"))
                 //setString("genero", ""+this.genero);
