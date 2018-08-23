@@ -5,10 +5,7 @@ import { SelectedIndexChangedEventData, TabView, TabViewItem } from "tns-core-mo
 //import { registerElement } from 'nativescript-angular/element-registry';
 import { CardView } from 'nativescript-cardview';
 import { registerElement } from 'nativescript-angular';
-import { BottomBar, BottomBarItem, TITLE_STATE,Notification } from 'nativescript-bottombar';
-
 registerElement('CardView', () => CardView);
-registerElement('BottomBar', () => BottomBar);
 
 import { BackendService } from "./services/backend.service";
 

@@ -24,7 +24,6 @@
     "@angular/router": "~6.0.6",
     "faker": "^4.1.0",
     "nativescript-angular": "~6.0.6",
-    "nativescript-bottombar": "^3.0.8",
     "nativescript-camera": "^4.0.2",
     "nativescript-cardview": "^3.1.1",
     "nativescript-checkbox": "^3.0.3",
