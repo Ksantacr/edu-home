@@ -4,6 +4,7 @@ import { UserEduHome } from "../shared/user-eduhome";
 import { FirebaseService } from "../services/firebase.service";
 import { Curso } from "../shared/curso.model";
 import { RouterExtensions } from "nativescript-angular/router";
+import { MainProfesorComponent } from "../main-profesor/main.profesor.component";
 
 @Component({
     selector: "app-home-profesor",
@@ -17,7 +18,17 @@ export class HomeProfesorComponent {
     public user:UserEduHome;
     cursos: Array<Curso>;
 
-    
+    irPerfil () {
+
+        MainProfesorComponent.icoMateriasTint = "#BBBBBB";
+        MainProfesorComponent.icoPerfilTint = "white";
+
+        MainProfesorComponent.icoMaterias = "~/images/libro_g.png";
+        MainProfesorComponent.icoPerfil = "~/images/estudiante_b.png";
+
+        
+        this.router.navigate(['/profesor/perfil/2'], { clearHistory: true });
+    }
 
     constructor(private firebaseService:FirebaseService, private router: RouterExtensions) {
 

@@ -43,7 +43,7 @@ const routes: Routes = [
             {path: "perfil/:tipo", component: PerfilComponent},
     ]},
 //    {path: "curso/:id", component: HomeDetalleComponent},
-    {path: "chat/:id/:curso", component: MensajesDetailComponent},
+    {path: "chat/:id/:curso/:nombres/:apellidos", component: MensajesDetailComponent},
     //{path: "perfil/:tipo", component: PerfilComponent},
 
     { path: "profesor", component: MainProfesorComponent, canActivate: [AuthGuardProfesor],

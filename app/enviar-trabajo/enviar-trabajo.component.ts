@@ -146,9 +146,9 @@ export class EnviarTrabajoComponent {
     enviarTarea() {
 
         dialogs.confirm({
-            title: "Nueva tarea",
-            message: "Confirmación de envio de tarea",
-            okButtonText: "Aceptar",
+            title: "Enviar Tarea",
+            message: "¿Estás seguro que deseas enviar esta tarea?",
+            okButtonText: "Sí",
             cancelButtonText: "Cancelar"
         }).then(result => {
 
@@ -180,9 +180,8 @@ export class EnviarTrabajoComponent {
                     this.firebaseService.actualizarCantidadTareasCurso(this.curso.id-1, this.cantidadTareasCurso[this.curso.id-1]).then(data=>{
                         this.processing = false;
                         dialogs.alert({
-                            title: "Tarea enviada",
-                            message: "Gracias por tu participación. La tarea se ha enviado correctamente.",
-                            okButtonText: "Aceptar"
+                            title: "",
+                            message: "La tarea ha sido enviada con éxito"
                         }).then(()=>{
                             this.router.navigate(["/profesor/home"] , { clearHistory: true });
                         })
@@ -213,9 +212,8 @@ export class EnviarTrabajoComponent {
                     this.firebaseService.actualizarCantidadTareasCurso(this.curso.id-1, this.cantidadTareasCurso[this.curso.id-1]).then(()=>{
                         this.processing = false;
                         dialogs.alert({
-                            title: "Tarea enviada",
-                            message: "Gracias por tu participación. La tarea se ha enviado correctamente.",
-                            okButtonText: "Aceptar"
+                            title: "",
+                            message: "La tarea ha sido enviada con éxito"
                         }).then(()=>{
                             this.router.navigate(["/profesor/home"] , { clearHistory: true });
                         })

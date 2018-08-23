@@ -94,9 +94,9 @@ export class HomeDetalleComponent implements OnInit{
     listo(tarea) {
 
         dialogs.confirm({
-            title: "Tarea",
-            message: "Marcar la tarea como revisada!",
-            okButtonText: "Aceptar",
+            title: "Confirmación de tarea",
+            message: "¿Estás seguro que esta tarea fue realizada?",
+            okButtonText: "Sí",
             cancelButtonText: "Cancelar"
         }).then(result => {
             // result argument is boolean

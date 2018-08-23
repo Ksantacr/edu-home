@@ -1,5 +1,5 @@
 <ActionBar title="" class="action-bar">
-      <StackLayout orientation="horizontal">
+      <StackLayout orientation="horizontal" (tap)="irPerfil()">
       <Image [src]="user.fotoPerfil" class="foto-perfil" stretch="fill"></Image>
       <StackLayout class="m-l-15" width="80%">
               <Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>

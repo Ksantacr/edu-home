@@ -82,7 +82,7 @@
       <Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>
   </StackLayout>-->
   <!--<FlexboxLayout width="100%" *ngIf="user" justifyContent="center" alignItems="center" class="" backgroundColor="red">---->
-      <StackLayout orientation="horizontal">
+      <StackLayout orientation="horizontal" (tap)="irPerfil()">
       <Image [src]="user.fotoPerfil" class="foto-perfil" stretch="fill"></Image>
       <!--<NavigationButton [icon]="fotoPerfil" tap="showSideDrawer" class="foto-perfil" stretch="aspectFit"></NavigationButton>-->
       <!--<Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>-->
@@ -124,10 +124,10 @@
     <DockLayout width="100%" height="100%" row="0" (tap)="ocultarMensaje($event)" [visibility]="visibility" *ngIf="!oculto">
       
         <StackLayout dock="top" class="text-white m-t-10" verticalAlignment="center" horizontalAlignment="center" *ngIf="!oculto">
-            <Label text="Hola! :)" textWrap="true" *ngIf="!oculto"></Label>
-            <Label text="Tengo tarea pendiente, revisa" textWrap="true" *ngIf="!oculto"></Label>
-            <Label text="lo que necesito para mi siguiente" textWrap="true" *ngIf="!oculto"></Label>
-            <Label text="clase" textWrap="true" *ngIf="!oculto"></Label>
+            <Label text="Hola, tengo tarea pendiente" textWrap="true" *ngIf="!oculto"></Label>
+            <!--<Label text="Tengo tarea pendiente, revisa" textWrap="true" *ngIf="!oculto"></Label>-->
+            <Label text="revisa lo que necesito para mi" textWrap="true" *ngIf="!oculto"></Label>
+            <Label text="siguiente clase!" textWrap="true" *ngIf="!oculto"></Label>
         </StackLayout>
         
         

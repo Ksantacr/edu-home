@@ -17,6 +17,7 @@ import { BackendService } from "../services/backend.service";
 
 import { PlatformLocation } from '@angular/common';
 import { getString, setString } from "tns-core-modules/application-settings";
+import { MainComponent } from "../main/main.component";
 
 
 /*import { registerElement } from 'nativescript-angular/element-registry';
@@ -83,13 +84,27 @@ export class HomeComponent implements OnInit {
         //this.oculto = !BackendService.esPrimeraVez();
     }
 
+    irPerfil() {
+
+        MainComponent.icoMateriasTint = "#BBBBBB";
+        MainComponent.icoMensajesTint = "#BBBBBB";
+        MainComponent.icoPerfilTint = "white";
+
+        MainComponent.icoMaterias = "~/images/libro_g.png";
+        MainComponent.icoMensajes = "~/images/chat_g.png";
+        MainComponent.icoPerfil = "~/images/estudiante_b.png";
+
+        this.router.navigate(["/main/perfil/1"], { clearHistory: true });
+
+    }
+
     ngOnInit(): void {
 
-        /*this.location.onPopState(() => {
-            //this.getData();
+        this.location.onPopState(() => {
+            this.getData();
             //console.log("ESTOY EN HOME COMPONENT!!!!!!!!!!!!!!!!!!")
 
-        });*/
+        });
         <any>this.firebaseService.datosRepresentante().then(
             data => {
                 this.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)

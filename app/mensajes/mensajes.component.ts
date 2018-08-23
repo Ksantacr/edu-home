@@ -55,9 +55,6 @@ export class MensajesComponent {
 
             //console.log(data.value)
             data.value.forEach((chat)=>{
-
-                
-                
                 console.dir(chat)
                 //let tmp = new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto);
 

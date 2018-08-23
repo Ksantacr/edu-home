@@ -1,17 +1,11 @@
-<ActionBar title="Chat en linea" class="action-bar">
-           <!--<StackLayout orientation="horizontal">
-          <StackLayout class="" width="100%">
-                  <Label text="Chat en línea"></Label>
-                  
-          </StackLayout>
-          </StackLayout>-->
-    </ActionBar>
+<ActionBar title="Chat en línea" class="action-bar">
+</ActionBar>
 
 <ScrollView height="100%">
         <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
                     <FlexboxLayout width="100%" *ngFor="let maestro of listaNombres" alignItems="center" justifyContent="space-around">
                             <StackLayout width="100%" height="130" class="text-center" horizontalAlignment="center" verticalAlignment="center">
-                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" [backgroundColor]="maestro.color" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/chat', maestro.idChat, maestro.idCurso]">
+                                    <FlexboxLayout height="130" width="100%" alignItems="center" justifyContent="center" [backgroundColor]="maestro.color" class="m-b-10" horizontalAlignment="center" verticalAlignment="center" [nsRouterLink]="['/chat', maestro.idChat, maestro.idCurso, maestro.nombres, maestro.apellidos]">
 
                                         <StackLayout orientation="horizontal" width="90%" horizontalAlignment="center" verticalAlignment="center">
                                                     <Image [src]="maestro.foto" class="foto-perfil-maestro" stretch="fill"></Image>

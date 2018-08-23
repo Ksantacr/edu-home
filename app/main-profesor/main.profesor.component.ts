@@ -23,22 +23,28 @@ import { UserEduHome } from "../shared/user-eduhome";
 })
 export class MainProfesorComponent implements OnInit {
     
-    /*
-    public hidden: boolean;
-    public titleState: TITLE_STATE;
-    public _bar: BottomBar;
-    public inactiveColor: string;
-    public accentColor: string;
-    public uncoloredBackgroundColor :string;
-    //@ViewChild("dockDisplay") dockDisplay: ElementRef;
-    public items: Array<BottomBarItem>;*/
-
-
     public icoMaterias = "~/images/libro_g.png";
     public icoPerfil = "~/images/estudiante_b.png";
 
-    public icoPerfilTint = "white";
-    public icoMateriasTint = "#BBBBBB";
+
+    static icoMaterias = "~/images/libro_g.png";   
+    static icoPerfil = "~/images/estudiante_b.png";
+
+    static icoPerfilTint = "white";
+    static icoMateriasTint = "#BBBBBB";
+
+    get icoMaterias_() {
+        return MainProfesorComponent.icoMaterias;
+    }   
+    get icoPerfil_() {
+        return MainProfesorComponent.icoPerfil;
+    }
+    get icoPerfilTint_() {
+        return MainProfesorComponent.icoPerfilTint;
+    }    
+    get icoMateriasTint_() {
+        return MainProfesorComponent.icoMateriasTint;
+    }
 
     ngOnInit(): void {
         console.log("Main profesor");
@@ -57,24 +63,21 @@ export class MainProfesorComponent implements OnInit {
     ]*/
     }
     irHome() {
-        this.icoMateriasTint = "white";
-        this.icoPerfilTint = "#BBBBBB";
+        MainProfesorComponent.icoMateriasTint = "white";
+        MainProfesorComponent.icoPerfilTint = "#BBBBBB";
 
-
-        this.icoMaterias = "~/images/libro_b.png";
-        this.icoPerfil = "~/images/estudiante_g.png";
-
-
+        MainProfesorComponent.icoMaterias = "~/images/libro_b.png";
+        MainProfesorComponent.icoPerfil = "~/images/estudiante_g.png";
 
         this.routerExtensions.navigate(['/profesor/home'], { clearHistory: true });
     }
 
     irPerfil() {
-        this.icoMateriasTint = "#BBBBBB";
-        this.icoPerfilTint = "white";
+        MainProfesorComponent.icoMateriasTint = "#BBBBBB";
+        MainProfesorComponent.icoPerfilTint = "white";
 
-        this.icoMaterias = "~/images/libro_g.png";
-        this.icoPerfil = "~/images/estudiante_b.png";
+        MainProfesorComponent.icoMaterias = "~/images/libro_g.png";
+        MainProfesorComponent.icoPerfil = "~/images/estudiante_b.png";
 
         
         this.routerExtensions.navigate(['/profesor/perfil/2'], { clearHistory: true });

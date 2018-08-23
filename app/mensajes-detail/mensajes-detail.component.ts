@@ -137,6 +137,8 @@ export class MensajesDetailComponent implements OnInit {
 
         let demo = this.route.snapshot.params.curso;
 
+        console.dir(this.route.snapshot.params)
+
         console.log("------------>"+demo)
 
         console.log("ID del chat: "+this.idProfesor);
@@ -161,6 +163,11 @@ export class MensajesDetailComponent implements OnInit {
 
                 console.log(data)
                 this.color = data.value.color;
+
+                this.firebaseService.getAllRepresentantes;
+                let nombres = this.route.snapshot.params.nombres;
+                let apellidos = this.route.snapshot.params.apellidos;                
+                this.curso.nombre = nombres+ " "+apellidos.split(' ')[0];
                 //this.curso = new Curso(data.value.id, data.value.nombre, data.value.imagen, data.value.tareasID.length, data.value.color);
             })
         }

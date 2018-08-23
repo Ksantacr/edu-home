@@ -39,20 +39,43 @@ export class MainComponent implements OnInit {
     public uncoloredBackgroundColor :string;
     //@ViewChild("dockDisplay") dockDisplay: ElementRef;
 */
+
     public icoMaterias = "~/images/libro_g.png";
     public icoMensajes = "~/images/chat_g.png";
     public icoPerfil = "~/images/estudiante_b.png";
 
-    public icoPerfilTint = "white";
-    public icoMensajesTint ="#BBBBBB";
-    public icoMateriasTint = "#BBBBBB";
 
+    static icoMaterias = "~/images/libro_g.png";
+    static icoMensajes = "~/images/chat_g.png";
+    static icoPerfil = "~/images/estudiante_b.png";
+
+    static icoPerfilTint = "white";
+    static icoMensajesTint ="#BBBBBB";
+    static icoMateriasTint = "#BBBBBB";
 
     //public items: Array<BottomBarItem>;
 
+    get icoMaterias_() {
+        return MainComponent.icoMaterias;
+    }
+    get icoMensajes_() {
+        return MainComponent.icoMensajes;
+    }
+    get icoPerfil_() {
+        return MainComponent.icoPerfil;
+    }
+    get icoPerfilTint_() {
+        return MainComponent.icoPerfilTint;
+    }
+    get icoMensajesTint_() {
+        return MainComponent.icoMensajesTint;
+    }
+    get icoMateriasTint_() {
+        return MainComponent.icoMateriasTint;
+    }
+      
     constructor(private routerExtensions:RouterExtensions, private firebaseService:FirebaseService) {
 
-        console.log("constructor")        
         //this.icoMateriasTint = this.colorUnSelected;
         //this.icoMensajesTint = this.colorUnSelected;
         //this.icoPerfilTint = this.colorUnSelected;
@@ -88,39 +111,39 @@ export class MainComponent implements OnInit {
     irHome() {
         
         console.log("irHome")
-        this.icoMateriasTint = "white";
-        this.icoMensajesTint = "#BBBBBB";
-        this.icoPerfilTint = "#BBBBBB";
+        MainComponent.icoMateriasTint = "white";
+        MainComponent.icoMensajesTint = "#BBBBBB";
+        MainComponent.icoPerfilTint = "#BBBBBB";
 
-        this.icoMaterias = "~/images/libro_b.png";
-        this.icoMensajes = "~/images/chat_g.png";
-        this.icoPerfil = "~/images/estudiante_g.png";
+        MainComponent.icoMaterias = "~/images/libro_b.png";
+        MainComponent.icoMensajes = "~/images/chat_g.png";
+        MainComponent.icoPerfil = "~/images/estudiante_g.png";
 
         this.routerExtensions.navigate(["/main/home"], { clearHistory: true });
     }
 
     irMensajes() {
-        this.icoMateriasTint = "#BBBBBB";
-        this.icoMensajesTint = "white";
-        this.icoPerfilTint = "#BBBBBB";
+        MainComponent.icoMateriasTint = "#BBBBBB";
+        MainComponent.icoMensajesTint = "white";
+        MainComponent.icoPerfilTint = "#BBBBBB";
 
 
-        this.icoMaterias = "~/images/libro_g.png";
-        this.icoMensajes = "~/images/chat_b.png";
-        this.icoPerfil = "~/images/estudiante_g.png";
+        MainComponent.icoMaterias = "~/images/libro_g.png";
+        MainComponent.icoMensajes = "~/images/chat_b.png";
+        MainComponent.icoPerfil = "~/images/estudiante_g.png";
 
         this.routerExtensions.navigate(["/main/mensajes"], { clearHistory: true });
     }
 
     irPerfil() {
 
-        this.icoMateriasTint = "#BBBBBB";
-        this.icoMensajesTint = "#BBBBBB";
-        this.icoPerfilTint = "white";
+        MainComponent.icoMateriasTint = "#BBBBBB";
+        MainComponent.icoMensajesTint = "#BBBBBB";
+        MainComponent.icoPerfilTint = "white";
 
-        this.icoMaterias = "~/images/libro_g.png";
-        this.icoMensajes = "~/images/chat_g.png";
-        this.icoPerfil = "~/images/estudiante_b.png";
+        MainComponent.icoMaterias = "~/images/libro_g.png";
+        MainComponent.icoMensajes = "~/images/chat_g.png";
+        MainComponent.icoPerfil = "~/images/estudiante_b.png";
 
         this.routerExtensions.navigate(["/main/perfil/1"], { clearHistory: true });
     }

@@ -145,7 +145,7 @@ private _allYowls: Array<Yowl> = [];
     }
 
     getChatInfoRepresentantes(idCurso:any): Promise<any> {
-      return firebase.getValue('/listadoRepresentantes/'+idCurso)
+      return firebase.getValue('/listadoRepresentantes/'+idCurso);
     }
 
     getCursoProfesor(id:number): Promise<any> {

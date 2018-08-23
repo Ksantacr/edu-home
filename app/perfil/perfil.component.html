@@ -4,14 +4,31 @@
 
     <ScrollView>
     
-    <GridLayout rows="*, auto, auto, auto" class="p-20">
+    <GridLayout rows="*, auto, auto, auto, auto" class="p-20">
 
         <Image [src]="user.fotoPerfil" row="0" stretch="fill" class="perfil"></Image>
+
+        
+
+
         <TextView [text]="user.nombre" editable="false" row="1" class="perfil-txt"></TextView>
         <TextView [text]="user.apellidos" editable="false" row="2" class="perfil-txt"></TextView>
 
+        <StackLayout row="3" *ngIf="tipo=='1'">
 
-        <button class="btn-primary" text="{{ 'Cerrar sesión' | titlecase }}" row="3" (tap)="logout()"></button>
+                <TextView text="5to 'A' - Primaria" editable="false" class="perfil-txt"></TextView>
+
+                <TextView text="Jornada Matutina"  editable="false" class="perfil-txt"></TextView>
+            
+        </StackLayout>
+
+        <TextView text="Lcdo. en Ciencias de la Educación" row="3" editable="false" class="perfil-txt" *ngIf="tipo=='2'"></TextView>
+
+        
+
+        <!--<button class="btn-primary" text="Cerrar sesión" row="3" (tap)="logout()"></button>-->
+
+        <Button row="4" text="Cerrar sesión" (tap)="logout()" class="btn btn-primary raleway" style="font-size: 18;"></Button>
         
         
 
