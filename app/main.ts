@@ -4,10 +4,29 @@ import { platformNativeScriptDynamic } from "nativescript-angular/platform";
 import { AppModule } from "./app.module";
 import { BackendService } from "./services/backend.service";
 
-
+import * as app from 'application';
 import { setStatusBarColors } from "./utils/status-bar-util";
+import * as pushPlugin from "nativescript-push-notifications";
 
-setStatusBarColors();
+app.on(app.launchEvent, (args: app.ApplicationEventData) => {
+  if (args.android) {
+    console.log("Main.ts")
+    //const pushPlugin = require("nativescript-push-notifications");
+    
+    pushPlugin.register({ senderID: '536581481117' }, function (token){
+        //alert('Device registered successfully : ' + token);
+        console.log('Device registered successfully : ' + token);
+    }, function() {
+      console.log("HOLA");
+    });
+
+    pushPlugin.onMessageReceived(function callback(data) {  
+        console.log('Message received');
+    });
+    
+  }
+})
+
 /*import firebase = require("nativescript-plugin-firebase");
 
 firebase.init({
@@ -31,6 +50,7 @@ firebase.init({
     console.log("firebase.init error: " + error);
   }
   );*/
+setStatusBarColors();
 platformNativeScriptDynamic().bootstrapModule(AppModule);
 
 /*

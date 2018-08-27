@@ -83,11 +83,11 @@
   </StackLayout>-->
   <!--<FlexboxLayout width="100%" *ngIf="user" justifyContent="center" alignItems="center" class="" backgroundColor="red">---->
       <StackLayout orientation="horizontal" (tap)="irPerfil()">
-      <Image [src]="user.fotoPerfil" class="foto-perfil" stretch="fill"></Image>
+      <Image [src]="user_.fotoPerfil" class="foto-perfil" stretch="fill"></Image>
       <!--<NavigationButton [icon]="fotoPerfil" tap="showSideDrawer" class="foto-perfil" stretch="aspectFit"></NavigationButton>-->
       <!--<Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>-->
       <StackLayout class="m-l-15" width="80%">
-              <Label text="{{ user.nombre + ' ' + user.apellidos }}" class="nombre-representate"></Label>
+              <Label text="{{ user_.nombre + ' ' + user_.apellidos }}" class="nombre-representate"></Label>
               <Label text="Bienvenido" class="estado"></Label>
       </StackLayout>
       </StackLayout>
@@ -95,7 +95,7 @@
 </ActionBar>
 
 <GridLayout rows="auto">
-    <ScrollView row="0" height="auto">
+    <ScrollView row="0" height="100%">
 
         <FlexboxLayout flexWrap="wrap" alignItems="center" justifyContent="space-around" class="">
                     <CardView width="48%" elevation="10" radius="10" ripple="true" *ngFor="let curso of cursos" class="m-t-5 m-b-5">
@@ -115,30 +115,23 @@
                                     </FlexboxLayout>
                             </StackLayout>
                     </CardView>
+                    
                     <!--<Button (tap)="logout()" text="Salir"></Button>-->
         </FlexboxLayout>
-        
-        
-    </ScrollView>
-
-    <DockLayout width="100%" height="100%" row="0" (tap)="ocultarMensaje($event)" [visibility]="visibility" *ngIf="!oculto">
+    </ScrollView>  
+    
+    <DockLayout width="100%" height="100%" row="0" (tap)="ocultarMensaje($event)" [visibility]="visibility" *ngIf="!oculto" dock="top">
       
-        <StackLayout dock="top" class="text-white m-t-10" verticalAlignment="center" horizontalAlignment="center" *ngIf="!oculto">
+        <StackLayout dock="top" class="text-white m-t-5" verticalAlignment="center" horizontalAlignment="center" *ngIf="!oculto">
             <Label text="Hola, tengo tarea pendiente" textWrap="true" *ngIf="!oculto"></Label>
-            <!--<Label text="Tengo tarea pendiente, revisa" textWrap="true" *ngIf="!oculto"></Label>-->
             <Label text="revisa lo que necesito para mi" textWrap="true" *ngIf="!oculto"></Label>
             <Label text="siguiente clase!" textWrap="true" *ngIf="!oculto"></Label>
-        </StackLayout>
-        
+        </StackLayout>        
         
         <Image *ngIf="!oculto && genero=='m'" src="~/images/personaje_m.png" dock="right" class="img-personaje" fill="stretch" ></Image>
   
         <Image *ngIf="!oculto && genero=='f'" src="~/images/personaje_f.png" dock="right" class="img-personaje" fill="stretch" ></Image>
-  
-  
       </DockLayout>
-
-    
     
 </GridLayout>
 

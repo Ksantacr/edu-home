@@ -18,7 +18,7 @@ import esEC from '@angular/common/locales/es';
 
 import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
 import { UtilsService } from "./utils/util.service";
-
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 registerLocaleData(esEC)
 
 @NgModule({
@@ -39,6 +39,7 @@ registerLocaleData(esEC)
         NativeScriptHttpModule,
         NativeScriptFormsModule,
         TNSCheckBoxModule,
+        NativeScriptHttpClientModule
     ],
     declarations: [
         AppComponent,

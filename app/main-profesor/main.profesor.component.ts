@@ -50,6 +50,10 @@ export class MainProfesorComponent implements OnInit {
         console.log("Main profesor");
         //this.icoMateriasTint = "white";
         this.irHome();
+
+        //this.firebaseService.suscribirseTareas();
+        this.firebaseService.getMessage();
+        this.firebaseService.suscribirseMensajesProfesor();
         //this.routerExtensions.navigate(["/profesor/home"], { clearHistory: true });
     }
 

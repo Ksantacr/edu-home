@@ -177,8 +177,15 @@ export class EnviarTrabajoComponent {
                     })
                     this.cantidadTareasCurso[this.curso.id-1]+=1;
 
+                    this.firebaseService.notificarTarea(temp_tarea).subscribe((data)=> {
+                        console.log("Notificando TAREA");
+                        console.log(data)
+                    });
+
                     this.firebaseService.actualizarCantidadTareasCurso(this.curso.id-1, this.cantidadTareasCurso[this.curso.id-1]).then(data=>{
                         this.processing = false;
+
+
                         dialogs.alert({
                             title: "",
                             message: "La tarea ha sido enviada con éxito"
@@ -208,6 +215,11 @@ export class EnviarTrabajoComponent {
                 })
 
                 this.cantidadTareasCurso[this.curso.id-1]+=1;
+                
+                this.firebaseService.notificarTarea(temp_tarea).subscribe((data)=> {
+                    console.log("Notificando TAREA");
+                    console.log(data)
+                });
 
                     this.firebaseService.actualizarCantidadTareasCurso(this.curso.id-1, this.cantidadTareasCurso[this.curso.id-1]).then(()=>{
                         this.processing = false;

@@ -8,14 +8,14 @@ import firebase = require("nativescript-plugin-firebase");
 import {Observable} from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-
 import { share } from 'rxjs/operators';
 import { QueryOrderByType } from "nativescript-plugin-firebase";
 import * as dialogs from "ui/dialogs";
-
-
 import {  UtilsService } from "../utils/util.service";
 import { NewTarea } from "../shared/tarea.new.model";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
+import { Color } from "tns-core-modules/color";
 
 export class Yowl {
   constructor
@@ -43,11 +43,117 @@ private _allChats: Array<Yowl> = [];
 yowls: BehaviorSubject<Array<Yowl>> = new BehaviorSubject([]);
 private _allYowls: Array<Yowl> = [];
 
+private serverUrl = "https://fcm.googleapis.com/fcm/send";
+private feedback: Feedback;
+
   private user:UserEduHome;
 
   public cantidad:Observable<any>;
-  constructor(private ngZone: NgZone, private utils: UtilsService
-    ){}
+  constructor(private ngZone: NgZone, private utils: UtilsService, private http: HttpClient
+    ){
+      this.feedback = new Feedback();
+    }
+    
+    suscribirseTareas() {
+      firebase.subscribeToTopic("tareas");
+    }
+
+    suscribirseMensajesRepresentante () {
+      console.log("Suscribe Representante")
+      firebase.subscribeToTopic(BackendService.tokenKeyRepresentante);
+      //firebase.subscribeToTopic("mensajes/"+BackendService.tokenKeyRepresentante+"");
+    }
+    suscribirseMensajesProfesor () {
+      console.log("Suscribe Profesor")
+      firebase.subscribeToTopic(BackendService.tokenKeyProfesor);
+      //firebase.subscribeToTopic("mensajes/"+BackendService.tokenKeyRepresentante+"")
+    }
+
+    notificarMensaje(emisor:string, mensaje:String, id) {
+
+      //let idTest = BackendService.isProfesor()? BackendService.tokenKeyProfesor : BackendService.tokenKeyRepresentante;
+      //console.log("idTest: "+idTest)
+
+      let headers = this.createRequestHeader();
+      let data = {
+        "notification": {
+          "title": emisor,
+          "text" : mensaje,
+          "sound" : "default",
+        },
+        "data" : {
+          "titulo" : emisor,
+          "duration": 2000,
+          "descripcion": mensaje,
+          "icon": "chat_b",
+          "color": "#17375E"
+        },
+        "priority": "High",
+        "to" : "/topics/"+id
+      }
+      return this.http.post(this.serverUrl, data , { headers });
+    }
+
+    notificarTarea(tarea:NewTarea) {
+      let headers = this.createRequestHeader();
+      let data = {
+        "notification": {
+          "title": tarea.titulo,
+          "text" : tarea.descripcion,
+          "sound" : "default",
+        },
+        "data" : {
+          "color" : tarea.color,
+          "titulo": tarea.titulo,
+          "descripcion": tarea.descripcion,
+          "duration": 5000,
+          "icon": "libro_b"
+        },
+        "priority": "High",
+        "to" : "/topics/tareas"
+      }
+      return this.http.post(this.serverUrl, data , {headers});
+      //return this.http.delete(this.serverUrl, { headers: headers });
+      /*
+      curl -X POST --header "Authorization: key=AAAAfO6_op0:APA91bEYbCF_6qFpCPUyEwZlFKQxR0eKqGckldxmsUzfCclH_JmKpwNAguHo2HyqRAPix7ogOxn_KasYxkKyOLdslXkNNDlKkmBrnoDn_Gc6A_tkqJLpTgQLqDHx0x__YfdiTRVakwL_CWUd7gef9dAzJeS-Z-Cwzg" --Header "Content-Type: application/json" https://fcm.googleapis.com/fcm/send -d "{\"notification\":{\"title\": \"Tarea recibida\", \"text\": \"Haz recibido una tarea\", \"badge\": \"0\", \"sound\": \"default\"}, \"data\":{\"foo\":\"bar\"}, \"priority\": \"High\", \"to\": \"/topics/tareas\"}"
+      */
+    }
+    private createRequestHeader() {
+      // set headers here e.g.
+      let headers = new HttpHeaders({
+          "Content-Type": "application/json",
+          "Authorization": "key=AAAAfO6_op0:APA91bEYbCF_6qFpCPUyEwZlFKQxR0eKqGckldxmsUzfCclH_JmKpwNAguHo2HyqRAPix7ogOxn_KasYxkKyOLdslXkNNDlKkmBrnoDn_Gc6A_tkqJLpTgQLqDHx0x__YfdiTRVakwL_CWUd7gef9dAzJeS-Z-Cwzg"
+       });
+
+      return headers;
+  }
+
+    getMessage():Promise<any>{
+
+      return firebase.addOnMessageReceivedCallback((data)=>{
+        console.log(JSON.stringify(data));
+        
+        if(data.data.icon=="book"){
+        } 
+        this.feedback.show({
+          title: data.data.titulo,
+          titleColor: new Color("#FFFFFF"),
+          //position: FeedbackPosition.Bottom, // iOS only
+          type: FeedbackType.Custom, // this is the default type, by the way
+          message: data.data.descripcion,
+          messageColor: new Color("#FFFFFF"),
+          duration: +data.data.duration,
+          backgroundColor: new Color(data.data.color),
+          icon: "customicon",
+          //icon: data.data.icon, // in App_Resources/platform folders
+          android: {
+            iconColor: new Color("#FFFFFF") // optional, leave out if you don't need it
+          },
+          onTap: () => { console.log("showCustomIcon tapped") }
+        });
+      });
+      
+    }
 
     getChats(idProfesor:string): Observable<any> {
       return new Observable((observer: any) => {
@@ -329,12 +435,14 @@ agregarTarea(idCurso:any, tarea:NewTarea) {
             return JSON.stringify(result);*/
 
             let data = (e) => {
-
+              
               //console.dir(e)
               //BackendService.tokenKeyProfesor = "VAKxe9S9wXSJ3mBVchZs24yw97p2";
               //if()
               if(e.value!=null) {
+                //console.log(JSON.stringify(result))
                 BackendService.tokenKeyRepresentante = result.uid;
+                console.log(BackendService.tokenKeyRepresentante)
                 return JSON.stringify(result)
               }else {
                 dialogs.alert({
@@ -400,6 +508,7 @@ agregarTarea(idCurso:any, tarea:NewTarea) {
               //if()
               if(e.value!=null) {
                 BackendService.tokenKeyProfesor = result.uid;
+                console.log(BackendService.tokenKeyProfesor)
                 return JSON.stringify(result)
               }
       
@@ -440,8 +549,19 @@ agregarTarea(idCurso:any, tarea:NewTarea) {
 
   logout(){
     console.log("Cerrar sesion");
+    if(BackendService.isProfesor()){
+      firebase.unsubscribeFromTopic(BackendService.tokenKeyProfesor);
+    }else {
+      firebase.unsubscribeFromTopic(BackendService.tokenKeyRepresentante);
+    }
     BackendService.tokenKeyProfesor = "";
     BackendService.tokenKeyRepresentante = "";
+    firebase.unsubscribeFromTopic("tareas");
+    //firebase.unsubscribeFromTopic("data");
+    
+    
+    //firebase.unsubscribeFromTopic("mensajes/"+BackendService.tokenKeyRepresentante);
+    //firebase.unsubscribeFromTopic("mensajes/"+BackendService.tokenKeyProfesor);
     firebase.logout();    
   }
 

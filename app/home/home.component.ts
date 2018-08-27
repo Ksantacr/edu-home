@@ -33,7 +33,7 @@ registerElement('CardView', () => CardView);*/
 export class HomeComponent implements OnInit {
     //items: Array<IDataItem>;
     cursos: Array<Curso>;
-    public user:UserEduHome;
+    public static user:UserEduHome;
     public curso: Curso;
     //public curso$: Observable<any>;
     //public gifts$: Observable<any>;
@@ -49,6 +49,8 @@ export class HomeComponent implements OnInit {
     public genero:string;
     public oculto:boolean = false;
 
+    public user_:UserEduHome;
+
     //constructor(private itemService: DataService, private router: RouterExtensions) { }
 
     //public items$: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
@@ -56,18 +58,18 @@ export class HomeComponent implements OnInit {
 
 
     constructor(private router: RouterExtensions, private firebaseService:FirebaseService, private location : PlatformLocation) {
-        this.user = new UserEduHome("", "", "");
+        HomeComponent.user = new UserEduHome("", "", "");
+        this.user_ = new UserEduHome("", "", "");
         //this.visibility = "visible";
-        
         this.genero = getString("genero");
 
         if(this.genero) {
             this.oculto = true;
         }
 
-        console.log("Constructor:"+this.genero);
+        //console.log("Constructor:"+this.genero);
         //this.oculto = BackendService.esPrimeraVez()? true : false;
-        this.visibility = BackendService.esPrimeraVez()? "hidden" : "visible";
+        this.visibility = BackendService.esPrimeraVez()? "collapse" : "visible";
         //console.log(getString("genero"))
         //if(getString("genero"))
         //setString("genero", "");
@@ -78,7 +80,7 @@ export class HomeComponent implements OnInit {
     }*/
 
     ocultarMensaje($event) {
-        this.visibility = "hidden";
+        this.visibility = "collapse";
         //BackendService.personaje = "y";
         console.log(BackendService.esPrimeraVez())
         //this.oculto = !BackendService.esPrimeraVez();
@@ -107,7 +109,9 @@ export class HomeComponent implements OnInit {
         });
         <any>this.firebaseService.datosRepresentante().then(
             data => {
-                this.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
+                HomeComponent.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
+                
+                this.user_ = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
                 
                 this.genero = data.value.genero;
                 setString("genero", this.genero);

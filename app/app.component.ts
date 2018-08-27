@@ -11,6 +11,11 @@ import { BackendService } from "./services/backend.service";
 
 import firebase = require("nativescript-plugin-firebase");
 import { FormsModule } from "@angular/forms";
+import { Message } from "nativescript-plugin-firebase";
+import * as dialogs from "ui/dialogs";
+
+
+import { getString, setString } from "tns-core-modules/application-settings";
 
 //import { BackendService } from "./shared/backend.service";
 @Component({
@@ -24,13 +29,47 @@ export class AppComponent implements OnInit {
     constructor() {
         // Use the component constructor to inject providers.
         //BackendService.setup();
+        console.log("App component");
     }
 
     ngOnInit(): void {
         firebase.init({
+         /* onMessageReceivedCallback: function(message) {
+
+            console.dir(message);
+            dialogs.alert({
+                title: message.title,
+                message: message.body,
+                okButtonText: "ok"
+            });
+        },*/
+          /*onMessageReceivedCallback: (message: Message) => {
+            console.log(`Title: ${message.title}`);
+            console.log(`Body: ${message.body}`);
+            // if your server passed a custom property called 'foo', then do this:
+            console.log(`Value of 'foo': ${message.data.foo}`);
+          },*/
+
             //persist should be set to false as otherwise numbers aren't returned during livesync
             persist: true,
             storageBucket: 'gs://eduhome-abb88.appspot.com',
+            onPushTokenReceivedCallback: function(token) {
+              // temporarily save it to application settings until such time that 
+              // the user logs in for the first time
+              console.log("token: "+ token)
+              //setString('device_token', token);
+            },
+            onMessageReceivedCallback: (message: Message) => {
+              console.log(`Title: ${message.title}`);
+              console.log(`Body: ${message.body}`);
+              // if your server passed a custom property called 'foo', then do this:
+              console.log(`Value of 'foo': ${message.data.foo}`);
+              /*dialogs.alert({
+                title: "Push message: " + (message.title !== undefined ? message.title : ""),
+                message: JSON.stringify(message.body),
+                okButtonText: "W00t!"
+              });*/
+            },
             onAuthStateChanged: (data: any) => {
               //console.log(JSON.stringify(data))
               if (data.loggedIn) {

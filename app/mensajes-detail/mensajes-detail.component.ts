@@ -17,6 +17,7 @@ import {Page} from "ui/page";
 import * as application from "application";
 import { AndroidApplication, AndroidActivityBackPressedEventData } from "application";
 import { isAndroid } from "platform";
+import { HomeComponent } from "~/home/home.component";
 
 
 declare var android:any;
@@ -37,6 +38,9 @@ export class MensajesDetailComponent implements OnInit {
     public idProfesor:string;
 
     public me: String;
+
+    public nombres_;
+    public apellidos_;
     
     @ViewChild("list") lv: ElementRef;
     @ViewChild("textfield") tf: ElementRef;
@@ -44,6 +48,7 @@ export class MensajesDetailComponent implements OnInit {
     list: ListView;
     textfield: TextField;
     public chats$: Observable<any>;
+    public id;
 
 
     constructor(private route: ActivatedRoute,private router: RouterExtensions, private firebaseService:FirebaseService, private page:Page) {
@@ -60,8 +65,6 @@ export class MensajesDetailComponent implements OnInit {
     public ngAfterViewInit() {
         this.list = this.lv.nativeElement;
         this.textfield = this.tf.nativeElement;
-
-        
     }
 
     chat(message: string) {
@@ -70,11 +73,13 @@ export class MensajesDetailComponent implements OnInit {
                 let count = this.list.items.length;
                 //this.list.refresh();
                 //this.scroll();
+                this.firebaseService.notificarMensaje(this.nombres_+" "+this.apellidos_, message, this.id).subscribe(data=> {
+                    console.log("Notificando Mensaje"+ message);
+                });
                 this.textfield.text = '';
             });
         }
         //this.scroll(0);
-        
     }
 
 
@@ -133,9 +138,14 @@ export class MensajesDetailComponent implements OnInit {
         this.me = BackendService.tokenKeyRepresentante;
 
         this.idProfesor = this.route.snapshot.params.id;
-
+        
 
         let demo = this.route.snapshot.params.curso;
+
+
+        let idTest = this.route.snapshot.params.idUser;
+        this.id = idTest;
+        console.log("ID TEST DEL USUARIO DEL CHAT:" + idTest);
 
         console.dir(this.route.snapshot.params)
 
@@ -151,6 +161,8 @@ export class MensajesDetailComponent implements OnInit {
 
         if(BackendService.isRepresentante()){
             console.log("SOY REPRESENTANTE")
+            this.nombres_ = HomeComponent.user.nombre;
+            this.apellidos_ = HomeComponent.user.apellidos;
 
             this.firebaseService.getCurso(demo).then(data=>{
                 this.color = data.value.color;
@@ -158,15 +170,22 @@ export class MensajesDetailComponent implements OnInit {
             })
         }else {
 
+            let nombres = this.route.snapshot.params.nombres;
+            let apellidos = this.route.snapshot.params.apellidos;
+            this.nombres_ = nombres;
+            this.apellidos_ = apellidos;
+
+
+            console.log("Datos profesor")
+            console.log(this.nombres_)
+            console.log(this.apellidos_)
+
             console.log("SOY PROFESOR")
             this.firebaseService.getCursoProfesor(demo).then(data=>{
 
                 console.log(data)
                 this.color = data.value.color;
-
                 this.firebaseService.getAllRepresentantes;
-                let nombres = this.route.snapshot.params.nombres;
-                let apellidos = this.route.snapshot.params.apellidos;                
                 this.curso.nombre = nombres+ " "+apellidos.split(' ')[0];
                 //this.curso = new Curso(data.value.id, data.value.nombre, data.value.imagen, data.value.tareasID.length, data.value.color);
             })

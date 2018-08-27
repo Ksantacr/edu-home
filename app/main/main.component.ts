@@ -13,12 +13,16 @@ import {Observable} from 'rxjs';
 
 import { FirebaseService } from "../services/firebase.service";
 
-import { Color } from "color";
+
 import * as application from "application";
 import * as platform from "platform";
 import { UserEduHome } from "../shared/user-eduhome";
 
+import * as pushPlugin from "nativescript-push-notifications";
 //registerElement('BottomBar', () => BottomBar);
+import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
+import { Color } from "tns-core-modules/color";
+
 
 @Component({
     selector: "app-main",
@@ -52,7 +56,8 @@ export class MainComponent implements OnInit {
     static icoPerfilTint = "white";
     static icoMensajesTint ="#BBBBBB";
     static icoMateriasTint = "#BBBBBB";
-
+    
+    private feedback: Feedback;
     //public items: Array<BottomBarItem>;
 
     get icoMaterias_() {
@@ -75,7 +80,7 @@ export class MainComponent implements OnInit {
     }
       
     constructor(private routerExtensions:RouterExtensions, private firebaseService:FirebaseService) {
-
+        this.feedback = new Feedback();
         //this.icoMateriasTint = this.colorUnSelected;
         //this.icoMensajesTint = this.colorUnSelected;
         //this.icoPerfilTint = this.colorUnSelected;
@@ -92,12 +97,10 @@ export class MainComponent implements OnInit {
         ]*/
 
         //this.icoMateriasTint = this.colorSelected;
-
         //this.pintarHome();
     }
 /*
     pintarHome () {
-
         console.log("pintarHome")
         this.icoMateriasTint = "white";
         this.icoMensajesTint = "#BBBBBB";
@@ -106,7 +109,6 @@ export class MainComponent implements OnInit {
         this.icoMaterias = "~/images/libro_b.png";
         this.icoMensajes = "~/images/chat_g.png";
         this.icoPerfil = "~/images/estudiante_b.png";
-
     }*/
     irHome() {
         
@@ -114,7 +116,6 @@ export class MainComponent implements OnInit {
         MainComponent.icoMateriasTint = "white";
         MainComponent.icoMensajesTint = "#BBBBBB";
         MainComponent.icoPerfilTint = "#BBBBBB";
-
         MainComponent.icoMaterias = "~/images/libro_b.png";
         MainComponent.icoMensajes = "~/images/chat_g.png";
         MainComponent.icoPerfil = "~/images/estudiante_g.png";
@@ -126,8 +127,6 @@ export class MainComponent implements OnInit {
         MainComponent.icoMateriasTint = "#BBBBBB";
         MainComponent.icoMensajesTint = "white";
         MainComponent.icoPerfilTint = "#BBBBBB";
-
-
         MainComponent.icoMaterias = "~/images/libro_g.png";
         MainComponent.icoMensajes = "~/images/chat_b.png";
         MainComponent.icoPerfil = "~/images/estudiante_g.png";
@@ -136,7 +135,7 @@ export class MainComponent implements OnInit {
     }
 
     irPerfil() {
-
+          
         MainComponent.icoMateriasTint = "#BBBBBB";
         MainComponent.icoMensajesTint = "#BBBBBB";
         MainComponent.icoPerfilTint = "white";
@@ -152,6 +151,7 @@ export class MainComponent implements OnInit {
         /*this.icoMateriasTint = "white";
         this.icoMensajesTint = "#BBBBBB";
         this.icoPerfilTint = "#BBBBBB";
+        
 
         console.log("ngAfterViewInit")
         console.log(this.icoMateriasTint)*/
@@ -159,34 +159,21 @@ export class MainComponent implements OnInit {
         //this.irHome();
         //this.routerExtensions.navigate(["/main/home"], { clearHistory: true });
     }
-
     ngOnInit(): void {
-
-        console.log("ngOnInit")
+        console.log("ngOnInit");
         this.irHome();
-        
-        //this.page.actionBarHidden = true;
-        
-        /*this.items[0].notification.backgroundColor = "red";
-        this.items[0].notification.value = "2";
-        this.items[0].notification.textColor = "white";*/
-//        this.firebaseService.getCursos
-        //this.routerExtensions.navigate(["/main/home"], { clearHistory: true });
-        
-    }
-    
+        this.firebaseService.suscribirseTareas();
+        this.firebaseService.suscribirseMensajesRepresentante();
+        this.firebaseService.getMessage();
+    }    
     /*
-
     tabLoaded(event) {
-        this._bar = <BottomBar>event.object;
-        
+        this._bar = <BottomBar>event.object;        
         this.hidden = false;
         this.titleState = TITLE_STATE.ALWAYS_SHOW;
         this.inactiveColor = "#BBBBBB";
         this.accentColor = "white";
-
-    }
-    
+    }    
      tabSelected(args: SelectedIndexChangedEventData) {
          
          // only triggered when a different tab is tapped

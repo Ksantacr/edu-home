@@ -55,15 +55,15 @@ export class MensajesComponent {
 
             //console.log(data.value)
             data.value.forEach((chat)=>{
-                console.dir(chat)
+                //console.dir(chat)
                 //let tmp = new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.foto);
 
                 //console.dir(tmp)
                 this.listaNombres.push(new ChatId(chat.id, chat.idChat, chat.nombres, chat.apellidos, chat.color, chat.materia, chat.fotoPerfil, chat.idCurso))
             })
 
-            console.log("chat: "+ this.listaNombres.length)
-
+            console.log("chat")
+            console.dir(this.listaNombres);
         })
 
         /*if(isAndroid){
