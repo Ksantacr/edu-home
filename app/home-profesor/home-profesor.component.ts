@@ -16,6 +16,8 @@ import { MainProfesorComponent } from "../main-profesor/main.profesor.component"
 export class HomeProfesorComponent {
 
     public user:UserEduHome;
+    static nombres:string;
+    static apellidos:string;
     cursos: Array<Curso>;
 
     irPerfil () {
@@ -25,7 +27,6 @@ export class HomeProfesorComponent {
 
         MainProfesorComponent.icoMaterias = "~/images/libro_g.png";
         MainProfesorComponent.icoPerfil = "~/images/estudiante_b.png";
-
         
         this.router.navigate(['/profesor/perfil/2'], { clearHistory: true });
     }
@@ -42,6 +43,8 @@ export class HomeProfesorComponent {
                 //console.dir(data);
 
                 this.user = new UserEduHome(data.value.nombres, data.value.apellidos, data.value.fotoPerfil)
+                HomeProfesorComponent.nombres = data.value.nombres;
+                HomeProfesorComponent.apellidos = data.value.apellidos;
             }
         );
 

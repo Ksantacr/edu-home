@@ -73,7 +73,6 @@ export class BoletinComponent implements OnInit {
                 this.listaNombres.push(new ChatId(element.id, element.idChat, element.nombres, element.apellidos, element.color, element.materia, element.foto, element.idCurso))
             });
             //this.lista.push()
-
         })
         
     }

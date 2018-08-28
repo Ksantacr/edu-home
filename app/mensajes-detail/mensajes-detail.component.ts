@@ -17,7 +17,8 @@ import {Page} from "ui/page";
 import * as application from "application";
 import { AndroidApplication, AndroidActivityBackPressedEventData } from "application";
 import { isAndroid } from "platform";
-import { HomeComponent } from "~/home/home.component";
+import { HomeComponent } from "../home/home.component";
+import { HomeProfesorComponent } from "../home-profesor/home-profesor.component";
 
 
 declare var android:any;
@@ -172,8 +173,8 @@ export class MensajesDetailComponent implements OnInit {
 
             let nombres = this.route.snapshot.params.nombres;
             let apellidos = this.route.snapshot.params.apellidos;
-            this.nombres_ = nombres;
-            this.apellidos_ = apellidos;
+            this.nombres_ = HomeProfesorComponent.nombres;
+            this.apellidos_ = HomeProfesorComponent.apellidos;
 
 
             console.log("Datos profesor")
