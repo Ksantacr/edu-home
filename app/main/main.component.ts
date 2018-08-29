@@ -10,7 +10,6 @@ import { Page } from "tns-core-modules/ui/page";
 //import { Page } from "ui/page";
 
 import {Observable} from 'rxjs';
-
 import { FirebaseService } from "../services/firebase.service";
 
 

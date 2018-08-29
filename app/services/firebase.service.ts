@@ -4,7 +4,8 @@ import {Curso} from "../shared/curso.model";
 import { BackendService } from "./backend.service";
 import { UserEduHome } from "../shared/user-eduhome";
 
-import firebase = require("nativescript-plugin-firebase");
+//import firebase = require("nativescript-plugin-firebase");
+const firebase = require("nativescript-plugin-firebase");
 import {Observable} from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 

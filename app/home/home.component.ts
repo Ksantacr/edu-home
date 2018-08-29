@@ -19,7 +19,6 @@ import { PlatformLocation } from '@angular/common';
 import { getString, setString } from "tns-core-modules/application-settings";
 import { MainComponent } from "../main/main.component";
 
-
 /*import { registerElement } from 'nativescript-angular/element-registry';
 import { CardView } from 'nativescript-cardview';
 registerElement('CardView', () => CardView);*/
@@ -55,7 +54,6 @@ export class HomeComponent implements OnInit {
 
     //public items$: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
     //private _items: Array<any>;
-
 
     constructor(private router: RouterExtensions, private firebaseService:FirebaseService, private location : PlatformLocation) {
         HomeComponent.user = new UserEduHome("", "", "");
@@ -101,6 +99,21 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
+        /*Appsee.startScreen('SelfDestructScreen');
+        Appsee.addScreenAction('UserHitSelfDestructButton');
+        Appsee.addEvent('SelfDestructInitiated');
+        Appsee.addEvent(
+            'SelfDestructInitiatedWithProperties', {
+                'time_until_destruction' : 19.1,
+                'tons_of_tnt' : 3,
+                'message' : "RIP",
+                'snapshot' : {
+                "current_device_state" : "¯\_(ツ)_/¯"
+                }
+            }
+        );*/
+
 
         this.location.onPopState(() => {
             this.getData();

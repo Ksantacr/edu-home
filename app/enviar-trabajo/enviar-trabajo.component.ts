@@ -58,6 +58,8 @@ export class EnviarTrabajoComponent {
     ngOnInit() {
 
         const id = +this.route.snapshot.params.id;
+        this.fecha = new Date();
+        this.titulo = "";
 
         this.firebaseService.getCursoProfesor(id).then(data=>{
 
@@ -163,6 +165,9 @@ export class EnviarTrabajoComponent {
                     this.uploadedImageName = uploadedFile.name;
                     //get downloadURL and store it as a full path;
                     this.firebaseService.getDownloadUrl(this.uploadedImageName).then((downloadUrl: string) => {
+
+                        if(this.titulo=="") this.titulo="Nueva tarea";
+
                         let temp_tarea = new NewTarea(this.cantidadTareasCurso[this.curso.id-1], this.titulo, this.descripcion, downloadUrl, "", this.curso.color,this.fecha.getTime(), false);
                         console.log("TRUE")
                         console.log(temp_tarea)
@@ -203,6 +208,8 @@ export class EnviarTrabajoComponent {
                 });
             }else {
                 this.processing = true;
+                if(this.titulo=="") this.titulo="Nueva tarea";
+                
                 let temp_tarea = new NewTarea(this.cantidadTareasCurso[this.curso.id-1], this.titulo, this.descripcion,"", "", this.curso.color, this.fecha.getTime(), false);
                 console.log("TRUE")
                 console.log(temp_tarea)

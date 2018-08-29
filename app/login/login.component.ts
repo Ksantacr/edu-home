@@ -40,8 +40,8 @@ export class LoginComponent {
         //this.user.email = "demo@eduhome.com";
         //this.user.password = "eduhom3";
 
-        //this.user.email = "dcarrera@espol.edu.ec"
-        //this.user.password = "dcarrera"
+        //this.user.email = "carlos@eduhome.club"
+        //this.user.password = "carlos12"
 
         this.page.actionBarHidden = true;
 

@@ -9,13 +9,17 @@ registerElement('CardView', () => CardView);
 
 import { BackendService } from "./services/backend.service";
 
-import firebase = require("nativescript-plugin-firebase");
+//import firebase = require("nativescript-plugin-firebase");
+const firebase = require("nativescript-plugin-firebase");
+
+
+
 import { FormsModule } from "@angular/forms";
 import { Message } from "nativescript-plugin-firebase";
 import * as dialogs from "ui/dialogs";
 
-
 import { getString, setString } from "tns-core-modules/application-settings";
+
 
 //import { BackendService } from "./shared/backend.service";
 @Component({
